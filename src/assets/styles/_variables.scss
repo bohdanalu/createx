@@ -1,0 +1,25 @@
+$white: #FFFFFF;
+$primary: #FF3F3A;
+$danger: #ff4242;
+$gray-900: #1E212C;
+$gray-800: #424551;
+$gray-700: #787A80;
+$gray-600: #9A9CA5;
+$gray-300: #E5E8ED;
+$gray-200: #F4F5F7;
+$green: #03CEA4;
+$orange: #F89828;
+$blue: #5A87FC;
+$pink: #F52F6E;
+
+
+%bg-position {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+%hover {
+    color: $primary;
+    transition: color 0.2 ease-in;
+}

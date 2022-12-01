@@ -1,0 +1,138 @@
+@import './reset';
+@import 'variables.scss';
+@import './mixins';
+
+
+
+body,
+html {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $gray-800;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+.container {
+  max-width: 1260px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.burger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-image: url('../images/icons/burger-menu.svg');
+  @extend %bg-position;
+  background-color: transparent;
+  border: transparent;
+  z-index: 5;
+
+  &.active {
+    background-image: url('../images/icons/cross.svg');
+  }
+
+  @include mediaMin(992px) {
+    display: none;
+  }
+}
+
+.btn {
+  &--small {
+    @include btn(20px);
+  }
+
+  &--medium {
+    @include btn(32px);
+  }
+
+  &--large {
+    @include btn(40px);
+    font-size: 16px;
+  }
+
+  &--gradient {
+    background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
+    color: $white;
+
+    &:hover {
+      opacity: 0.8;
+      transition: all 0.5s ease-out;
+    }
+  }
+
+  &--light {
+    background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    &:hover {
+      background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
+      -webkit-background-clip: padding-box;
+      -webkit-text-fill-color: white;
+      background-clip: border-box;
+      transition: all 0.5s ease-out;
+    }
+
+  }
+}
+
+.padding {
+  padding-top: 50px;
+
+  @include mediaMin(992px) {
+    padding-top: 180px;
+  }
+
+}
+
+.title,
+.subtitle {
+  font-weight: 700;
+  color: $gray-900;
+}
+
+.title {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 32px;
+
+  @include mediaMin(992px) {
+    font-size: 46px;
+  }
+}
