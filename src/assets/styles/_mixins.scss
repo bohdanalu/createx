@@ -7,11 +7,11 @@
     overflow: hidden;
 }
 
-@mixin btn ($padding) {
+@mixin btn ($padding, $height, $fz) {
     display: inline-block;
     padding: 0 $padding;
-    line-height: 44px;
-    font-size: 14px;
+    line-height: $height;
+    font-size: $fz;
     font-weight: 700;
     letter-spacing: 0.5px;
     white-space: nowrap;
@@ -46,22 +46,6 @@
     }
 }
 
-@function percent($px, $from) {
-    $result: math.div($px, $from) * 100%;
-    @return $result;
-}
-
-//REM
-@function rem($px) {
-    $result: math.div($px, 16)+rem;
-    @return $result;
-}
-
-//EM
-@function em($px, $current: 16) {
-    $result: math.div($px, $current)+em;
-    @return $result;
-}
 
 
 // $screen-sx: 320.00px;

@@ -19,12 +19,8 @@
                   Enjoy studying with Createx Online Courses
                 </h1>
                 <div class="about__btn-wrap">
-                  <a class="about__btn btn btn--light btn--large" href=" #"
-                    >Explore courses</a
-                  >
-                  <a class="about__btn btn btn--light btn--large" href=" #"
-                    >About us</a
-                  >
+                  <a class="about__btn btn--light" href=" #">Explore courses</a>
+                  <a class="about__btn btn--light" href=" #">About us</a>
                 </div>
               </div>
               <img
@@ -50,6 +46,7 @@
           </div>
         </div>
       </section>
+
       <section class="why padding">
         <div class="container">
           <div class="why__wrap">
@@ -81,9 +78,7 @@
                   tortor.
                 </li>
               </ul>
-              <a class="why__btn btn btn--gradient btn--medium" href="">
-                More about us
-              </a>
+              <a class="why__btn btn--gradient" href=""> More about us </a>
             </div>
           </div>
         </div>
@@ -94,124 +89,133 @@
           <div class="courses__head">
             <h2 class="courses__title title">Ready to learn?</h2>
             <h3 class="courses__subtitle subtitle">Featured Courses</h3>
-            <a class="courses__btn btn--light btn--large" href="">
-              View all courses
-            </a>
+            <a class="courses__btn btn--light" href=""> View all courses </a>
           </div>
-          <ul class="courses__catalog">
-            <!-- <li -->
-            <!-- class="courses__catalog-card" -->
-            <!-- <a class="courses__link" href=""> -->
-
-            <Card v-for="card in cards" :key="card.id" :catalog_data="card" />
-
-            <!-- </a> -->
-            <!-- </li> -->
-            <!-- <li class="courses__catalog-card"> -->
-            <!-- <a class="card__link" href="">
-                <article class="courses__card card">
-                  <img class="card__img" src="images/card/mcKinny.png" alt="" />
-                  <div class="card__content">
-                    <span class="card__badge card__badge--management">
-                      Management
-                    </span>
-                    <h4 class="card__title">Prduct Management Fundamentals</h4>
-                    <div class="card__info">
-                      <span class="card__price">
-                        <span class="card__currency">$</span>480</span
-                      >
-                      <span class="card__speacer"> | by Marvin McKinney </span>
-                    </div>
-                  </div>
-                </article>
-              </a> -->
-            <!-- </li> -->
-            <!-- <li class="courses__catalog-card">
-              <a class="card__link" href="">
-                <article class="courses__card card">
-                  <img class="card__img" src="images/card/li.png" alt="" />
-                  <div class="card__content">
-                    <span class="card__badge card__badge--hr">
-                      HR & recruting</span
-                    >
-                    <h4 class="card__title">HR Management and Analytics</h4>
-                    <div class="card__info">
-                      <span class="card__price">
-                        <span class="card__currency">$</span>200</span
-                      >
-                      <span class="card__speacer">
-                        | by Leslie Alexander Li
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              </a>
-            </li>
-            <li class="courses__catalog-card">
-              <a class="card__link" href="">
-                <article class="courses__card card">
-                  <img class="card__img" src="images/card/hawkins.png" alt="" />
-                  <div class="card__content">
-                    <span class="card__badge card__badge--design">Design</span>
-                    <h4 class="card__title">Graphic Design Basic</h4>
-                    <div class="card__info">
-                      <span class="card__price"
-                        ><span class="card__currency">$</span>500</span
-                      >
-                      <span class="card__speacer">| by Guy Hawkins</span>
-                    </div>
-                  </div>
-                </article>
-              </a>
-            </li>  -->
-          </ul>
+          <div class="courses__catalog">
+            <Card
+              class="card--horisontal"
+              v-for="card in cards"
+              :key="card.id"
+              :catalog_data="card"
+            />
+          </div>
         </div>
       </section>
-      <section class="events" id="events">
+
+      <section class="benefits padding">
         <div class="container">
-          <h2 class="events__title title">Our events</h2>
-          <h3 class="events__subtitle subtitle">Lectures & workshops</h3>
-          <ul class="events__list">
-            <li class="events__item">
-              <article class="event-card">
-                <time class="event-card__date" datetime="05-08 14:00">
-                  <span class="event-card__num">05</span>
-                  <span class="event-card__month">August</span>
-                  <span class="event-card__time">11:00-14:00</span>
-                </time>
-                <div class="event-card__content">
-                  <p>
-                    Formation of the organizational structure of the company in
-                    the face of uncertainty.
-                  </p>
-                  <span> Onine master-class </span>
-                </div>
-                <a class="event-card__btn btn btn--light btn--medium" href=""
-                  >View more</a
-                >
-              </article>
+          <h2 class="benefits__title title">Our benefits</h2>
+          <h3 class="benefits__subtitle subtitle mb">That’s how we do it</h3>
+          <ul class="benefits__list">
+            <li class="benefits__item">
+              <a class="benefits__link benefits__link--tutors active" href="">
+                Experienced Tutors
+              </a>
+            </li>
+            <li class="benefits__item">
+              <a class="benefits__link benefits__link--support" href="">
+                Feedback & Support
+              </a>
+            </li>
+            <li class="benefits__item">
+              <a class="benefits__link benefits__link--library" href="">
+                24/7 Online Library
+              </a>
+            </li>
+            <li class="benefits__item">
+              <a class="benefits__link benefits__link--community" href="">
+                Community
+              </a>
             </li>
           </ul>
+          <div class="benefits__content-wrap">
+            <div class="benefits__content">
+              <h4 class="benefits__content-title">Only practicing tutors</h4>
+              <div class="benefits__text">
+                <p>
+                  Urna nisi, arcu cras nunc. Aenean quam est lobortis mi non
+                  fames dictum suspendisse. Morbi mauris cras massa ut dolor
+                  quis sociis mollis augue. Nunc, sodales tortor sit diam mi
+                  amet massa. Fermentum diam diam sociis vestibulum. Nulla nisl
+                  accumsan, id dignissim massa ut amet. Amet enim, nisi tempus
+                  vehicula.
+                </p>
+              </div>
+            </div>
+            <img
+              class="benefits__img"
+              src="./assets/images/home_page/illustration_benefits.svg"
+              alt="Illustration about two people and computer"
+            />
+          </div>
         </div>
       </section>
+
+      <section class="events-mini" id="events">
+        <div class="container">
+          <h2 class="events-mini__title title">Our events</h2>
+          <h3 class="events-mini__subtitle subtitle mb">
+            Lectures & workshops
+          </h3>
+          <div class="events-mini__list">
+            <EventCard
+              v-for="card in eventCards"
+              :key="card.id"
+              :event_data="card"
+            />
+          </div>
+          <Explore />
+        </div>
+      </section>
+      <Certificate />
+      <section class="team">
+        <div class="container">
+          <h2 class="team__title title">Best tutors are all here</h2>
+          <h3 class="team__subtitle subtitle">Meet our team</h3>
+          <CarouselTeamVue />
+        </div>
+      </section>
+      <Testimonials />
+      <Blog />
+      <Subscribe />
     </main>
+
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import Card from "./components/Card.vue";
+import Footer from "./components/Footer.vue";
+import CarouselTeamVue from "./components/CarouselTeam.vue";
+import Blog from "./components/Blog.vue";
+import Subscribe from "./components/Subscribe.vue";
+import EventCard from "./components/EventCard.vue";
+import Explore from "./components/Explore.vue";
+import Certificate from "./components/Certificate.vue";
+import Testimonials from "./components/Testimonials.vue";
+
 export default {
   components: {
     Header,
     Card,
+    Footer,
+    Blog,
+    Subscribe,
+    CarouselTeamVue,
+    EventCard,
+    Explore,
+    Certificate,
+    TeamCard,
+    Testimonials,
   },
   data() {
     return {
       cards: [
         {
           id: 1,
-          img: "url(images/card/bell.png)",
+          img: "/src/assets/images/card/bell.png",
           badge: "Marketing",
           title: "The Ultimate Google Ads Training Course",
           price: 100,
@@ -219,11 +223,25 @@ export default {
         },
         {
           id: 2,
-          img: "url(images/card/bell.png)",
-          badge: "Marketing",
-          title: "The Ultimate Google Ads Training Course",
-          price: 100,
-          speacer: "Jerome Bell",
+          img: "/src/assets/images/card/mcKinny.png",
+          badge: "Managment",
+          title: "Prduct Management Fundamentals",
+          price: 480,
+          speacer: "Marvin McKinney",
+        },
+      ],
+      eventCards: [
+        {
+          id: "evc1",
+          data: {
+            date: "05",
+            mounth: "August",
+            hour: "11.00 - 14.00",
+          },
+          title:
+            "Formation of the organizational structure of the company in the face of uncertainty.",
+          event: "Onine master-class",
+          btn: "View more",
         },
       ],
     };
@@ -236,17 +254,20 @@ export default {
 .about {
   position: relative;
   height: 100vh;
-  // height: 100%;
   padding: 55px 0;
   width: 100%;
-  // background:
-  // linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%),
-  //  url('../../images/icons/circles-3.svg') center;
-  // background-image: url('../../images/background.svg');
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  z-index: 1;
+  background: url(./assets/images/bg_shapes/dots.svg) right 75% no-repeat,
+    url(./assets/images/bg_shapes/shapes_arrows_transform.svg) 82px 133px
+      no-repeat,
+    url(./assets/images/bg_shapes/shapes_arrows.svg) 95% top no-repeat,
+    url(./assets/images/bg_shapes/circles_yellow.svg) left bottom no-repeat,
+    url(./assets/images/bg_shapes/shapes-grey.svg) 47% 50% no-repeat,
+    url(./assets/images/bg_shapes/Vector.svg) 40% 75% no-repeat,
+    linear-gradient(
+      55.95deg,
+      rgba(255, 63, 58, 0.2) 0%,
+      rgba(247, 94, 5, 0.2) 100%
+    );
 
   @include mediaMin(762px) {
     padding: 80px 0;
@@ -254,20 +275,6 @@ export default {
 
   @include landscape {
     padding: 55px 0;
-  }
-
-  &::after {
-    position: absolute;
-    content: "";
-    background: linear-gradient(55.95deg, #ff3f3a 0%, #f75e05 100%);
-    opacity: 0.2;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: -1;
   }
 
   // .about__inner
@@ -284,6 +291,11 @@ export default {
 
     @include mediaMin(768px) {
       height: calc(100vh - 180px);
+      padding-top: 35px;
+    }
+
+    @include mediaMin(768px) {
+      height: calc(100vh - 100px);
       padding-top: 35px;
     }
   }
@@ -394,10 +406,9 @@ export default {
   // .about__btn
 
   &__btn {
-    &.btn--large {
-      @include mediaMax(768px) {
-        padding: 0 20px;
-      }
+    @include btn(24px, 36px, 14px);
+    @include mediaMin(768px) {
+      @include btn(40px, 52px, 16px);
     }
   }
 
@@ -423,7 +434,7 @@ export default {
     justify-content: center;
     font-weight: 900;
     font-size: 22px;
-    line-height: 1.2;
+    line-height: 1.3;
 
     @include mediaMin(768px) {
       flex-direction: row;
@@ -434,20 +445,6 @@ export default {
     @include mediaMin(992px) {
       font-size: 46px;
     }
-
-    // &:nth-child(2) {
-    //     &::after {
-    //         position: absolute;
-    //         content: url('../../images/icons/shape.svg');
-    //         width: 61px;
-    //         height: 61px;
-    //         bottom: 100px;
-
-    //         @include mediaMin(992px) {
-    //             bottom: 180px;
-    //         }
-    //     }
-    // }
 
     &:not(:first-child) {
       padding-left: 10px;
@@ -495,7 +492,6 @@ export default {
   // .about__item-label
 
   &__item-label {
-    display: inline-block;
     font-size: 13px;
     font-weight: 400;
     text-align: center;
@@ -507,14 +503,17 @@ export default {
 }
 
 .why {
+  background: url(./assets/images/bg_shapes/dots_yellow.svg) left 45% no-repeat,
+    url(./assets/images/bg_shapes/circles_yellow_2.svg) right bottom no-repeat;
   // .why__wrap
 
   &__wrap {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 50px;
 
-    @include mediaMin(768px) {
+    @include mediaMin(992px) {
       flex-direction: row;
       gap: 75px;
     }
@@ -541,11 +540,6 @@ export default {
     padding-bottom: 25px;
   }
 
-  // .why__title
-
-  &__title {
-  }
-
   // .why__subtitle
 
   &__subtitle {
@@ -567,7 +561,10 @@ export default {
 
     &::before {
       position: absolute;
-      content: url("./assets/images/icons/check.svg");
+      content: url(./assets/images/icons/check.svg);
+      filter: invert(43%) sepia(40%) saturate(6077%) hue-rotate(339deg)
+        brightness(104%) contrast(101%);
+      object-fit: contain;
       width: 16px;
       height: 16px;
       left: 0;
@@ -581,6 +578,7 @@ export default {
   // .why__btn
 
   &__btn {
+    @include btn(32px, 44px, 14px);
   }
 }
 
@@ -602,16 +600,6 @@ export default {
     gap: 30px;
   }
 
-  &__catalog-card {
-    max-width: 390px;
-    width: 100%;
-
-    @include mediaMin(992px) {
-      max-width: 600px;
-      width: calc(50% - 15px);
-    }
-  }
-
   &__title {
     width: 100%;
   }
@@ -625,27 +613,20 @@ export default {
   }
 
   &__btn {
+    @include btn(40px, 52px, 16px);
     align-self: flex-end;
   }
 }
 
 .benefits {
+  position: relative;
   text-align: center;
   padding-bottom: 120px;
-
-  // .benefits__title
-
-  &__title {
-  }
-
-  // .benefits__subtitle
-
-  &__subtitle {
-    margin-bottom: 30px;
-
-    @include mediaMin(992px) {
-      margin-bottom: 60px;
-    }
+  &::after {
+    position: absolute;
+    content: url(./assets/images/bg_shapes/circles_gradient.svg);
+    right: 0;
+    bottom: -15%;
   }
 
   // .benefits__list
@@ -659,53 +640,60 @@ export default {
   // .benefits__item
 
   &__item {
-    position: relative;
-    border: 1px solid transparent;
-    width: 50%;
-    padding: 10px;
+    width: 100%;
     color: $gray-600;
     font-weight: 700;
 
     @include mediaMin(768px) {
       width: 25%;
     }
-
-    &:hover {
-      border: 1px solid $primary;
-      color: $primary;
-      @extend %hover;
-    }
-  }
-
-  // .benefits__item--tutors
-
-  &__item--tutors {
   }
 
   // .benefits__link
 
   &__link {
-    position: relative;
+    display: block;
+    border: 1px solid transparent;
+    padding: 10px 24px;
     font-size: 16px;
     line-height: 1.6;
-
-    &::before {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      left: -24px;
+    &.active {
+      color: $primary;
+      border: 1px solid $primary;
+      &::before {
+        filter: invert(36%) sepia(78%) saturate(3345%) hue-rotate(341deg)
+          brightness(101%) contrast(102%);
+      }
     }
 
     &:hover {
+      border: 1px solid $primary;
+      color: $primary;
+      @extend %hover;
+      &::before {
+        filter: invert(36%) sepia(78%) saturate(3345%) hue-rotate(341deg)
+          brightness(101%) contrast(102%);
+      }
+    }
+
+    &::before {
+      content: "";
+      filter: invert(72%) sepia(3%) saturate(703%) hue-rotate(192deg)
+        brightness(87%) contrast(90%);
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
     }
 
     &--tutors {
       &::before {
-        content: url("../../images/icons/star.svg");
+        content: url("./assets/images/icons/star.svg");
+        filter: invert(72%) sepia(3%) saturate(703%) hue-rotate(192deg)
+          brightness(87%) contrast(90%);
       }
     }
 
-    &--suport {
+    &--support {
       &::before {
         content: url("./assets/images/icons/like.svg");
       }
@@ -713,22 +701,16 @@ export default {
 
     &--library {
       &::before {
-        content: url("../../images/icons/layouts.svg");
+        content: url("./assets/images/icons/layouts.svg");
       }
     }
 
     &--community {
       &::before {
-        content: url("../../images/icons/chat.svg");
+        content: url("./assets/images/icons/chat.svg");
       }
     }
   }
-
-  // .benefits__item--support
-
-  // .benefits__item--library
-
-  // .benefits__item--community
 
   // .benefits__content-wrap
 
@@ -738,11 +720,6 @@ export default {
       justify-content: space-between;
       align-items: center;
     }
-  }
-
-  // .benefits__content
-
-  &__content {
   }
 
   // .benefits__content-title
@@ -765,12 +742,73 @@ export default {
   // .benefits__img
 
   &__img {
-    // max-width: 600px;
     width: 100%;
+    object-fit: contain;
 
     @include mediaMin(768px) {
       width: calc((600px * 100%) / 1260px);
     }
+  }
+}
+
+.events-mini {
+  padding: 80px 0;
+  background: linear-gradient(
+    55.95deg,
+    rgba(255, 63, 58, 0.2) 0%,
+    rgba(247, 94, 5, 0.2) 100%
+  );
+  text-align: center;
+
+  // .events__list
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+}
+
+.team {
+  padding-top: 66px;
+  background: url(./assets/images/bg_shapes/Vector.svg) 10% 10% no-repeat,
+    url(./assets/images/bg_shapes/shapes_arrows_transform.svg) 101% 80%
+      no-repeat;
+  background-color: $gray-200;
+  @include mediaMin(768px) {
+    padding-top: 166px;
+  }
+
+  // .team__subtitle
+
+  &__subtitle {
+    margin-bottom: 60px;
+  }
+
+  // .team__list
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+    @include mediaMin(992px) {
+      justify-content: space-around;
+    }
+
+    @include mediaMin(1200px) {
+      justify-content: space-between;
+    }
+  }
+
+  // .team__item
+
+  &__item {
+    max-width: 285px;
+    width: 100%;
   }
 }
 </style>

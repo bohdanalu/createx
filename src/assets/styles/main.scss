@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 @import './reset';
-@import 'variables.scss';
+@import './variables';
 @import './mixins';
-
-
 
 body,
 html {
@@ -23,7 +22,7 @@ body {
   color: $gray-800;
 }
 
-#app {
+.wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -59,7 +58,7 @@ button {
   border: transparent;
   z-index: 5;
 
-  &.active {
+  &--open {
     background-image: url('../images/icons/cross.svg');
   }
 
@@ -69,18 +68,6 @@ button {
 }
 
 .btn {
-  &--small {
-    @include btn(20px);
-  }
-
-  &--medium {
-    @include btn(32px);
-  }
-
-  &--large {
-    @include btn(40px);
-    font-size: 16px;
-  }
 
   &--gradient {
     background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
@@ -115,8 +102,16 @@ button {
   @include mediaMin(992px) {
     padding-top: 180px;
   }
-
 }
+
+.mb {
+  margin-bottom: 30px;
+
+  @include mediaMin(768px) {
+    margin-bottom: 60px;
+  }
+}
+
 
 .title,
 .subtitle {
@@ -134,5 +129,31 @@ button {
 
   @include mediaMin(992px) {
     font-size: 46px;
+  }
+}
+
+.head-block {
+  margin-bottom: 30px;
+
+  @include mediaMin(768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+}
+
+.explore {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+  @include mediaMin(768px) {
+    gap: 40px;
+  }
+
+  &__btn {
+    @include btn(40px, 52px, 16px);
   }
 }

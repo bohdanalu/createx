@@ -2,7 +2,7 @@
   <header class="header" id="header">
     <div class="container">
       <div class="header__wrap">
-        <a class="header__logo-link" href="">
+        <a class="header__logo-link" href="#about">
           <img
             class="header__logo logo"
             src="./../assets/images/logo.svg"
@@ -17,10 +17,7 @@
           <nav class="header__nav">
             <Menu />
           </nav>
-          <button
-            class="header__btn btn btn--medium btn--gradient"
-            type="button"
-          >
+          <button class="header__btn btn--gradient" type="button">
             Get consultation
           </button>
           <div class="header__log">
@@ -58,9 +55,7 @@ export default {
 
   methods: {
     toggleClass(e) {
-      console.log(e.target);
       this.isActive = !this.isActive;
-      // munyActive = !menuActive;
     },
   },
 };
@@ -88,11 +83,9 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    // z-index: 3;
   }
 
-  // .header__logo
+  // .header__logo-link
 
   &__logo-link {
     display: inline;
@@ -108,12 +101,11 @@ export default {
 
   &__inner {
     position: absolute;
-    transform: translateY(-1000%);
-    transition: all 0.9s ease;
+    transform: translateY(-500%);
+    transition: all 0.7s ease;
 
     &.active {
       transform: translateY(0);
-      transition: all 0.7s ease;
       position: absolute;
       display: flex;
       flex-direction: column;
@@ -128,12 +120,13 @@ export default {
       height: 100vh;
       background-color: $white;
       overflow-y: auto;
+      transition: all 0.7s ease;
       z-index: 4;
     }
 
     @include mediaMin(992px) {
       position: static;
-      transform: translate(0);
+      transform: translateY(0);
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -156,7 +149,7 @@ export default {
 
   &__btn {
     width: 100%;
-    // z-index: 5;
+    @include btn(32px, 44px, 14px);
 
     @include mediaMin(992px) {
       max-width: 206px;
@@ -164,8 +157,8 @@ export default {
     }
 
     @include mediaMin(1200px) {
-      @include btn(40px);
       margin-right: 36px;
+      @include btn(40px, 52px, 16px);
     }
   }
 
@@ -176,8 +169,6 @@ export default {
     padding-left: 32px;
     align-self: center;
     justify-self: end;
-    flex: 0 1;
-
     @include mediaMin(1200px) {
       max-width: 210px;
       flex: 1 0 auto;
