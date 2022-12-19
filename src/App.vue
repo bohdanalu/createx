@@ -207,7 +207,6 @@ export default {
     EventCard,
     Explore,
     Certificate,
-    TeamCard,
     Testimonials,
   },
   data() {
@@ -390,7 +389,8 @@ export default {
       margin: 15px 0 25px;
     }
 
-    @include mediaMin(1200px) {
+    @include mediaMin(1320px) {
+      max-width: 550px;
       margin-bottom: 55px;
       font-size: 64px;
     }

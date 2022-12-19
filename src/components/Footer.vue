@@ -66,7 +66,7 @@
         </div>
         <div class="footer__block">
           <h2 class="footer__title">Site map</h2>
-          <Menu class="footer__list menu" />
+          <Menu class="footer__list" />
         </div>
         <div class="footer__block">
           <h2 class="footer__title">Courses</h2>
@@ -91,10 +91,10 @@
         <div class="footer__block">
           <h2 class="footer__title">Contacts</h2>
           <ul class="footer__list">
-            <li class="footer__list">
+            <li class="footer__item">
               <a class="footer__link" href="">(405) 555-0128</a>
             </li>
-            <li class="footer__list">
+            <li class="footer__item">
               <a class="footer__link" href="">hello@createx.com</a>
             </li>
           </ul>
@@ -236,18 +236,16 @@ export default {
 
   &__list {
     display: none;
-    flex-direction: column;
-    gap: 8px;
     font-size: 16px;
 
     @include mediaMin(992px) {
       display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
   }
 
-  // .footer__link
-
-  &__link {
+  &__item {
     opacity: 0.6;
     transition: opacity 0.2s ease;
     &:hover {
@@ -364,17 +362,18 @@ export default {
         brightness(118%) contrast(118%);
     }
   }
-  .menu {
-    // .menu__item
+}
+</style>
 
-    &__item {
-      transition: all 0.2s ease;
+<style lang="scss">
+@import "./../assets/styles/main.scss";
 
-      &:hover,
-      &:active {
-        @extend %hover;
-      }
-    }
+.menu.footer__list > .menu__item {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 1;
+    transition: opacity 0.2s ease;
   }
 }
 </style>

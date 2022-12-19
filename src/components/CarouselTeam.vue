@@ -15,8 +15,6 @@ import { defineComponent } from "vue";
 import { Carousel, Navigation, Slide } from "vue3-carousel";
 import TeamCard from "./TeamCard.vue";
 
-// import "vue3-carousel/carousel.css";
-
 export default defineComponent({
   name: "Breakpoints",
   components: {
@@ -88,7 +86,6 @@ export default defineComponent({
       snapAlign: "center",
       itemsToScroll: 1,
       wrapAround: true,
-      autoplay: 5000,
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -161,9 +158,9 @@ export default defineComponent({
 
   &__prev,
   &__next {
+    background-image: url(./../assets/images/icons/arrow-right.svg);
     display: block;
     position: absolute;
-    background-image: url(./../assets/images/icons/arrow-right.svg);
     top: -112px;
     border-radius: 50%;
     background-color: transparent;

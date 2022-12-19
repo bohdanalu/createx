@@ -15,7 +15,7 @@
           v-bind="toggleClass"
         >
           <nav class="header__nav">
-            <Menu />
+            <Menu class="header__menu" />
           </nav>
           <button class="header__btn btn--gradient" type="button">
             Get consultation
@@ -198,6 +198,22 @@ export default {
     &:hover {
       @extend %hover;
     }
+  }
+}
+</style>
+
+<style lang="scss">
+@import "./../assets/styles/main.scss";
+.header__menu .menu__item {
+  font-size: 24px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    @extend %hover;
+  }
+
+  @include mediaMin(992px) {
+    font-size: 16px;
   }
 }
 </style>

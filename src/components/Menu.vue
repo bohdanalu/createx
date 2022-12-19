@@ -34,25 +34,22 @@ export default {};
     flex-direction: row;
   }
 
-  // .menu__item
+  // &__item {
+  //   font-size: 24px;
+  //   transition: all 0.2s ease;
 
-  &__item {
-    transition: all 0.2s ease;
+  //   &:hover {
+  //     @extend %hover;
+  //   }
 
-    &:hover,
-    &:active {
-      @extend %hover;
-    }
-  }
+  //   @include mediaMin(992px) {
+  //     font-size: 16px;
+  //   }
+  // }
 
   // .menu__link
 
   &__link {
-    font-size: 24px;
-
-    @include mediaMin(992px) {
-      font-size: 16px;
-    }
   }
 }
 </style>

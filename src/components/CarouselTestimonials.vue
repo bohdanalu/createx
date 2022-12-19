@@ -90,15 +90,6 @@ export default defineComponent({
     justify-content: center;
   }
 
-  &__prev,
-  &__next {
-    // display: none;
-    @include mediaMin(768px) {
-      position: absolute;
-      top: 35%;
-    }
-  }
-
   &__prev {
     left: 0;
     transform: rotate(180deg);
@@ -129,6 +120,21 @@ export default defineComponent({
   &__pagination-button {
     &--active {
       background-color: $gray-800;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+@import "./../assets/styles/main.scss";
+
+.carousel {
+  button.carousel__prev,
+  button.carousel__next {
+    display: none;
+    @include mediaMin(768px) {
+      position: absolute;
+      top: 35%;
     }
   }
 }
