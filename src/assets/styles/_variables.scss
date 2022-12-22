@@ -25,6 +25,14 @@ $pink: #F52F6E;
     transition: color 0.2 ease-in;
 }
 
+%filter-gray {
+    filter: invert(48%) sepia(8%) saturate(221%) hue-rotate(187deg) brightness(97%) contrast(90%);
+}
+
+%filter-primary {
+    filter: invert(35%) sepia(96%) saturate(2310%) hue-rotate(340deg) brightness(107%) contrast(102%);
+}
+
 %shadow {
     box-shadow: 0px 80px 80px -20px rgba(154, 156, 165, 0.08),
         0px 30px 24px -10px rgba(154, 156, 165, 0.05),

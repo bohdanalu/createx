@@ -1,19 +1,24 @@
 <template>
   <ul class="menu">
     <li class="menu__item">
-      <a class="menu__link" href="#"> About us </a>
+      <!-- <a class="menu__link" href="#"> About us </a> -->
+      <RouterLink to="/About">About us</RouterLink>
     </li>
     <li class="menu__item">
-      <a class="menu__link" href="#"> Courses </a>
+      <!-- <a class="menu__link" href="#"> Courses </a> -->
+      <RouterLink to="/Courses">Courses</RouterLink>
     </li>
     <li class="menu__item">
-      <a class="menu__link" href="#"> Events </a>
+      <!-- <a class="menu__link" href="#"> Events </a> -->
+      <RouterLink to="/Events">Events</RouterLink>
     </li>
     <li class="menu__item">
-      <a class="menu__link" href="#"> Blog </a>
+      <!-- <a class="menu__link" href="#"> Blog </a> -->
+      <RouterLink to="/Blog">Blog</RouterLink>
     </li>
     <li class="menu__item">
-      <a class="menu__link" href="#"> Contacts </a>
+      <!-- <a class="menu__link" href="#"> Contacts </a> -->
+      <RouterLink to="/Contacts">Contacts</RouterLink>
     </li>
   </ul>
 </template>
@@ -32,24 +37,6 @@ export default {};
 
   @include mediaMin(992px) {
     flex-direction: row;
-  }
-
-  // &__item {
-  //   font-size: 24px;
-  //   transition: all 0.2s ease;
-
-  //   &:hover {
-  //     @extend %hover;
-  //   }
-
-  //   @include mediaMin(992px) {
-  //     font-size: 16px;
-  //   }
-  // }
-
-  // .menu__link
-
-  &__link {
   }
 }
 </style>

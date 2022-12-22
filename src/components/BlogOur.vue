@@ -4,7 +4,10 @@
       <div class="blog__head head-block">
         <h2 class="blog__title title">Our blog</h2>
         <h3 class="blog__subtitle subtitle">Latest posts</h3>
-        <a class="blog__btn btn--gradient" href="">View all courses</a>
+        <!-- <a class="blog__btn btn--gradient" href="">View all courses</a> -->
+        <RouterLink class="blog__btn btn--gradient" to="/Blog"
+          >Go to blog</RouterLink
+        >
       </div>
       <div class="blog__posts">
         <PostCard v-for="post in post_cards" :key="post.id" :post_data="post" />

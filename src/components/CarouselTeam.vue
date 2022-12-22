@@ -6,13 +6,14 @@
 
     <template #addons>
       <Navigation />
+      <Pagination class="paggin" />
     </template>
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { Carousel, Navigation, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import TeamCard from "./TeamCard.vue";
 
 export default defineComponent({
@@ -21,6 +22,7 @@ export default defineComponent({
     Carousel,
     Slide,
     Navigation,
+    Pagination,
     TeamCard,
   },
   data: () => ({
@@ -158,20 +160,23 @@ export default defineComponent({
 
   &__prev,
   &__next {
-    background-image: url(./../assets/images/icons/arrow-right.svg);
-    display: block;
-    position: absolute;
-    top: -112px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 24px;
-    height: 48px;
-    width: 48px;
-    padding: 18.5px 15px;
-    transition: background-color 0.2s ease;
+    display: none;
+    @include mediaMin(992px) {
+      top: -125px;
+      display: block;
+      position: absolute;
+      background-image: url(./../assets/images/icons/arrow-right.svg);
+      border-radius: 50%;
+      background-color: transparent;
+      border: transparent;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 24px;
+      height: 48px;
+      width: 48px;
+      padding: 18.5px 15px;
+      transition: background-color 0.2s ease;
+    }
 
     &:hover {
       background-image: url("./../assets/images/icons/arrow-white-w.svg");
@@ -187,6 +192,12 @@ export default defineComponent({
 
   &__next {
     right: 0;
+  }
+
+  .paggin {
+    @include mediaMin(992px) {
+      display: none;
+    }
   }
 
   &__icon {

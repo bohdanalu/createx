@@ -3,11 +3,13 @@
     <div class="container">
       <div class="footer__wrap">
         <div class="footer__block">
-          <img
-            class="footer__logo logo"
-            src="../assets/images/logo_white.svg"
-            alt="Logo Createx"
-          />
+          <RouterLink class="header__logo-link" to="/">
+            <img
+              class="footer__logo logo"
+              src="./../assets/images/logo_white.svg"
+              alt="Logo Createx"
+            />
+          </RouterLink>
           <div class="footer__text">
             <p>
               Createx Online School is a leader in online studying. We have lots
@@ -16,60 +18,64 @@
               in the largest companies in the country.
             </p>
           </div>
-          <ul class="social">
-            <li class="social__item">
-              <a class="social__link" href="">
-                <img
-                  class="social__img"
-                  src="../assets/images/icons/social/facebook.svg"
-                  alt="Facebook"
-                />
-              </a>
-            </li>
-            <li class="social__item">
-              <a class="social__link" href="">
-                <img
-                  class="social__img"
-                  src="../assets/images/icons/social/twitter.svg"
-                  alt="Twitter"
-                />
-              </a>
-            </li>
-            <li class="social__item">
-              <a class="social__link" href="">
-                <img
-                  class="social__img"
-                  src="../assets/images/icons/social/youTube.svg"
-                  alt="YouTube"
-                />
-              </a>
-            </li>
-            <li class="social__item">
-              <a class="social__link" href="">
-                <img
-                  class="social__img"
-                  src="../assets/images/icons/social/instagram.svg"
-                  alt="Instagram"
-                />
-              </a>
-            </li>
-            <li class="social__item">
-              <a class="social__link" href="">
-                <img
-                  class="social__img"
-                  src="../assets/images/icons/social/linked-In.svg"
-                  alt="Linkedin"
-                />
-              </a>
-            </li>
-          </ul>
+          <div class="footer__social-wrap">
+            <ul class="social">
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <img
+                    class="social__img"
+                    src="../assets/images/icons/social/facebook.svg"
+                    alt="Facebook"
+                  />
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <img
+                    class="social__img"
+                    src="../assets/images/icons/social/twitter.svg"
+                    alt="Twitter"
+                  />
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <img
+                    class="social__img"
+                    src="../assets/images/icons/social/youTube.svg"
+                    alt="YouTube"
+                  />
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <img
+                    class="social__img"
+                    src="../assets/images/icons/social/instagram.svg"
+                    alt="Instagram"
+                  />
+                </a>
+              </li>
+              <li class="social__item">
+                <a class="social__link" href="">
+                  <img
+                    class="social__img"
+                    src="../assets/images/icons/social/linked-In.svg"
+                    alt="Linkedin"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="footer__block">
-          <h2 class="footer__title">Site map</h2>
+          <h2 class="footer__title" @click="accordionClick($event)">
+            Site map
+          </h2>
           <Menu class="footer__list" />
         </div>
         <div class="footer__block">
-          <h2 class="footer__title">Courses</h2>
+          <h2 class="footer__title" @click="accordionClick($event)">Courses</h2>
           <ul class="footer__list">
             <li class="footer__item">
               <a class="footer__link" href=""> Marketing </a>
@@ -89,7 +95,9 @@
           </ul>
         </div>
         <div class="footer__block">
-          <h2 class="footer__title">Contacts</h2>
+          <h2 class="footer__title" @click="accordionClick($event)">
+            Contacts
+          </h2>
           <ul class="footer__list">
             <li class="footer__item">
               <a class="footer__link" href="">(405) 555-0128</a>
@@ -112,7 +120,7 @@
               placeholder="Email address"
               required
             />
-            <button class="footer__btn">
+            <button class="footer__btn" type="submit">
               <img
                 src="../assets/images/icons/arrow-white-w.svg"
                 alt="Button submit mail"
@@ -154,6 +162,28 @@ export default {
   },
   data() {
     return {};
+  },
+
+  methods: {
+    accordionClick(el) {
+      const list = el.target.nextElementSibling;
+      if (list.style.maxHeight) {
+        list.style.maxHeight = null;
+        el.target.classList.remove("_active");
+      } else {
+        const allList = document.querySelectorAll(".footer__list");
+
+        for (let i = 0; i < allList.length; i++) {
+          if (allList[i].style.maxHeight) {
+            allList[i].style.maxHeight = null;
+            allList[i].previousElementSibling.classList.remove("_active");
+          }
+        }
+
+        list.style.maxHeight = list.scrollHeight + "px";
+        el.target.classList.add("_active");
+      }
+    },
   },
 };
 </script>
@@ -216,6 +246,7 @@ export default {
   // .footer__title
 
   &__title {
+    position: relative;
     margin-bottom: 12px;
     font-weight: 700;
     font-size: 22px;
@@ -223,8 +254,32 @@ export default {
     text-transform: uppercase;
     white-space: nowrap;
 
+    &:after {
+      position: absolute;
+      content: url(./../assets/images/icons/chevron.svg);
+      transform: rotate(90deg);
+      width: 24px;
+      height: 24px;
+      right: 10px;
+      top: 5px;
+      transition: all 0.3s ease;
+      @include mediaMin(992px) {
+        content: "";
+      }
+    }
+
+    &._active {
+      &:after {
+        transform: rotate(-90deg);
+        transition: all 0.3s ease;
+      }
+    }
+
     &--sign {
       margin-bottom: 24px;
+      &:after {
+        content: "";
+      }
     }
 
     @include mediaMin(992px) {
@@ -235,13 +290,22 @@ export default {
   // .footer__list
 
   &__list {
-    display: none;
-    font-size: 16px;
-
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    transition: max-height 0.3s ease-out;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $gray-300;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     @include mediaMin(992px) {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      max-height: auto;
+      overflow: visible;
+      font-size: 16px;
+      padding-bottom: 0;
+      border-bottom: none;
     }
   }
 
@@ -345,23 +409,6 @@ export default {
       opacity: 1;
     }
   }
-
-  .social {
-    display: flex;
-    gap: 20px;
-    &__link {
-      opacity: 0.6;
-      transition: opacity 0.2s ease;
-      &:hover {
-        opacity: 1;
-        transition: opacity 0.2s ease;
-      }
-    }
-    &__img {
-      filter: invert(100%) sepia(0%) saturate(7427%) hue-rotate(23deg)
-        brightness(118%) contrast(118%);
-    }
-  }
 }
 </style>
 
@@ -374,6 +421,29 @@ export default {
   &:hover {
     opacity: 1;
     transition: opacity 0.2s ease;
+  }
+}
+</style>
+
+<style lang="scss" scoped>
+@import "./../assets/styles/main.scss";
+
+.footer__social-wrap ::v-deep {
+  .social {
+    gap: 20px;
+
+    &__item {
+      filter: invert(100%) sepia(0%) saturate(7427%) hue-rotate(23deg)
+        brightness(118%) contrast(118%);
+    }
+    &__link {
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 1;
+        transition: opacity 0.2s ease;
+      }
+    }
   }
 }
 </style>

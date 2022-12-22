@@ -40,6 +40,7 @@ export default {
 @import "./../assets/styles/main.scss";
 .testimonials {
   &__blockquote {
+    display: block;
     max-width: 1020px;
     padding: 20px 10px;
     background-color: $white;

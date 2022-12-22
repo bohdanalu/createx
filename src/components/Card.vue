@@ -1,7 +1,11 @@
 <template>
   <article class="courses__card card" :id="catalog_data.id">
     <a class="card__link" href="">
-      <img class="card__img" :src="catalog_data.img" alt="" />
+      <img
+        class="card__img"
+        :src="catalog_data.img"
+        :alt="catalog_data.speacer"
+      />
     </a>
     <div class="card__content">
       <span class="card__badge card__badge--marketing">{{

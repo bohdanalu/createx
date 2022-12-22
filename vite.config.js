@@ -12,20 +12,3 @@ export default defineConfig({
     },
   },
 });
-
-
-
-// module.exports = {
-//   css: {
-//       loaderOptions: {
-//           sass: {
-//               additionalData: `@import "@/assets/styles/variables.scss";`
-//               `@import "@/assets/styles/reset.scss";`
-//               `@import "@/assets/styles/mixin.scss";` 
-
-//           },
-//       },
-//   }
-// };
-
-

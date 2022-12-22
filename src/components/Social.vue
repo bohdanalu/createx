@@ -1,14 +1,14 @@
 <template>
-  <li class="social__item" v-for="item in social" key="social_data.id">
+  <li class="social__item" :id="social_data.id">
     <a class="social__link" href="">
-      <img :src="social_date.img" alt="social_date.alt" />
+      <img class="social__img" :src="social_data.img" :alt="social_data.alt" />
     </a>
   </li>
 </template>
 
 <script>
 export default {
-  date() {
+  data() {
     return {};
   },
   props: {
@@ -21,3 +21,26 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "./../assets/styles/main.scss";
+.social {
+  display: flex;
+  gap: 12px;
+
+  &__item {
+    width: 20px;
+    height: 20px;
+    @extend %filter-gray;
+    &:hover {
+      @extend %filter-primary;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+</style>

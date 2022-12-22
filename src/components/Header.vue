@@ -2,13 +2,19 @@
   <header class="header" id="header">
     <div class="container">
       <div class="header__wrap">
-        <a class="header__logo-link" href="#about">
+        <RouterLink class="header__logo-link" to="/">
+          <img
+            class="header__logo logo"
+            src="./../assets/images/logo.svg"
+            alt="Logo Createx"
+        /></RouterLink>
+        <!-- <a class="header__logo-link" href="#about">
           <img
             class="header__logo logo"
             src="./../assets/images/logo.svg"
             alt="Logo Createx"
           />
-        </a>
+        </a> -->
         <div
           class="header__inner"
           :class="{ active: isActive }"
@@ -21,9 +27,155 @@
             Get consultation
           </button>
           <div class="header__log">
-            <a class="header__log-item" href="#"> Log in </a>
-            <span>/</span>
-            <a class="header__log-item" href="#"> Register </a>
+            <button
+              class="header__log-item"
+              type="button"
+              id="show-modal-in"
+              @click="showModalIn = true"
+            >
+              Log in
+            </button>
+            <span> / </span>
+            <button
+              class="header__log-item"
+              id="show-modal-up"
+              @click="showModalUp = true"
+              type="button"
+            >
+              Register
+            </button>
+            <Teleport to="body">
+              <ModalSingUP :show="showModalUp" @close="showModalUp = false">
+                <template #header>
+                  <button
+                    class="modal-default-button"
+                    @click="showModalUp = false"
+                  ></button>
+                  <h2 class="modal__title">{{ singUp.title }}</h2>
+                  <span class="modal__comment">{{ singUp.comment }}</span>
+                </template>
+                <template #body>
+                  <form class="madal__form form-modal" action="">
+                    <label class="form-modal__label" for="fullName"
+                      >Full Name
+                      <input
+                        class="form-modal__input"
+                        type="text"
+                        id="fuulName"
+                        placeholder="Your full Name"
+                      />
+                    </label>
+                    <label class="form-modal__label" for="email"
+                      >Email
+                      <input
+                        class="form-modal__input"
+                        type="email"
+                        id="email"
+                        placeholder="Your working email"
+                      />
+                    </label>
+                    <label class="form-modal__label" for="password"
+                      >Password
+                      <input
+                        class="form-modal__input"
+                        type="password"
+                        id="password"
+                        placeholder="Your password"
+                      />
+                    </label>
+                    <label class="form-modal__label" for="pswConfirm">
+                      Confirm Password
+                      <input
+                        class="form-modal__input"
+                        type="password"
+                        id="pswCongirm"
+                        placeholder="Your password"
+                      />
+                    </label>
+                    <label
+                      class="form-modal__label form-modal__label--check"
+                      for="check"
+                    >
+                      <input
+                        class="form-modal__check"
+                        type="checkbox"
+                        name="check"
+                        id="check"
+                      />
+                      {{ singUp.check }}
+                    </label>
+                    <button class="form-modal__btn btn--gradient" type="submit">
+                      {{ singUp.title }}
+                    </button>
+                  </form>
+                  <span class="modal__qw"
+                    >{{ singUp.qw }} <a href="">Sign in</a></span
+                  >
+                </template>
+                <template #footer>
+                  <span class="modal__sign">Or sign with</span>
+                </template>
+              </ModalSingUP>
+              <ModalSingIn :show="showModalIn" @close="showModalIn = false">
+                <template #header>
+                  <button
+                    class="modal-default-button"
+                    @click="showModalIn = false"
+                  ></button>
+                  <h2 class="modal__title">{{ singIn.title }}</h2>
+                  <span class="modal__comment">{{ singIn.comment }}</span>
+                </template>
+                <template #body>
+                  <form class="madal__form form-modal" action="">
+                    <label class="form-modal__label" for="email"
+                      >Email
+                      <input
+                        class="form-modal__input"
+                        type="email"
+                        id="email"
+                        placeholder="Your working email"
+                      />
+                    </label>
+                    <label class="form-modal__label" for="password"
+                      >Password
+                      <input
+                        class="form-modal__input"
+                        type="password"
+                        id="password"
+                        placeholder="Your password"
+                      />
+                    </label>
+                    <label
+                      class="form-modal__label form-modal__label--check"
+                      for="check"
+                    >
+                      <input
+                        class="form-modal__check"
+                        type="checkbox"
+                        name="check"
+                        id="check"
+                      />
+                      {{ singIn.check }}
+                    </label>
+                    <a
+                      class="form-modal__link"
+                      :class="{ hide: isHide }"
+                      href=""
+                      >Forgot password?</a
+                    >
+                    <button class="form-modal__btn btn--gradient" type="submit">
+                      {{ singIn.title }}
+                    </button>
+                  </form>
+                  <span class="modal__qw"
+                    >{{ singIn.qw }} <a href="">Sign in</a></span
+                  >
+                </template>
+                <template #footer>
+                  <span class="modal__sign">Or sign with</span>
+                </template>
+              </ModalSingIn>
+            </Teleport>
           </div>
         </div>
         <button
@@ -39,10 +191,14 @@
 
 <script>
 import Menu from "./Menu.vue";
+import ModalSingUP from "./SingUp.vue";
+import ModalSingIn from "./SingIn.vue";
 
 export default {
   components: {
     Menu,
+    ModalSingUP,
+    ModalSingIn,
   },
 
   props: {},
@@ -50,6 +206,25 @@ export default {
   data() {
     return {
       isActive: false,
+      showModalIn: false,
+      showModalUp: false,
+      isHide: true,
+      singUp: {
+        name: "ModalSignUp",
+        title: "Sign up",
+        comment:
+          "Registration takes less than a minute but gives you full control over your studying.",
+        qw: "Already have an account?",
+        check: "Remember me",
+      },
+      singIn: {
+        name: "ModalSignIn",
+        title: "Sign in",
+        comment:
+          "Sign in to your account using email and password provided during registration.",
+        qw: "Don't have an account?",
+        check: "Keep me signed in",
+      },
     };
   },
 
@@ -193,12 +368,126 @@ export default {
   // .header__log-item
 
   &__log-item {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    color: $gray-800;
+    background-color: transparent;
+    border: transparent;
+    outline: transparent;
     transition: all 0.2 ease-in-out;
 
     &:hover {
       @extend %hover;
     }
   }
+}
+
+.modal {
+  // .modal_qw
+
+  &__qw {
+    color: $gray-800;
+    a {
+      color: $primary;
+    }
+  }
+
+  // .modal__title
+
+  &__title {
+    font-weight: 700;
+    font-size: 28px;
+    color: $gray-900;
+    margin-bottom: 2.2%;
+    text-align: center;
+  }
+
+  // .modal__comment
+
+  &__comment {
+    color: $gray-700;
+    text-align: center;
+    display: block;
+    text-align: center;
+  }
+
+  // .modal__sign
+
+  &__sign {
+    display: block;
+    color: $gray-700;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+}
+
+.form-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include mediaMin(1320px) {
+    gap: 24px;
+  }
+  // .form-modal__label
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: $gray-800;
+
+    &--check {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    &.hide {
+      display: none;
+    }
+  }
+
+  // .form-modal__input
+
+  &__input {
+    width: 100%;
+    padding: 11px 16px 12px;
+    border: 1px solid $gray-300;
+    &:placeholder {
+      color: $gray-600;
+    }
+  }
+
+  // .form-modal__check
+
+  &__check {
+    align-self: start;
+  }
+
+  // .form-modal__btn
+
+  &__btn {
+    @include btn(32px, 44px, 14px);
+    margin-bottom: 12px;
+    @include mediaMin(1320px) {
+      margin-bottom: 24px;
+    }
+  }
+}
+
+.modal-default-button {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 24px;
+  height: 24px;
+  background-image: url(./../assets/images/icons/cross.svg);
+  @extend %bg-position;
+  background-color: transparent;
+  border: transparent;
+  outline: transparent;
 }
 </style>
 

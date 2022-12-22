@@ -1,4 +1,5 @@
 <template>
+  <!-- <div class="v-wrap"> -->
   <Carousel>
     <Slide v-for="card in testimonials" :key="card.id">
       <div class="carousel__item">
@@ -7,10 +8,11 @@
     </Slide>
 
     <template #addons>
-      <Navigation class="" />
+      <Navigation class="v-nav" />
       <Pagination />
     </template>
   </Carousel>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -66,6 +68,10 @@ export default defineComponent({
 
 <style lang="scss">
 @import "./../assets/styles/main.scss";
+.v-wrap {
+  width: 100%;
+  height: auto;
+}
 .carousel {
   position: relative;
   text-align: center;
@@ -78,21 +84,22 @@ export default defineComponent({
   &__slide {
     max-width: 1230px;
     width: 100%;
-    position: relative;
+    scroll-snap-stop: auto;
+    flex-shrink: 0;
     margin: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: translateZ(0);
   }
-  &__item {
-    max-width: 1230px;
-    width: 100%;
-    display: flex;
-    gap: 0;
-    justify-content: center;
+
+  .v-nav {
+    top: 35%;
   }
 
-  &__prev {
+  .v-nav.carousel__prev {
     left: 0;
-    transform: rotate(180deg);
   }
 
   &__pagination {
@@ -120,21 +127,6 @@ export default defineComponent({
   &__pagination-button {
     &--active {
       background-color: $gray-800;
-    }
-  }
-}
-</style>
-
-<style lang="scss">
-@import "./../assets/styles/main.scss";
-
-.carousel {
-  button.carousel__prev,
-  button.carousel__next {
-    display: none;
-    @include mediaMin(768px) {
-      position: absolute;
-      top: 35%;
     }
   }
 }
