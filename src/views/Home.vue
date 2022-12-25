@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <div class="home-page">
     <section class="about" id="about">
       <div class="container">
         <div class="about__inner">
@@ -241,7 +241,12 @@
             :event_data="card"
           />
         </div>
-        <Explore />
+        <div class="explore">
+          <span class="explore__label" for="explore">Do you want more?</span>
+          <RouterLink class="explore__btn btn--gradient" to="/Events"
+            >Explore all events</RouterLink
+          >
+        </div>
       </div>
     </section>
     <Certificate />
@@ -253,28 +258,26 @@
       </div>
     </section>
     <Testimonials />
-    <Blog />
+    <BlogOurVue />
     <Subscribe />
-  </main>
+  </div>
 </template>
 <script>
 import Card from "./../components/Card.vue";
 import CarouselTeamVue from "./../components/CarouselTeam.vue";
-import BlogOur from "../components/BlogOur.vue";
+import BlogOurVue from "../components/BlogOur.vue";
 import Subscribe from "./../components/Subscribe.vue";
 import EventCard from "./../components/EventCard.vue";
-import Explore from "./../components/Explore.vue";
 import Certificate from "./../components/Certificate.vue";
 import Testimonials from "./../components/Testimonials.vue";
 
 export default {
   components: {
     Card,
-    BlogOur,
+    BlogOurVue,
     Subscribe,
     CarouselTeamVue,
     EventCard,
-    Explore,
     Certificate,
     Testimonials,
   },
@@ -298,6 +301,38 @@ export default {
           price: 480,
           speacer: "Marvin McKinney",
         },
+        {
+          id: 3,
+          img: "/src/assets/images/card/li.png",
+          badge: "HR & Recruting",
+          title: "HR  Management and Analytics",
+          price: 200,
+          speacer: "Leslie Alexander Li",
+        },
+        {
+          id: 4,
+          img: "/src/assets/images/card/watson.png",
+          badge: "Marketing",
+          title: "Brand Management & PR Communications",
+          price: 530,
+          speacer: "Kristin Watson",
+        },
+        {
+          id: 5,
+          img: "/src/assets/images/card/russell.png",
+          badge: "Managment",
+          title: "Business Development Management",
+          price: 400,
+          speacer: "Dianne Russell",
+        },
+        {
+          id: 6,
+          img: "/src/assets/images/card/hawkins.png",
+          badge: "Design",
+          title: "Graphic Design Basic",
+          price: 500,
+          speacer: "Guy Hawkins",
+        },
       ],
       eventCards: [
         {
@@ -309,6 +344,29 @@ export default {
           },
           title:
             "Formation of the organizational structure of the company in the face of uncertainty.",
+          event: "Onine master-class",
+          btn: "View more",
+        },
+        {
+          id: "evc2",
+          data: {
+            date: "24",
+            mounth: "July",
+            hour: "11.00 - 12.30",
+          },
+          title: "Building a customer service department. Best Practices.",
+          event: "Onine lecture",
+          btn: "View more",
+        },
+        {
+          id: "evc3",
+          data: {
+            date: "16",
+            mounth: "July",
+            hour: "10.00 - 13.00",
+          },
+          title:
+            "How to apply methods of speculative design in practice. Worldbuilding prototyping.",
           event: "Onine master-class",
           btn: "View more",
         },
@@ -340,6 +398,13 @@ export default {
     },
     setActive(menuItem) {
       this.activeItem = menuItem;
+    },
+    windowScroll() {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     },
   },
 };
@@ -919,6 +984,15 @@ export default {
   &__item {
     max-width: 285px;
     width: 100%;
+  }
+}
+
+.explore {
+  // .explore__label
+
+  &__label {
+    font-weight: 700;
+    font-size: 28px;
   }
 }
 </style>

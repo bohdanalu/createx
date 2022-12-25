@@ -20,51 +20,11 @@
           </div>
           <div class="footer__social-wrap">
             <ul class="social">
-              <li class="social__item">
-                <a class="social__link" href="">
-                  <img
-                    class="social__img"
-                    src="../assets/images/icons/social/facebook.svg"
-                    alt="Facebook"
-                  />
-                </a>
-              </li>
-              <li class="social__item">
-                <a class="social__link" href="">
-                  <img
-                    class="social__img"
-                    src="../assets/images/icons/social/twitter.svg"
-                    alt="Twitter"
-                  />
-                </a>
-              </li>
-              <li class="social__item">
-                <a class="social__link" href="">
-                  <img
-                    class="social__img"
-                    src="../assets/images/icons/social/youTube.svg"
-                    alt="YouTube"
-                  />
-                </a>
-              </li>
-              <li class="social__item">
-                <a class="social__link" href="">
-                  <img
-                    class="social__img"
-                    src="../assets/images/icons/social/instagram.svg"
-                    alt="Instagram"
-                  />
-                </a>
-              </li>
-              <li class="social__item">
-                <a class="social__link" href="">
-                  <img
-                    class="social__img"
-                    src="../assets/images/icons/social/linked-In.svg"
-                    alt="Linkedin"
-                  />
-                </a>
-              </li>
+              <Social
+                v-for="item in social"
+                :key="item.id"
+                :social_data="item"
+              />
             </ul>
           </div>
         </div>
@@ -156,12 +116,44 @@
 
 <script>
 import Menu from "./Menu.vue";
+import Social from "./Social.vue";
 export default {
   components: {
     Menu,
+    Social,
   },
   data() {
-    return {};
+    return {
+      social: [
+        {
+          id: "s1",
+          img: "/src/assets/images/icons/social/facebook.svg",
+          alt: "Facebook",
+        },
+        {
+          id: "s3",
+          img: "/src/assets/images/icons/social/twitter.svg",
+          alt: "Twitter",
+        },
+
+        {
+          id: "s5",
+          img: "/src/assets/images/icons/social/youTube.svg",
+          alt: "You Tube",
+        },
+        {
+          id: "s2",
+          img: "/src/assets/images/icons/social/instagram.svg",
+          alt: "Instagram",
+        },
+
+        {
+          id: "s4",
+          img: "/src/assets/images/icons/social/linked-In.svg",
+          alt: "LinkedIn",
+        },
+      ],
+    };
   },
 
   methods: {
@@ -430,9 +422,12 @@ export default {
 
 .footer__social-wrap ::v-deep {
   .social {
+    // display: flex;
     gap: 20px;
 
     &__item {
+      width: 24px;
+      height: 24px;
       filter: invert(100%) sepia(0%) saturate(7427%) hue-rotate(23deg)
         brightness(118%) contrast(118%);
     }

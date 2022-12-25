@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "./../assets/styles/main.scss";
 .testimonials {
   text-align: center;

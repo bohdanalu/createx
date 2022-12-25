@@ -1,9 +1,9 @@
 <template>
   <article class="event-card" :id="event_data.id">
     <time class="event-card__date" datetime="05-08 14:00">
-      <span class="event-card__num">05</span>
-      <span class="event-card__month">August</span>
-      <span class="event-card__time">11:00-14:00</span>
+      <span class="event-card__num">{{ event_data.data.date }}</span>
+      <span class="event-card__month">{{ event_data.data.mounth }}</span>
+      <span class="event-card__time">{{ event_data.data.hour }}</span>
     </time>
     <div class="event-card__content">
       <p>
@@ -57,12 +57,21 @@ export default {
     height: auto;
     padding: 32px 40px;
     flex-direction: row;
-    justify-content: space-between;
     gap: 40px;
   }
 
   &--vertical {
     @extend %shadow;
+    max-width: 390px;
+    width: 100%;
+    height: 323px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: $white;
+    border: 1px solid $gray-300;
+    border-radius: 4px;
 
     @include mediaMin(768px) {
       max-width: 390px;
@@ -80,7 +89,6 @@ export default {
       padding: 32px 40px;
       flex-direction: row;
       gap: 40px;
-      justify-content: space-between;
       box-shadow: none;
     }
   }
@@ -154,6 +162,7 @@ export default {
 
     @include mediaMin(768px) {
       padding-right: 0;
+      margin-right: auto;
     }
 
     p {

@@ -6,7 +6,7 @@
         :src="direction_data.img"
         :alt="direction_data.alt"
       />
-      <span class="direction-card__badge direction-card__badge--marketing">{{
+      <span class="direction-card__badge" :class="direction_data.class">{{
         direction_data.badge
       }}</span>
       <div class="direction-card__text">
@@ -14,7 +14,9 @@
           {{ direction_data.text }}
         </p>
       </div>
-      <a class="direction-card__btn" href="">Check courses</a>
+      <RouterLink class="direction-card__btn" to="/Courses"
+        >Check courses</RouterLink
+      >
     </article>
   </li>
 </template>
@@ -84,6 +86,10 @@ export default {
 
     &--design {
       background-color: $pink;
+    }
+
+    &--dev {
+      background-color: $purple;
     }
   }
 

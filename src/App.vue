@@ -1,10 +1,8 @@
 <template>
-  <div id="app">
-    <Header />
+  <Header />
 
-    <RouterView></RouterView>
-    <Footer />
-  </div>
+  <RouterView></RouterView>
+  <Footer />
 </template>
 
 <script>

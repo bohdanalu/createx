@@ -1,26 +1,30 @@
 <template>
-  <article class="blog__post-card post" :id="post_data.id">
-    <span class="post__badge">{{ post_data.badge }}</span>
-    <img class="post__img" :src="post_data.img" alt="" />
-    <div class="post__info">
-      <div class="post__meta">
-        <span class="post__position">{{ post_data.position }}</span>
-        <time class="post__date" datetime="2020-09-04">{{
-          post_data.date
-        }}</time>
-        <span class="post__lenght">{{ post_data.lenght }}</span>
+  <li class="blog__post" :class="post_data.classItem" :id="post_data.id">
+    <article class="blog__post-card post">
+      <span class="post__badge" :class="post_data.class">{{
+        post_data.badge
+      }}</span>
+      <img class="post__img" :src="post_data.img" alt="" />
+      <div class="post__info">
+        <div class="post__meta">
+          <span class="post__position">{{ post_data.position }}</span>
+          <time class="post__date" datetime="2020-09-04">{{
+            post_data.date
+          }}</time>
+          <span class="post__lenght">{{ post_data.lenght }}</span>
+        </div>
+        <h2 class="post__title">
+          {{ post_data.title }}
+        </h2>
+        <div class="post__text">
+          <p>
+            {{ post_data.text }}
+          </p>
+        </div>
       </div>
-      <h2 class="post__title">
-        {{ post_data.title }}
-      </h2>
-      <div class="post__text">
-        <p>
-          {{ post_data.text }}
-        </p>
-      </div>
-    </div>
-    <a class="post__btn" href="">{{ post_data.btn }}</a>
-  </article>
+      <a class="post__btn" href="">{{ post_data.btn }}</a>
+    </article>
+  </li>
 </template>
 
 <script>
@@ -40,10 +44,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/styles/main.scss";
 
 .post {
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -59,9 +64,26 @@ export default {
     background: $white;
     border-radius: 4px;
 
+    &--video {
+      &::before {
+        content: url(./../assets/images/icons/play.svg);
+      }
+    }
+
+    &--article {
+      &::before {
+        content: url(./../assets/images/icons/files.svg);
+      }
+    }
+
+    &--podcast {
+      &::before {
+        content: url(./../assets/images/icons/mic.svg);
+      }
+    }
+
     &::before {
       position: absolute;
-      content: url(./../assets/images/icons/mic.svg);
       width: 16px;
       height: 16px;
       left: 8px;
@@ -138,6 +160,10 @@ export default {
       content: url(../assets/images/icons/arrow_primary.svg);
       right: 0;
       top: 10%;
+    }
+
+    &:hover {
+      color: $primary;
     }
   }
 }

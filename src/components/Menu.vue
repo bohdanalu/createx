@@ -1,30 +1,32 @@
 <template>
   <ul class="menu">
-    <li class="menu__item">
-      <!-- <a class="menu__link" href="#"> About us </a> -->
+    <li class="menu__item" @click="removeClass">
       <RouterLink to="/About">About us</RouterLink>
     </li>
-    <li class="menu__item">
-      <!-- <a class="menu__link" href="#"> Courses </a> -->
-      <RouterLink to="/Courses">Courses</RouterLink>
+    <li class="menu__item" @click="removeClass">
+      <RouterLink to="/Courses#">Courses</RouterLink>
     </li>
-    <li class="menu__item">
-      <!-- <a class="menu__link" href="#"> Events </a> -->
+    <li class="menu__item" @click="removeClass">
       <RouterLink to="/Events">Events</RouterLink>
     </li>
-    <li class="menu__item">
-      <!-- <a class="menu__link" href="#"> Blog </a> -->
+    <li class="menu__item" @click="removeClass">
       <RouterLink to="/Blog">Blog</RouterLink>
     </li>
-    <li class="menu__item">
-      <!-- <a class="menu__link" href="#"> Contacts </a> -->
+    <li class="menu__item" @click="removeClass">
       <RouterLink to="/Contacts">Contacts</RouterLink>
     </li>
   </ul>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    removeClass() {
+      const inner = document.querySelector(".header__inner");
+      inner.classList.remove("active");
+    },
+  },
+};
 </script>
 
 <style lang="scss">

@@ -4,24 +4,27 @@
       <div class="blog__head head-block">
         <h2 class="blog__title title">Our blog</h2>
         <h3 class="blog__subtitle subtitle">Latest posts</h3>
-        <!-- <a class="blog__btn btn--gradient" href="">View all courses</a> -->
         <RouterLink class="blog__btn btn--gradient" to="/Blog"
           >Go to blog</RouterLink
         >
       </div>
-      <div class="blog__posts">
-        <PostCard v-for="post in post_cards" :key="post.id" :post_data="post" />
-      </div>
+      <ul class="blog__posts">
+        <PostCardVue
+          v-for="post in post_cards"
+          :key="post.id"
+          :post_data="post"
+        />
+      </ul>
     </div>
   </section>
 </template>
 
 <script>
-import PostCard from "./PostCard.vue";
+import PostCardVue from "./PostCard.vue";
 
 export default {
   components: {
-    PostCard,
+    PostCardVue,
   },
 
   data() {
@@ -29,7 +32,9 @@ export default {
       post_cards: [
         {
           id: "pc1",
+          classItem: "",
           badge: "Podcast",
+          class: "post__badge--podcast",
           img: "/src/assets/images/posts/podcast.png",
           position: "Marceting",
           date: "September 4, 2020",
@@ -38,13 +43,41 @@ export default {
           text: " Pharetra, ullamcorper iaculis viverra parturient sed id sed. Convallis proin dignissim lacus, purus gravida...",
           btn: "Listen",
         },
+        {
+          id: "pc2",
+          classItem: "",
+          badge: "Video",
+          class: "post__badge--video",
+          img: "/src/assets/images/posts/video.png",
+          position: "Management",
+          date: "August 25, 2020",
+          lenght: "45 min.",
+          title:
+            " What to do and who to talk to if you want to get feedback on the product",
+          text: "Neque a, senectus consectetur odio in aliquet nec eu. Ultricies ac nibh urna urna sagittis faucibus...",
+          btn: "Watch",
+        },
+        {
+          id: "pc3",
+          classItem: "",
+          badge: "Article",
+          class: "post__badge--article",
+          img: "/src/assets/images/posts/article.png",
+          position: "Design",
+          date: "August 8, 2020",
+          lenght: "",
+          title:
+            " Should you choose a creative profession if you are attracted to creativity?",
+          text: "Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices...",
+          btn: "Read",
+        },
       ],
     };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/styles/main.scss";
 
 .blog {
@@ -52,24 +85,6 @@ export default {
 
   @include mediaMin(768px) {
     padding: 120px 0 180px;
-  }
-
-  // .blog_post
-
-  &__posts {
-    display: grid;
-    gap: 30px;
-
-    @include mediaMin(768px) {
-      grid-template-columns: minMax(30%, 390px) minMax(30%, 390px);
-      grid-template-rows: auto;
-    }
-  }
-
-  &__post {
-    &:nth-child(2) {
-      grid-column: span 2;
-    }
   }
 
   // .blog__head
@@ -110,7 +125,7 @@ export default {
 
   // .blog__post-card
 
-  &__post-card {
+  &__post {
     max-width: 390px;
     width: 100%;
   }

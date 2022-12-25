@@ -1,12 +1,11 @@
 <template>
-  <article class="courses__card card" :id="catalog_data.id">
-    <a class="card__link" href="">
-      <img
+  <article class="card" :id="catalog_data.id">
+    <RouterLink class="card__link" to="/Course"
+      ><img
         class="card__img"
         :src="catalog_data.img"
         :alt="catalog_data.speacer"
-      />
-    </a>
+    /></RouterLink>
     <div class="card__content">
       <span class="card__badge card__badge--marketing">{{
         catalog_data.badge

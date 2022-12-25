@@ -1,42 +1,40 @@
 <template>
-  <main>
-    <div class="about-page">
-      <section class="about" id="about">
-        <div class="container">
-          <div class="about__inner">
-            <div class="about__content-wrap">
-              <div class="about__content">
-                <h2 class="title">About us</h2>
-                <h3 class="about__subtitle subtitle">Createx Online School</h3>
-                <h4 class="about__info">
-                  Createx Online School is a leader in online studying. We have
-                  lots of courses and programs from the main market experts.
-                </h4>
-                <div class="about__text">
-                  <p>
-                    We provide relevant approaches to online learning,
-                    internships and employment in the largest companies in the
-                    country. Our educational programs help you get a new
-                    specialty from scratch. During your studies, we will help
-                    you find a job. Check the courses and online events that we
-                    organise..
-                  </p>
-                </div>
-                <div class="about__btn-wrap">
-                  <a class="about__btn btn--light" href=" #">Explore events</a>
-                  <a class="about__btn btn--light" href=" #">Browse courses</a>
-                </div>
+  <div class="about-page">
+    <section class="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__content-wrap">
+            <div class="about__content">
+              <h2 class="title">About us</h2>
+              <h3 class="about__subtitle subtitle">Createx Online School</h3>
+              <h4 class="about__info">
+                Createx Online School is a leader in online studying. We have
+                lots of courses and programs from the main market experts.
+              </h4>
+              <div class="about__text">
+                <p>
+                  We provide relevant approaches to online learning, internships
+                  and employment in the largest companies in the country. Our
+                  educational programs help you get a new specialty from
+                  scratch. During your studies, we will help you find a job.
+                  Check the courses and online events that we organise..
+                </p>
               </div>
-              <img
-                class="about__img"
-                src="./../assets/images/illustration_about_us.svg"
-                alt="Picture about girl is sitting by computer"
-              />
+              <div class="about__btn-wrap">
+                <a class="about__btn btn--light" href=" #">Explore events</a>
+                <a class="about__btn btn--light" href=" #">Browse courses</a>
+              </div>
             </div>
+            <img
+              class="about__img"
+              src="./../assets/images/illustration_about_us.svg"
+              alt="Picture about girl is sitting by computer"
+            />
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
     <section class="video padding">
       <div class="container">
         <a class="video__btn about__video" href="#">
@@ -50,33 +48,32 @@
           />
           <ul class="video__statistic">
             <li class="video__item">
-              <span class="video__num">1200</span>
+              <span class="video__item-num">1200</span>
               <span class="video__item-label">Students graduated</span>
             </li>
             <li class="video__item">
-              84<span class="video__item-label">Completed courses</span>
+              <span class="video__item-num">84</span>
+              <span class="video__item-label">Completed courses</span>
             </li>
             <li class="video__item">
-              16<span class="video__item-label">Qualified tutors</span>
+              <span class="video__item-num">16</span>
+              <span class="video__item-label">Qualified tutors</span>
             </li>
             <li class="video__item">
-              5<span class="video__item-label">Years of experience</span>
+              <span class="video__item-num">5</span>
+              <span class="video__item-label">Years of experience</span>
             </li>
           </ul>
         </div>
       </div>
     </section>
+
     <section class="values padding">
       <div class="container">
         <h2 class="values__title title">We always stand for</h2>
         <h3 class="values__subtitle subtitle mb">Our core values</h3>
         <ul class="values__list">
           <li class="values__item values__item--approach">
-            <img
-              class="values__img"
-              src="images//values/ic-structure.svg"
-              alt=""
-            />
             <h3 class="values__name">Structured Approach</h3>
             <div class="values__text">
               <p>
@@ -85,7 +82,6 @@
             </div>
           </li>
           <li class="values__item values__item--feedback">
-            <img class="values__img" src="images/values/ic-chat.svg" alt="" />
             <h3 class="values__name">Professional Feedbacks</h3>
             <div class="values__text">
               <p>
@@ -94,7 +90,6 @@
             </div>
           </li>
           <li class="values__item values__item--efficienty">
-            <img class="values__img" src="images/values/ic-target.svg" alt="" />
             <h3 class="values__name">Efficiency</h3>
             <div class="values__text">
               <p>
@@ -103,11 +98,6 @@
             </div>
           </li>
           <li class="values__item values__item--shedule">
-            <img
-              class="values__img"
-              src="images/values/ic-shedule.svg"
-              alt=""
-            />
             <h3 class="values__name">Flexible Shedule</h3>
             <div class="values__text">
               <p>Aute eiusmod dolore dolore deserunt veniam ad deserunt.</p>
@@ -337,7 +327,7 @@
     <BlogOur />
 
     <Subscribe />
-  </main>
+  </div>
 </template>
 
 <script>
@@ -362,6 +352,7 @@ export default {
           id: "dir1",
           img: "src/assets/images/direction/d-marketing.jpg",
           badge: "Marketing",
+          class: "direction-card__badge--marketing",
           text: "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
           alt: "lorem ipsum",
         },
@@ -369,6 +360,7 @@ export default {
           id: "dir2",
           img: "src/assets/images/direction/d-manadgment.jpg",
           badge: "Managment",
+          class: "direction-card__badge--management",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
           alt: "lorem ipsum",
         },
@@ -376,6 +368,7 @@ export default {
           id: "dir3",
           img: "src/assets/images/direction/d-hr.jpg",
           badge: "HR & Recruting",
+          class: "direction-card__badge--hr",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
           alt: "lorem ipsum",
         },
@@ -383,6 +376,7 @@ export default {
           id: "dir4",
           img: "src/assets/images/direction/d-design.jpg",
           badge: "Design",
+          class: "direction-card__badge--design",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
           alt: "lorem ipsum",
         },
@@ -390,6 +384,7 @@ export default {
           id: "dir5",
           img: "src/assets/images/direction/d-dev.jpg",
           badge: "Development",
+          class: "direction-card__badge--dev",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
           alt: "lorem ipsum",
         },
@@ -406,81 +401,63 @@ export default {
         },
         {
           id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          img: "/src/assets/images/team/bell.png",
+          name: "Jerome Bell",
+          position: "Founder and Program Director",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc3",
+          img: "/src/assets/images/team/watson.png",
+          name: "Kristin Watson",
+          position: "Marketer, Curator of Marketing Course",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc4",
+          img: "/src/assets/images/team/mackinny.png",
+          name: "Marvin McKinney",
+          position: "PM, Curator of Management Course",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc5",
+          img: "/src/assets/images/team/li.png",
+          name: "Leslie Alexander Li",
+          position: "Curator of HR & Recruting Course",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc6",
+          img: "/src/assets/images/team/murphy.png",
+          name: "Kathryn Murphy",
+          position: "Analyst and Marketing specialist",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc7",
+          img: "/src/assets/images/team/simmons.png",
+          name: "Brooklyn Simmons",
+          position: "Curator of Development Course",
           facebook: true,
           instagram: true,
           linkedin: true,
         },
         {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
-          facebook: true,
-          instagram: true,
-          linkedin: true,
-        },
-        {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
-          facebook: true,
-          instagram: true,
-          linkedin: true,
-        },
-        {
-          id: "tc2",
-          img: "/src/assets/images/team/russell.png",
-          name: "Dianne Russell",
-          position: "Founder and CEO",
+          id: "tc8",
+          img: "/src/assets/images/team/fisher.png",
+          name: "Cody Fisher",
+          position: "UX Designer, Curator of Design Course",
           facebook: true,
           instagram: true,
           linkedin: true,
@@ -490,7 +467,7 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "./../assets/styles/main.scss";
 .video {
   padding-top: 50px;
@@ -548,20 +525,21 @@ export default {
     @include mediaMin(1200px) {
       flex-direction: row;
       align-items: center;
+    }
+  }
+  &__item-label {
+    font-weight: 700;
+    font-size: 18px;
+    color: $gray-900;
+  }
+
+  &__item-num {
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: 1px;
+    color: $primary;
+    @include mediaMin(1200px) {
       font-size: 48px;
-    }
-
-    &__num {
-      font-size: 24px;
-      line-height: 1.3;
-      letter-spacing: 1px;
-      color: $primary;
-    }
-
-    &__item-label {
-      font-weight: 700;
-      font-size: 18px;
-      color: $gray-900;
     }
   }
 }
@@ -585,10 +563,9 @@ export default {
 
   &__item {
     position: relative;
-    max-width: 240px;
+    max-width: 295px;
     width: 100%;
-    padding-top: 75px;
-    height: 162px;
+    padding-top: 72px;
 
     @include mediaMin(1200px) {
       &:not(:last-child) {
@@ -604,10 +581,9 @@ export default {
             rgba(218, 219, 221, 0.5) 87.85%,
             rgba(218, 219, 221, 0) 100%
           );
-
           height: 100%;
           bottom: 0;
-          left: 120%;
+          right: 0;
         }
       }
     }
@@ -659,6 +635,7 @@ export default {
     margin-bottom: 24px;
   }
 }
+
 .direction {
   text-align: center;
 
@@ -673,6 +650,15 @@ export default {
   // .direction__item
 
   &__item {
+    width: 100%;
+    @include mediaMin(768px) {
+      width: 45%;
+    }
+
+    @include mediaMin(992px) {
+      max-width: 390px;
+      width: 100%;
+    }
   }
 
   .direction-card {
@@ -701,6 +687,7 @@ export default {
     }
   }
 }
+
 .process {
   // .process__title
 
@@ -737,7 +724,6 @@ export default {
   &__item {
     position: relative;
     padding-left: 40px;
-    border-left: 1px solid $gray-600;
     &:before {
       position: absolute;
       content: "";
@@ -746,6 +732,23 @@ export default {
       background-color: $primary;
       border-radius: 50%;
       top: 4px;
+      left: -4px;
+    }
+    &::after {
+      position: absolute;
+      content: "";
+      width: 1px;
+      height: 132%;
+      background-color: $gray-600;
+      top: 4px;
+      left: -1px;
+      z-index: -1;
+    }
+
+    &:last-child {
+      &::after {
+        height: 100%;
+      }
     }
   }
 
@@ -889,6 +892,10 @@ export default {
 
   // .about__content-wrap
 
+  &__subtitle {
+    margin-bottom: 48px;
+  }
+
   // .about__content
 
   &__content {
@@ -928,5 +935,9 @@ export default {
       @include btn(20px, 32px, 14px);
     }
   }
+}
+
+.our-team {
+  text-align: center;
 }
 </style>

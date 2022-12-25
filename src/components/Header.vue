@@ -352,15 +352,11 @@ export default {
     &::before {
       position: absolute;
       content: url("./../assets/images/icons/profile.svg");
-      width: 24px;
-      height: 24px;
       left: 0;
       top: 5px;
 
       @include mediaMin(992px) {
-        width: 20px;
-        height: 20px;
-        top: auto;
+        top: 3px;
       }
     }
   }
@@ -503,6 +499,10 @@ export default {
 
   @include mediaMin(992px) {
     font-size: 16px;
+  }
+
+  .router-link-active {
+    color: $primary;
   }
 }
 </style>
