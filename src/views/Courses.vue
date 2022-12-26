@@ -76,11 +76,7 @@ export default {
     };
   },
 
-  methods: {
-    rr() {
-      console.log(this.cards);
-    },
-  },
+  methods: {},
 
   mounted() {
     axios({

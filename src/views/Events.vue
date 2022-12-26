@@ -53,7 +53,7 @@
 
           <div class="events__btns-wrap">
             <button
-              class="events__toolbar-btn events__toolbar-btn--list"
+              class="events__toolbar-btn events__toolbar-btn--list _active"
               @click="addClass"
             ></button>
             <button
@@ -214,6 +214,11 @@ export default {
 
   methods: {
     addClass(e) {
+      const btns = document.querySelectorAll(".events__toolbar-btn");
+      for (const item of btns) {
+        item.classList.remove("_active");
+      }
+      e.target.classList.add("_active");
       const cards = document.querySelectorAll(".event-card");
       for (const card of cards) {
         if (e.target.classList.contains("events__toolbar-btn--list")) {
@@ -346,7 +351,8 @@ export default {
       background-position: no-repeat;
       background-size: auto;
       background-position: center;
-      &:hover {
+      &:hover,
+      &._active {
         background: url(../assets/images/list_btn_primry.svg);
         background-position: no-repeat;
         background-size: auto;
@@ -358,7 +364,8 @@ export default {
       background-position: no-repeat;
       background-size: auto;
       background-position: center;
-      &:hover {
+      &:hover,
+      &._active {
         background: url(../assets/images/grid_btn_primary.svg);
         background-position: no-repeat;
         background-size: auto;

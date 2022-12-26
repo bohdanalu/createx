@@ -13,8 +13,8 @@
               >hello@createx.com</a
             >
             <span class="contacts__label"> Address: </span>
-            <a class="contacts__link" href="mailto:hello@createx.com"
-              >2464 Royal Ln. Mesa, New Jersey 45463, USA</a
+            <span class="contacts__link"
+              >2464 Royal Ln. Mesa, New Jersey 45463, USA</span
             >
             <h2 class="contacts__title title">Follow us:</h2>
             <ul class="social">
@@ -102,7 +102,7 @@
               </label>
 
               <input
-                class="form-qw__checkbox"
+                class="form-qw__checkbox checkbox"
                 type="checkbox"
                 name="check"
                 id="check"

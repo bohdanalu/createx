@@ -310,7 +310,9 @@
                   class="program__item-wrap"
                   @click="accordionClick($event)"
                 ></div>
-                <span class="program__lesson"> Lesson 3. </span>
+                <span class="program__lesson" @click="accordionClick($event)">
+                  Lesson 3.
+                </span>
                 <h4 class="program__name-lesson">
                   Sagittis vitae facilisi rutrum amet mauris quisque vel.
                 </h4>

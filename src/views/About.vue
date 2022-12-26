@@ -212,16 +212,16 @@
         <h2 class="work__title">best jobs for you</h2>
         <h3 class="work__subtitle subtitle mb">Our students work here</h3>
         <ul class="work__list-brends">
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
-                class="work__img"
+                class="work__img brands-item"
                 src="../assets/images/brand/In_Dept.svg"
                 alt=""
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -230,7 +230,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -239,7 +239,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -248,7 +248,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -257,7 +257,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -266,7 +266,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -275,7 +275,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -284,7 +284,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -293,7 +293,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -302,7 +302,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -311,7 +311,7 @@
               />
             </a>
           </li>
-          <li class="work__item">
+          <li class="work__item brands-item">
             <a class="work__link" href="">
               <img
                 class="work__img"
@@ -837,20 +837,6 @@ export default {
   }
 
   // .work__item
-
-  &__item {
-    max-width: 120px;
-    width: 100%;
-    object-fit: cover;
-    height: 64px;
-    filter: grayscale(1);
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      filter: grayscale(0);
-      transition: all 0.2s ease-in;
-    }
-  }
 
   // .work__link
 

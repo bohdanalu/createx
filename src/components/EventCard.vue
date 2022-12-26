@@ -11,7 +11,9 @@
       </p>
       <span> {{ event_data.event }} </span>
     </div>
-    <a class="event-card__btn btn--light" href="">{{ event_data.btn }}</a>
+    <RouterLink class="event-card__btn btn--light" to="/Event">{{
+      event_data.btn
+    }}</RouterLink>
   </article>
 </template>
 

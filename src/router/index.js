@@ -6,6 +6,7 @@ import Events from "../views/Events.vue";
 import Blog from "../views/Blog.vue";
 import Contacts from "../views/Contacts.vue";
 import Course from "../views/Course.vue";
+import Event from "../views/Event.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +18,7 @@ const router = createRouter({
     { path: "/Blog", name: "Blog", component: Blog },
     { path: "/Contacts", name: "Contacts", component: Contacts },
     { path: "/Course", name: "Course", component: Course },
+    { path: "/Event", name: "Event", component: Event },
   ],
   scrollBehavior() {
     return window.scroll({

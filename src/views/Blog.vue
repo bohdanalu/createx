@@ -6,27 +6,31 @@
         <h3 class="blog__subtitle subtitle mb">Createx School Journal</h3>
         <div class="blog__toolbar">
           <div class="blog__btn-wrap">
-            <button class="blog__toolbar-btn blog__toolbar-btn--active">
+            <button
+              class="blog__toolbar-btn _active"
+              @click="filterPostCards($event)"
+            >
               All
             </button>
+
             <button
               class="blog__toolbar-btn"
               type="button"
-              @click="filterPostCards"
+              @click="filterPostCards($event)"
             >
               Articles
             </button>
             <button
               class="blog__toolbar-btn"
               type="button"
-              @click="filterPostCards"
+              @click="filterPostCards($event)"
             >
               Videos
             </button>
             <button
               class="blog__toolbar-btn"
               type="button"
-              @click="filterPostCards"
+              @click="filterPostCards($event)"
             >
               Podcasts
             </button>
@@ -54,7 +58,7 @@
         </div>
         <ul class="blog__posts">
           <PostCardVue
-            v-for="post in post_cards"
+            v-for="post in filteredList"
             :key="post.id"
             :post_data="post"
           />
@@ -175,7 +179,7 @@ export default {
           btn: "Listen",
         },
         {
-          id: "pc1",
+          id: "pc7",
           classItem: "item-7",
           badge: "Video",
           class: "post__badge--video",
@@ -189,7 +193,7 @@ export default {
           btn: "Watch",
         },
         {
-          id: "pc2",
+          id: "pc8",
           classItem: "item-8",
           badge: "Article",
           class: "post__badge--article",
@@ -202,20 +206,44 @@ export default {
           btn: "Read",
         },
       ],
+
+      filteredList: [],
     };
   },
   methods: {
-    filterPostCards(e) {
-      console(e.target);
-      // if (e.target.value === "Articles") {
-      //   return this.post_cards.badge[Article];
-      // } else if (e.target.value === "Videos") {
-      //   return this.post_cards.badge[Video];
-      // } else if (e.target.value === "Podcasts") {
-      //   return this.post_cards.badge[Podcast];
-      // } else {
-      //   return this.post_cards;
-      // }
+    filterPostCards(el) {
+      const listBtns = document.querySelectorAll(".blog__toolbar-btn");
+      const post = document.querySelector(".blog__posts");
+      const value = el.target.textContent.trim();
+
+      for (const btn of listBtns) {
+        btn.classList.remove("_active");
+      }
+
+      el.target.classList.add("_active");
+
+      if (value == "Articles") {
+        post.style.display = "flex";
+        return (this.filteredList = this.post_cards.filter(
+          (el) => el.badge == "Article"
+        ));
+      }
+      if (value == "Videos") {
+        post.style.display = "flex";
+        return (this.filteredList = this.post_cards.filter(
+          (el) => el.badge == "Video"
+        ));
+      }
+      if (value == "Podcasts") {
+        post.style.display = "flex";
+        return (this.filteredList = this.post_cards.filter(
+          (el) => el.badge == "Podcast"
+        ));
+      }
+      if (value == "All") {
+        post.style.display = "grid";
+        return (this.filteredList = this.post_cards);
+      }
     },
   },
 };
@@ -255,7 +283,7 @@ export default {
     color: $gray-600;
     font-size: inherit;
 
-    &--active {
+    &._active {
       border: 1px solid $primary;
       color: $primary;
     }

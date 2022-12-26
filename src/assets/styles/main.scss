@@ -158,3 +158,40 @@ button {
     @include btn(40px, 52px, 16px);
   }
 }
+
+.checkbox {
+  position: relative;
+  width: 0;
+  height: 0;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 1px solid $gray-300;
+    background-color: $white;
+  }
+
+  &:checked {
+    &:after {
+      background-color: $primary;
+      content: url('../images/icons/mark.svg');
+      z-index: 2;
+    }
+  }
+}
+
+.brands-item {
+  max-width: 120px;
+  width: 100%;
+  object-fit: cover;
+  height: 64px;
+  filter: grayscale(1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    filter: grayscale(0);
+    transition: all 0.2s ease-in;
+  }
+}

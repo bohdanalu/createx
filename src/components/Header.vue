@@ -97,7 +97,7 @@
                       for="check"
                     >
                       <input
-                        class="form-modal__check"
+                        class="form-modal__check checkbox"
                         type="checkbox"
                         name="check"
                         id="check"
@@ -150,10 +150,11 @@
                       for="check"
                     >
                       <input
-                        class="form-modal__check"
+                        class="form-modal__check checkbox"
                         type="checkbox"
                         name="check"
                         id="check"
+                        :checked="(isHide = false)"
                       />
                       {{ singIn.check }}
                     </label>
@@ -436,6 +437,7 @@ export default {
 
     &--check {
       flex-direction: row;
+      gap: 24px;
     }
   }
 
