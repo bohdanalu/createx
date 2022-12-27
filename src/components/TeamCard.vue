@@ -65,15 +65,23 @@ export default {
   text-align: center;
   @extend %shadow;
 
+  &__link {
+    &:hover {
+      ~ .card-team__social {
+        transition: all 0.2s ease;
+        transform: scale(1);
+      }
+    }
+  }
+
   &__img-wrap {
     position: relative;
     padding: 20px 20px 0;
     background-color: $secondary;
     margin-bottom: 16px;
     border-radius: 4px;
-
     &::after {
-      opacity: 0;
+      display: none;
       position: absolute;
       content: "";
       top: 0;
@@ -96,11 +104,7 @@ export default {
     &:hover {
       &::after {
         transition: all 0.2s ease;
-        opacity: 1;
-      }
-      .card-team__social {
-        transition: all 0.2s ease;
-        transform: scale(1);
+        display: block;
       }
     }
   }
@@ -136,6 +140,9 @@ export default {
     right: 20px;
     transform: scale(0);
     transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1);
+    }
   }
 
   &__social-item {
@@ -148,7 +155,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    // opacity: 0.6;
+    opacity: 0.6;
 
     &:hover {
       opacity: 1;

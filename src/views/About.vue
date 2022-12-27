@@ -21,8 +21,14 @@
                 </p>
               </div>
               <div class="about__btn-wrap">
-                <a class="about__btn btn--light" href=" #">Explore events</a>
-                <a class="about__btn btn--light" href=" #">Browse courses</a>
+                <!-- <a class="about__btn btn--light" href=" #">Explore events</a>
+                <a class="about__btn btn--light" href=" #">Browse courses</a> -->
+                <RouterLink class="about__btn btn--light" to="/Events"
+                  >Explore events</RouterLink
+                >
+                <RouterLink class="about__btn btn--light" to="/Courses"
+                  >Browse courses</RouterLink
+                >
               </div>
             </div>
             <img

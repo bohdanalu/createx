@@ -1,5 +1,5 @@
 <template>
-  <li class="blog__post" :class="post_data.classItem" :id="post_data.id">
+  <li class="blog__post" :id="post_data.id">
     <article class="blog__post-card post">
       <span class="post__badge" :class="post_data.class">{{
         post_data.badge

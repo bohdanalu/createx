@@ -99,7 +99,6 @@ export default {
       post_cards: [
         {
           id: "pc1",
-          classItem: "item-1",
           badge: "Podcast",
           class: "post__badge--podcast",
           img: "/src/assets/images/posts/podcast.png",
@@ -112,7 +111,6 @@ export default {
         },
         {
           id: "pc2",
-          classItem: "item-2",
           badge: "Article",
           class: "post__badge--article",
           img: "/src/assets/images/posts/article_comp.jpg",
@@ -125,7 +123,6 @@ export default {
         },
         {
           id: "pc3",
-          classItem: "item-3",
           badge: "Video",
           class: "post__badge--video",
           img: "/src/assets/images/posts/article.png",
@@ -139,7 +136,6 @@ export default {
         },
         {
           id: "pc4",
-          classItem: "item-4",
           badge: "Article",
           class: "post__badge--article",
           img: "/src/assets/images/posts/article_big.jpg",
@@ -153,7 +149,6 @@ export default {
         },
         {
           id: "pc5",
-          classItem: "item-5",
           badge: "Video",
           class: "post__badge--video",
           img: "/src/assets/images/posts/video.png",
@@ -167,7 +162,6 @@ export default {
         },
         {
           id: "pc6",
-          classItem: "item-6",
           badge: "Podcast",
           class: "post__badge--podcast",
           img: "/src/assets/images/posts/podcast_purple.jpg",
@@ -180,7 +174,6 @@ export default {
         },
         {
           id: "pc7",
-          classItem: "item-7",
           badge: "Video",
           class: "post__badge--video",
           img: "/src/assets/images/posts/video_pink.jpg",
@@ -194,7 +187,6 @@ export default {
         },
         {
           id: "pc8",
-          classItem: "item-8",
           badge: "Article",
           class: "post__badge--article",
           img: "/src/assets/images/posts/article_type.jpg",
@@ -223,25 +215,21 @@ export default {
       el.target.classList.add("_active");
 
       if (value == "Articles") {
-        post.style.display = "flex";
         return (this.filteredList = this.post_cards.filter(
           (el) => el.badge == "Article"
         ));
       }
       if (value == "Videos") {
-        post.style.display = "flex";
         return (this.filteredList = this.post_cards.filter(
           (el) => el.badge == "Video"
         ));
       }
       if (value == "Podcasts") {
-        post.style.display = "flex";
         return (this.filteredList = this.post_cards.filter(
           (el) => el.badge == "Podcast"
         ));
       }
       if (value == "All") {
-        post.style.display = "grid";
         return (this.filteredList = this.post_cards);
       }
     },
@@ -333,47 +321,7 @@ export default {
       display: grid;
       grid-template-columns: 31.7% auto 75px 31.7%;
       gap: 60px 30px;
-      grid-template-areas:
-        "item-1 item-2 item-2 item-3"
-        "item-4 item-4 item-5 item-5"
-        "item-6 item-7 item-7 item-8";
     }
-  }
-
-  .item-1 {
-    grid-area: item-1;
-  }
-
-  .item-2 {
-    grid-area: item-2;
-  }
-
-  .item-3 {
-    grid-area: item-2;
-  }
-
-  .item-4 {
-    grid-area: item-4;
-  }
-
-  .item-5 {
-    grid-area: item-5;
-  }
-
-  .item-6 {
-    grid-area: item-6;
-  }
-
-  .item-7 {
-    grid-area: item-7;
-  }
-
-  .item-8 {
-    grid-area: item-8;
-  }
-
-  .item-3 {
-    grid-area: item-3;
   }
 
   &__post {
@@ -391,6 +339,19 @@ export default {
     @include mediaMin(1200px) {
       width: 100%;
     }
+
+    &:nth-child(2) {
+      grid-column: span 2;
+    }
+    &:nth-child(4) {
+      grid-column: span 2;
+    }
+    &:nth-child(5) {
+      grid-column: span 2;
+    }
+    &:nth-child(7) {
+      grid-column: span 2;
+    }
   }
 
   // .blog__head
@@ -405,27 +366,10 @@ export default {
     width: 100%;
   }
 
-  // .blog__subtitle
-
   // .blog__btn
 
   &__btn {
     @include btn(40px, 52px, 16px);
-  }
-
-  // .blog__posts
-
-  // &__posts {
-  //     display: flex;
-  //     flex-wrap: wrap;
-  //     gap: 30px;
-  // }
-
-  // .blog__post-card
-
-  &__post-card {
-    // max-width: 390px;
-    // width: 100%;
   }
 }
 
@@ -461,11 +405,6 @@ export default {
     // @include mediaMin(1200px) {
     //   height: auto;
     // }
-  }
-
-  // .post__bottom
-
-  &__bottom {
   }
 
   // .post__meta
