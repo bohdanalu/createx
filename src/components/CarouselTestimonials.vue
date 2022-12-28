@@ -1,10 +1,7 @@
 <template>
-  <!-- <div class="v-wrap"> -->
   <Carousel>
-    <Slide v-for="card in testimonials" :key="card.id">
-      <div class="carousel__item">
-        <TestimonialsCard :key="card.id" :testimonials_data="card" />
-      </div>
+    <Slide class="v-slide" v-for="card in testimonials" :key="card.id">
+      <TestimonialsCard :key="card.id" :testimonials_data="card" />
     </Slide>
 
     <template #addons>
@@ -12,13 +9,13 @@
       <Pagination />
     </template>
   </Carousel>
-  <!-- </div> -->
 </template>
 
 <script>
 import { defineComponent } from "vue";
 import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 import TestimonialsCard from "./TestimonialsCard.vue";
+import axios from "axios";
 
 export default defineComponent({
   name: "Basic",
@@ -28,50 +25,64 @@ export default defineComponent({
     Pagination,
     Navigation,
     TestimonialsCard,
+    axios,
   },
 
   data() {
     return {
-      testimonials: [
-        {
-          id: "t1",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-          img: "/src/assets/images/home_page/review.jpg",
-          name: "Eleanor Pena",
-          position: "Course",
-        },
-        {
-          id: "t2",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-          img: "/src/assets/images/home_page/review.jpg",
-          name: "Eleanor Pena",
-          position: "Course",
-        },
-        {
-          id: "t3",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-          img: "/src/assets/images/home_page/review.jpg",
-          name: "Eleanor Pena",
-          position: "Course",
-        },
-      ],
+      // testimonials: [
+      //   {
+      //     id: "t1",
+      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
+      //     img: "/src/assets/images/home_page/review.jpg",
+      //     name: "Eleanor Pena",
+      //     position: "Course",
+      //   },
+      //   {
+      //     id: "t2",
+      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
+      //     img: "/src/assets/images/home_page/review.jpg",
+      //     name: "Eleanor Pena",
+      //     position: "Course",
+      //   },
+      //   {
+      //     id: "t3",
+      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
+      //     img: "/src/assets/images/home_page/review.jpg",
+      //     name: "Eleanor Pena",
+      //     position: "Course",
+      //   },
+      // ],
+      testimonials: [],
       settings: {
         itemsToShow: 1,
-        snapAlign: "center",
         itemsToScroll: 1,
         wrapAround: true,
+        snapAlign: "center",
       },
     };
+  },
+
+  beforeMount() {
+    axios
+      .get("https://bohdanalu.github.io/review.json")
+      .then((response) => {
+        this.testimonials = response.data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 });
 </script>
 
 <style lang="scss">
 @import "./../assets/styles/main.scss";
-.v-wrap {
-  width: 100%;
-  height: auto;
-}
+
+// v-slide {
+//   max-width: 1230px;
+//   width: 100%;
+// }
 .carousel {
   position: relative;
   text-align: center;
@@ -80,18 +91,32 @@ export default defineComponent({
   &__viewport {
     overflow: hidden;
   }
+  .carousel__track {
+    display: flex;
+    // gap: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    // @include mediaMin(700px) {
+    //   gap: 0;
+    // }
+  }
 
   &__slide {
-    max-width: 1230px;
     width: 100%;
     scroll-snap-stop: auto;
     flex-shrink: 0;
     margin: 0;
     position: relative;
     display: flex;
+    gap: 0;
     justify-content: center;
     align-items: center;
     transform: translateZ(0);
+    @include mediaMin(700px) {
+      max-width: 1230px;
+      width: 100%;
+    }
   }
 
   .v-nav {

@@ -8,13 +8,6 @@
             src="./../assets/images/logo.svg"
             alt="Logo Createx"
         /></RouterLink>
-        <!-- <a class="header__logo-link" href="#about">
-          <img
-            class="header__logo logo"
-            src="./../assets/images/logo.svg"
-            alt="Logo Createx"
-          />
-        </a> -->
         <div
           class="header__inner"
           :class="{ active: isActive }"
@@ -145,25 +138,28 @@
                         placeholder="Your password"
                       />
                     </label>
-                    <label
-                      class="form-modal__label form-modal__label--check"
-                      for="check"
-                    >
-                      <input
-                        class="form-modal__check checkbox"
-                        type="checkbox"
-                        name="check"
-                        id="check"
-                        :checked="(isHide = false)"
-                      />
-                      {{ singIn.check }}
-                    </label>
-                    <a
-                      class="form-modal__link"
-                      :class="{ hide: isHide }"
-                      href=""
-                      >Forgot password?</a
-                    >
+                    <div class="form-modal-wrap">
+                      <label
+                        class="form-modal__label form-modal__label--check"
+                        for="check"
+                      >
+                        <input
+                          class="form-modal__check checkbox"
+                          type="checkbox"
+                          name="check"
+                          id="check"
+                          :checked="(isHide = false)"
+                        />
+                        {{ singIn.check }}
+                      </label>
+                      <a
+                        class="form-modal__link"
+                        :class="{ hide: isHide }"
+                        href=""
+                        >Forgot password?</a
+                      >
+                    </div>
+
                     <button class="form-modal__btn btn--gradient" type="submit">
                       {{ singIn.title }}
                     </button>
@@ -277,11 +273,13 @@ export default {
 
   &__inner {
     position: absolute;
-    transform: translateY(-500%);
-    transition: all 0.7s ease;
+    width: 100%;
+    transform: translateY(-200%);
+    transition: all 0.5s ease;
 
     &.active {
       transform: translateY(0);
+      transition: all 0.5s ease;
       position: absolute;
       display: flex;
       flex-direction: column;
@@ -296,7 +294,6 @@ export default {
       height: 100vh;
       background-color: $white;
       overflow-y: auto;
-      transition: all 0.7s ease;
       z-index: 4;
     }
 
@@ -442,6 +439,7 @@ export default {
   }
 
   &__link {
+    color: $primary;
     &.hide {
       display: none;
     }

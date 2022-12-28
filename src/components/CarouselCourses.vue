@@ -100,9 +100,11 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../assets/styles/main.scss";
-
+.carousel * {
+  box-sizing: border-box;
+}
 .carousel {
   position: relative;
   text-align: center;
@@ -113,26 +115,30 @@ export default defineComponent({
   }
   &__track {
     display: flex;
+    margin: 0;
+    padding: 0;
     position: relative;
-    @include mediaMin(700px) {
-      gap: 30px;
-    }
+
+    // gap: 0;
+
+    // @include mediaMin(700px) {
+    //   gap: 30px;
+    // }
   }
 
-  &__sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-  }
+  // &__sr-only {
+  //   position: absolute;
+  //   width: 1px;
+  //   height: 1px;
+  //   padding: 0;
+  //   margin: -1px;
+  //   overflow: hidden;
+  //   clip: rect(0, 0, 0, 0);
+  //   border: 0;
+  // }
 
   &__slide {
-    max-width: 600px;
-    width: 100%;
+    // width: 100%;
     scroll-snap-stop: auto;
     flex-shrink: 0;
     margin: 0;
@@ -141,6 +147,11 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     transform: translateZ(0);
+
+    // @include mediaMin(700px) {
+    //   max-width: 600px;
+    //   width: 100%;
+    // }
   }
 
   &__prev,

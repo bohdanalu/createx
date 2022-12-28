@@ -47,15 +47,6 @@
 }
 
 
-
-// $screen-sx: 320.00px;
-// $screen-sm: 453px;
-// $screen-md: 768px;
-// $screen-lg: 992px;
-// $screen-xl: 1200px;
-// $screen-xxl: 1320px;
-
-
 @mixin landscape {
     @media screen and (orientation:landscape) and (max-height: 415px) {
         @content;

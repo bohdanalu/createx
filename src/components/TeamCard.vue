@@ -64,6 +64,7 @@ export default {
   position: relative;
   text-align: center;
   @extend %shadow;
+  transition: all 0.2s ease;
 
   &__link {
     &:hover {
@@ -80,10 +81,12 @@ export default {
     background-color: $secondary;
     margin-bottom: 16px;
     border-radius: 4px;
+    transition: all 0.2s ease;
     &::after {
-      display: none;
+      opacity: 0;
       position: absolute;
       content: "";
+      transition: all 0.2s ease;
       top: 0;
       left: 0;
       bottom: 0;
@@ -98,13 +101,12 @@ export default {
         rgba(30, 33, 44, 0.92) 91.49%,
         #1e212c 100%
       );
-      transition: all 0.2s ease;
     }
 
     &:hover {
       &::after {
         transition: all 0.2s ease;
-        display: block;
+        opacity: 1;
       }
     }
   }
@@ -141,7 +143,11 @@ export default {
     transform: scale(0);
     transition: all 0.2s ease-in-out;
     &:hover {
+      transition: all 0.2s ease;
       transform: scale(1);
+      ~ .card-team__img-wrap::after {
+        opacity: 1;
+      }
     }
   }
 

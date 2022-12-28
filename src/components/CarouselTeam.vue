@@ -123,7 +123,6 @@ export default defineComponent({
       itemsToShow: 1,
       snapAlign: "center",
       itemsToScroll: 1,
-      wrapAround: true,
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -131,16 +130,16 @@ export default defineComponent({
       // 700px and up
       700: {
         itemsToShow: 2,
-        snapAlign: "center",
+        snapAlign: "start",
       },
       // 1024 and up
       1024: {
         itemsToShow: 3,
-        snapAlign: "center",
+        snapAlign: "start",
       },
       1200: {
         itemsToShow: 4,
-        snapAlign: "center",
+        snapAlign: "start",
       },
     },
   }),
@@ -160,10 +159,9 @@ export default defineComponent({
   }
   &__track {
     display: flex;
+    margin: 0;
+    padding: 0;
     position: relative;
-    @include mediaMin(700px) {
-      gap: 30px;
-    }
   }
 
   &__sr-only {
@@ -178,7 +176,7 @@ export default defineComponent({
   }
 
   &__slide {
-    width: 100%;
+    // width: 100%;
     scroll-snap-stop: auto;
     flex-shrink: 0;
     margin: 0;
@@ -188,10 +186,10 @@ export default defineComponent({
     align-items: center;
     transform: translateZ(0);
 
-    @include mediaMin(700px) {
-      max-width: 285px;
-      width: 100%;
-    }
+    // @include mediaMin(700px) {
+    //   max-width: 285px;
+    //   width: 100%;
+    // }
   }
 
   &__prev,

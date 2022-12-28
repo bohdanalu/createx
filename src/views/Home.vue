@@ -100,8 +100,9 @@
           >
         </div>
         <div class="courses__catalog">
-          <Card
+          <CardVue
             class="card--horisontal"
+            v-if="(cards.length = 6)"
             v-for="card in cards"
             :key="card.id"
             :catalog_data="card"
@@ -236,6 +237,7 @@
         <h3 class="events-mini__subtitle subtitle mb">Lectures & workshops</h3>
         <div class="events-mini__list">
           <EventCard
+            class="event-card--gorisontal"
             v-for="card in eventCards"
             :key="card.id"
             :event_data="card"
@@ -263,7 +265,8 @@
   </div>
 </template>
 <script>
-import Card from "./../components/Card.vue";
+import axios from "axios";
+import CardVue from "./../components/Card.vue";
 import CarouselTeamVue from "./../components/CarouselTeam.vue";
 import BlogOurVue from "../components/BlogOur.vue";
 import Subscribe from "./../components/Subscribe.vue";
@@ -273,67 +276,19 @@ import Testimonials from "./../components/Testimonials.vue";
 
 export default {
   components: {
-    Card,
+    CardVue,
     BlogOurVue,
     Subscribe,
     CarouselTeamVue,
     EventCard,
     Certificate,
     Testimonials,
+    axios,
   },
   data() {
     return {
       activeItem: "tutors",
-      cards: [
-        {
-          id: 1,
-          img: "/src/assets/images/card/bell.png",
-          badge: "Marketing",
-          title: "The Ultimate Google Ads Training Course",
-          price: 100,
-          speacer: "Jerome Bell",
-        },
-        {
-          id: 2,
-          img: "/src/assets/images/card/mcKinny.png",
-          badge: "Managment",
-          title: "Prduct Management Fundamentals",
-          price: 480,
-          speacer: "Marvin McKinney",
-        },
-        {
-          id: 3,
-          img: "/src/assets/images/card/li.png",
-          badge: "HR & Recruting",
-          title: "HR  Management and Analytics",
-          price: 200,
-          speacer: "Leslie Alexander Li",
-        },
-        {
-          id: 4,
-          img: "/src/assets/images/card/watson.png",
-          badge: "Marketing",
-          title: "Brand Management & PR Communications",
-          price: 530,
-          speacer: "Kristin Watson",
-        },
-        {
-          id: 5,
-          img: "/src/assets/images/card/russell.png",
-          badge: "Managment",
-          title: "Business Development Management",
-          price: 400,
-          speacer: "Dianne Russell",
-        },
-        {
-          id: 6,
-          img: "/src/assets/images/card/hawkins.png",
-          badge: "Design",
-          title: "Graphic Design Basic",
-          price: 500,
-          speacer: "Guy Hawkins",
-        },
-      ],
+      cards: [],
       eventCards: [
         {
           id: "evc1",
@@ -399,13 +354,17 @@ export default {
     setActive(menuItem) {
       this.activeItem = menuItem;
     },
-    windowScroll() {
-      window.scroll({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
+  },
+
+  beforeMount() {
+    axios
+      .get("https://bohdanalu.github.io/courses.json")
+      .then((response) => {
+        this.cards = response.data;
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    },
   },
 };
 </script>
@@ -569,6 +528,7 @@ export default {
 
   &__btn {
     @include btn(24px, 36px, 14px);
+
     @include mediaMin(768px) {
       @include btn(40px, 52px, 16px);
     }
@@ -724,8 +684,7 @@ export default {
     &::before {
       position: absolute;
       content: url(../assets/images/icons/check.svg);
-      filter: invert(43%) sepia(40%) saturate(6077%) hue-rotate(339deg)
-        brightness(104%) contrast(101%);
+      @extend %filter-primary;
       object-fit: contain;
       width: 16px;
       height: 16px;
@@ -819,22 +778,21 @@ export default {
     padding: 10px 24px;
     font-size: 16px;
     line-height: 1.6;
+    transition: all 0.3s ease;
     &.active {
       color: $primary;
       border: 1px solid $primary;
       &::before {
-        filter: invert(36%) sepia(78%) saturate(3345%) hue-rotate(341deg)
-          brightness(101%) contrast(102%);
+        @extend %filter-primary;
       }
     }
 
     &:hover {
-      border: 1px solid $primary;
-      color: $primary;
-      @extend %hover;
+      transition: all 0.3s ease;
+      color: $gray-800;
       &::before {
-        filter: invert(36%) sepia(78%) saturate(3345%) hue-rotate(341deg)
-          brightness(101%) contrast(102%);
+        filter: invert(16%) sepia(1%) saturate(7488%) hue-rotate(192deg)
+          brightness(119%) contrast(75%);
       }
     }
 

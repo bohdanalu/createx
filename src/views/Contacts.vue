@@ -6,13 +6,17 @@
           <div class="contacts__info">
             <h2 class="contacts__title title">Contact info</h2>
             <h3 class="contacts__subtitle subtitle">Get in touch</h3>
-            <span class="contacts__label"> Talk to us: </span>
+            <span class="contacts__label contacts__label--chat">
+              Talk to us:
+            </span>
             <a class="contacts__link" href="tel:4055550128">(405) 555-0128</a>
-            <span class="contacts__label"> Call us: </span>
+            <span class="contacts__label contacts__label--call">
+              Call us:
+            </span>
             <a class="contacts__link" href="mailto:hello@createx.com"
               >hello@createx.com</a
             >
-            <span class="contacts__label"> Address: </span>
+            <span class="contacts__label contacts__label--adr"> Address: </span>
             <span class="contacts__link"
               >2464 Royal Ln. Mesa, New Jersey 45463, USA</span
             >
@@ -198,9 +202,25 @@ export default {
   // .contacts__label
 
   &__label {
+    display: inline-block;
+    position: relative;
+    padding-left: 12px;
     display: block;
     font-weight: 700;
     color: $gray-700;
+    &::before {
+      width: 24px;
+      height: 24px;
+      position: relative;
+      left: -24px;
+    }
+
+    &--chat {
+      &::before {
+        content: url(../assets/images/icons/chat.svg);
+        @extend %filter-primary;
+      }
+    }
   }
 
   // .contacts__link

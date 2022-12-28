@@ -6,46 +6,61 @@
         <h3 class="catalog__subtitle subtitle mb">Our online courses</h3>
         <div class="catalog__wrap-btn">
           <ul class="catalog__nav">
-            <li class="catalog__item">
-              <label class="catalog__label" for="all">17</label>
-              <button class="catalog__btn" id="all">All</button>
+            <li class="catalog__item _active">
+              <span class="catalog__label">17</span>
+              <button class="catalog__btn" @click="filterCards($event)">
+                All
+              </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label" for="all">4</label>
-              <button class="catalog__btn">Marketing</button>
+              <span class="catalog__label">4</span>
+              <button class="catalog__btn" @click="filterCards($event)">
+                Marketing
+              </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label" for="all">3</label>
-              <button class="catalog__btn">Manadgment</button>
+              <span class="catalog__label">3</span>
+              <button class="catalog__btn" @click="filterCards($event)">
+                Management
+              </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label" for="all">5</label>
-              <button class="catalog__btn">HR & Recruting</button>
+              <span class="catalog__label">5</span>
+              <button class="catalog__btn" @click="filterCards($event)">
+                HR & Recruting
+              </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label" for="all">2</label>
-              <button class="catalog__btn">Design</button>
+              <label class="catalog__label">2</label>
+              <button class="catalog__btn" @click="filterCards($event)">
+                Design
+              </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label" for="all">3</label>
-              <button class="catalog__btn">Development</button>
+              <label class="catalog__label">3</label>
+              <button class="catalog__btn" @click="filterCards($event)">
+                Development
+              </button>
             </li>
           </ul>
-          <input
-            class="catalog__search"
-            type="search"
-            placeholder="Search course..."
-          />
+          <div class="search-wrap">
+            <input
+              class="catalog__search"
+              type="search"
+              placeholder="Search course..."
+            />
+            <button class="btn-search" type="submit"></button>
+          </div>
         </div>
         <div class="catalog__courses">
           <CardVue
             class="card--vertical"
-            v-for="card in cards"
+            v-for="card in filteredCards"
             :key="card.id"
             :catalog_data="card"
           />
         </div>
-        <button class="catalog__load" @click="rr">Load More</button>
+        <button class="catalog__load">Load More</button>
       </div>
     </section>
 
@@ -73,19 +88,56 @@ export default {
   data() {
     return {
       cards: [],
+      filteredCards: [],
     };
   },
 
-  methods: {},
+  methods: {
+    filterCards(el) {
+      console.log(el.target.parentElement);
+      const listItems = document.querySelectorAll(".catalog__item");
+      const value = el.target.textContent.trim();
+      for (const btn of listItems) {
+        btn.classList.remove("_active");
+      }
+      el.target.parentElement.classList.add("_active");
+      if (value == "Marketing") {
+        return (this.filteredCards = this.cards.filter(
+          (el) => el.badge == "Marketing"
+        ));
+      }
+      if (value == "Management") {
+        return (this.filteredCards = this.cards.filter(
+          (el) => el.badge == "Management"
+        ));
+      }
+      if (value == "HR & Recruting") {
+        return (this.filteredCards = this.cards.filter(
+          (el) => el.badge == "HR & Recruting"
+        ));
+      }
+      if (value == "Design") {
+        return (this.filteredCards = this.cards.filter(
+          (el) => el.badge == "Design"
+        ));
+      }
+      if (value == "Development") {
+        return (this.filteredCards = this.cards.filter(
+          (el) => el.badge == "Development"
+        ));
+      }
+      if (value == "All") {
+        return (this.filteredCards = this.cards);
+      }
+    },
+  },
 
-  mounted() {
-    axios({
-      method: "get",
-      url: "https://bohdanalu.github.io/courses.json",
-    })
-      .then(function (response) {
-        console.log(response.data);
+  beforeMount() {
+    axios
+      .get("https://bohdanalu.github.io/courses.json")
+      .then((response) => {
         this.cards = response.data;
+        this.filteredCards = this.cards;
       })
       .catch((err) => {
         console.log(err);
@@ -144,9 +196,13 @@ export default {
     color: $gray-600;
     border: 1px solid transparent;
 
-    &:hover {
+    &._active {
       color: $primary;
       border: 1px solid $primary;
+    }
+
+    &:hover {
+      color: $gray-800;
     }
   }
 
@@ -170,7 +226,7 @@ export default {
   &__btn {
     padding: 5px 10px;
     background: transparent;
-    border-color: transparent;
+    border: 1px solid transparent;
     color: inherit;
     border-radius: 4px;
     font-weight: 700;
@@ -226,5 +282,9 @@ export default {
       @extend %filter-primary;
     }
   }
+}
+
+.card {
+  text-align: left;
 }
 </style>

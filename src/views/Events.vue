@@ -41,15 +41,21 @@
             />
             <span>events per page</span>
           </label>
-          <label class="events__label events__label--search" for="search_event">
-          </label>
-          <input
-            class="events__search"
-            type="search"
-            name="serch_event"
-            id="search_event"
-            placeholder="Search blog..."
-          />
+          <div class="search-wrap">
+            <label
+              class="events__label events__label--search"
+              for="search_event"
+            >
+            </label>
+            <input
+              class="events__search search"
+              type="search"
+              name="serch_event"
+              id="search_event"
+              placeholder="Search blog..."
+            />
+            <button class="btn-search"></button>
+          </div>
 
           <div class="events__btns-wrap">
             <button
@@ -231,6 +237,13 @@ export default {
         }
       }
     },
+  },
+
+  mounted() {
+    const cards = document.querySelectorAll(".event-card");
+    for (const card of cards) {
+      card.classList.add("event-card--gorisontal");
+    }
   },
 };
 </script>

@@ -13,7 +13,7 @@
           testimonials_data.name
         }}</cite>
         <span class="testimonials__user-position"
-          >position {{ testimonials_data.position }}</span
+          >Position, {{ testimonials_data.position }}</span
         >
       </div>
     </div>
@@ -36,7 +36,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 @import "./../assets/styles/main.scss";
 .testimonials {
   &__blockquote {

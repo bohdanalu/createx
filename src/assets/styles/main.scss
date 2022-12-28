@@ -47,6 +47,12 @@ button {
   cursor: pointer;
 }
 
+input:focus {
+  border: 1px solid rgba(255, 63, 58, 0.4);
+  border-radius: 4px;
+  box-shadow: 0px 80px 80px -20px rgba(255, 63, 58, 0.08), 0px 30px 24px -10px rgba(255, 63, 58, 0.05), 0px 12px 10px -6px rgba(255, 63, 58, 0.04), 0px 4px 4px -4px rgba(30, 33, 44, 0.03);
+}
+
 .burger {
   display: block;
   position: relative;
@@ -72,10 +78,11 @@ button {
   &--gradient {
     background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
     color: $white;
+    transition: all 0.3s ease-out;
 
     &:hover {
       opacity: 0.8;
-      transition: all 0.5s ease-out;
+      transition: all 0.3s ease-out;
     }
   }
 
@@ -84,15 +91,30 @@ button {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    transition: all 0.3s ease;
 
     &:hover {
       background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
       -webkit-background-clip: padding-box;
       -webkit-text-fill-color: white;
       background-clip: border-box;
-      transition: all 0.5s ease-out;
+      animation: animateBg 2s linear-gradient;
     }
 
+  }
+}
+
+@keyframes animateBg {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: 100% 0;
   }
 }
 
@@ -177,7 +199,6 @@ button {
     &:after {
       background-color: $primary;
       content: url('../images/icons/mark.svg');
-      z-index: 2;
     }
   }
 }
@@ -194,4 +215,21 @@ button {
     filter: grayscale(0);
     transition: all 0.2s ease-in;
   }
+}
+
+.search-wrap {
+  position: relative;
+}
+
+.btn-search {
+  position: absolute;
+  background-image: url(../images/icons/search.svg);
+  width: 16px;
+  height: 16px;
+  top: 12px;
+  right: 16px;
+  @extend %bg-position;
+  background-color: transparent;
+  border-color: transparent;
+  outline: transparent;
 }

@@ -298,9 +298,11 @@
     </section>
     <section class="check-event check">
       <div class="container">
-        <h2 class="check__title title">Check other courses</h2>
-        <h3 class="check__subtitle subtitle">Check other courses</h3>
-        <div class="check__slider"></div>
+        <h2 class="check__title title">Check other online events</h2>
+        <h3 class="check__subtitle subtitle mb">You may be interested in</h3>
+        <div class="check__slider">
+          <CarouselEvents />
+        </div>
         <div class="check__wrap-btn explore">
           <span class="explore__label" for="explore">Do you want more?</span>
           <RouterLink class="explore__btn btn--gradient" to="/Events"
@@ -313,11 +315,13 @@
 </template>
 
 <script>
+import CarouselEvents from "../components/CarouselEvents.vue";
 import Social from "../components/Social.vue";
 
 export default {
   components: {
     Social,
+    CarouselEvents,
   },
   data() {
     return {
@@ -361,7 +365,6 @@ export default {
       }
     },
   },
-  components: { Social },
 };
 </script>
 

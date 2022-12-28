@@ -45,15 +45,17 @@
               <option value="marketing">Marketing</option>
               <option value="managment">Manadgment</option>
             </select>
-
-            <label for="search_blog"></label>
-            <input
-              class="blog__search"
-              type="search"
-              name="serch_blog"
-              id="search_blog"
-              placeholder="Search blog..."
-            />
+            <div class="search-wrap">
+              <label for="search_blog"></label>
+              <input
+                class="blog__search"
+                type="search"
+                name="serch_blog"
+                id="search_blog"
+                placeholder="Search blog..."
+              />
+              <button class="btn-search"></button>
+            </div>
           </div>
         </div>
         <ul class="blog__posts">
@@ -84,14 +86,17 @@
         </div>
       </div>
     </section>
+    <SubscribeArticle />
   </div>
 </template>
 
 <script>
 import PostCardVue from "../components/PostCard.vue";
+import SubscribeArticle from "../components/SibscribeArticle.vue";
 export default {
   components: {
     PostCardVue,
+    SubscribeArticle,
   },
 
   data() {
@@ -205,7 +210,6 @@ export default {
   methods: {
     filterPostCards(el) {
       const listBtns = document.querySelectorAll(".blog__toolbar-btn");
-      const post = document.querySelector(".blog__posts");
       const value = el.target.textContent.trim();
 
       for (const btn of listBtns) {
@@ -234,10 +238,13 @@ export default {
       }
     },
   },
+  mounted() {
+    this.filteredList = this.post_cards;
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/styles/main.scss";
 .blog {
   padding: 60px 0 80px;
@@ -261,6 +268,7 @@ export default {
   &__btn-wrap {
     display: flex;
     gap: 12px;
+    flex-wrap: wrap;
   }
 
   &__toolbar-btn {
@@ -270,6 +278,10 @@ export default {
     background-color: transparent;
     color: $gray-600;
     font-size: inherit;
+
+    &:hover {
+      color: $gray-800;
+    }
 
     &._active {
       border: 1px solid $primary;
@@ -373,94 +385,9 @@ export default {
   }
 }
 
-.post {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  // .post__badge
-
-  &__badge {
-    position: absolute;
-    padding: 1px 8px;
-    top: 12px;
-    left: 12px;
-    background: $white;
-    border-radius: 4px;
-
-    &::before {
-      position: absolute;
-      content: url(../../images/icons/mic.svg);
-      width: 16px;
-      height: 16px;
-    }
-  }
-
-  // .post__img
-
-  &__img {
-    width: 100%;
-    height: 300px;
-    // @include mediaMin(1200px) {
-    //   height: auto;
-    // }
-  }
-
-  // .post__meta
-
-  &__meta {
-    margin-bottom: 8px;
-    color: $gray-700;
-  }
-
-  // .post__position
-
-  &__position {
-    padding-right: 12px;
-    border-right: 1px solid $gray-700;
-  }
-
-  // .post__date
-
-  &__date {
-    padding: 0 12px;
-    border-right: 1px solid $gray-700;
-  }
-
-  // .post__lenght
-
-  &__lenght {
-    padding-left: 12px;
-  }
-
-  // .post__title
-
-  &__title {
-    font-weight: 700;
-    font-size: 20px;
-    color: $gray-900;
-  }
-
-  // .post__text
-
-  &__text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: $gray-800;
-  }
-
-  // .post__btn
-
-  &__btn {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.6;
-    background-image: url(../../images/icons/arrow-back.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto;
-  }
+.blog > .post__img {
+  width: 100%;
+  height: 300px;
 }
 </style>
 

@@ -65,3 +65,12 @@ export default {
   components: { Social },
 };
 </script>
+
+<style lang="scss">
+@import "../assets/styles/main.scss";
+
+.form-modal-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+</style>

@@ -7,7 +7,7 @@
         :alt="catalog_data.speacer"
     /></RouterLink>
     <div class="card__content">
-      <span class="card__badge card__badge--marketing">{{
+      <span class="card__badge" :class="catalog_data.class">{{
         catalog_data.badge
       }}</span>
       <h4 class="card__title">{{ catalog_data.title }}</h4>
@@ -48,16 +48,6 @@ export default {
   @extend %shadow;
   display: flex;
   transition: box-shadow 0.3s ease;
-
-  // &__card {
-  //   max-width: 390px;
-  //   width: 100%;
-
-  //   @include mediaMin(992px) {
-  //     max-width: 600px;
-  //     width: calc(50% - 15px);
-  //   }
-  // }
 
   &--horisontal {
     max-width: 390px;
@@ -142,6 +132,10 @@ export default {
 
     &--design {
       background-color: $pink;
+    }
+
+    &--dev {
+      background-color: $purple;
     }
   }
 

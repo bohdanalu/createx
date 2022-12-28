@@ -53,14 +53,14 @@ export default {
     @extend %shadow-hover;
   }
 
-  @include mediaMin(768px) {
-    max-width: 1230px;
-    width: 100%;
-    height: auto;
-    padding: 32px 40px;
-    flex-direction: row;
-    gap: 40px;
-  }
+  // @include mediaMin(768px) {
+  //   max-width: 1230px;
+  //   width: 100%;
+  //   height: auto;
+  //   padding: 32px 40px;
+  //   flex-direction: row;
+  //   gap: 40px;
+  // }
 
   &--vertical {
     @extend %shadow;
@@ -81,6 +81,56 @@ export default {
       height: 323px;
       padding: 24px;
     }
+
+    .event-card__date {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      text-align: left;
+
+      //   @include mediaMin(768px) {
+      //     grid-template-columns: auto auto;
+      //     margin-bottom: 0;
+      //     column-gap: 20px;
+      //   }
+    }
+
+    .event-card__month {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        left: 51px;
+        content: "";
+        width: 80px;
+        height: 45px;
+        background-color: $white;
+
+        @include mediaMin(768px) {
+          display: none;
+        }
+      }
+    }
+
+    .event-card__num,
+    .event-card__month {
+      font-weight: 700;
+      font-size: 28px;
+      color: $primary;
+    }
+
+    .event-card__date {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      text-align: left;
+    }
+
+    .event-card__btn {
+      width: 100%;
+      text-align: center;
+      @include btn(32px, 44px, 14px);
+    }
   }
 
   &--gorisontal {
@@ -88,43 +138,44 @@ export default {
       max-width: 1230px;
       width: 100%;
       height: auto;
+      gap: 40px;
       padding: 32px 40px;
       flex-direction: row;
       gap: 40px;
       box-shadow: none;
     }
+
+    .event-card__num {
+      @include mediaMin(768px) {
+        grid-row: span 2;
+        font-weight: 900;
+        font-size: 48px;
+        line-height: 1.3;
+        letter-spacing: 1px;
+      }
+    }
+
+    .event-card__date {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      text-align: left;
+
+      @include mediaMin(768px) {
+        grid-template-columns: auto auto;
+        margin-bottom: 0;
+        column-gap: 20px;
+      }
+    }
   }
 
   // .event-card__date
-
-  &__date {
-    margin-bottom: 20px;
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    text-align: left;
-
-    @include mediaMin(768px) {
-      grid-template-columns: auto auto;
-      margin-bottom: 0;
-      column-gap: 20px;
-    }
-  }
 
   &__num,
   &__month {
     font-weight: 700;
     font-size: 28px;
     color: $primary;
-  }
-
-  &__num {
-    @include mediaMin(768px) {
-      grid-row: span 2;
-      font-weight: 900;
-      font-size: 48px;
-      line-height: 1.3;
-      letter-spacing: 1px;
-    }
   }
 
   &__month {

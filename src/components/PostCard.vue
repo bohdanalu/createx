@@ -22,7 +22,7 @@
           </p>
         </div>
       </div>
-      <a class="post__btn" href="">{{ post_data.btn }}</a>
+      <RouterLink class="post__btn" to="/Post">{{ post_data.btn }}</RouterLink>
     </article>
   </li>
 </template>
@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../assets/styles/main.scss";
 
 .post {
@@ -53,6 +53,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: left;
 
   // .post__badge
 
@@ -116,14 +117,26 @@ export default {
   // .post__date
 
   &__date {
-    padding: 0 12px;
+    position: relative;
+    padding: 0 12px 0 36px;
     border-right: 1px solid $gray-700;
+    &::before {
+      position: absolute;
+      content: url(../assets/images/icons/calendar.svg);
+      left: 12px;
+    }
   }
 
   // .post__lenght
 
   &__lenght {
-    padding-left: 12px;
+    position: relative;
+    padding-left: 36px;
+    &::before {
+      position: absolute;
+      content: url(../assets/images/icons/clock.svg);
+      left: 12px;
+    }
   }
 
   // .post__title

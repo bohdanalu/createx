@@ -47,11 +47,13 @@
           <img src="./../assets/images/icons/polygon.svg" alt="Button play" />
         </a>
         <div class="video__wrap">
-          <img
-            class="video__img"
-            src="./../assets/images/image_video.jpg"
-            alt=""
-          />
+          <div class="video__img-wrap">
+            <img
+              class="video__img"
+              src="./../assets/images/image_video.jpg"
+              alt=""
+            />
+          </div>
           <ul class="video__statistic">
             <li class="video__item">
               <span class="video__item-num">1200</span>
@@ -496,11 +498,15 @@ export default {
     margin-bottom: 32px;
   }
 
-  &__img {
+  &__img-wrap {
     max-width: 810px;
     width: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-    flex-shrink: 1;
   }
 
   // .video__statistic
@@ -559,10 +565,14 @@ export default {
 
   &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     row-gap: 30px;
     flex-wrap: wrap;
+
+    @include mediaMin(1200px) {
+      justify-content: space-between;
+    }
   }
 
   // .values__item
@@ -651,6 +661,11 @@ export default {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    @include mediaMin(1200px) {
+      justify-content: space-between;
+    }
   }
 
   // .direction__item
@@ -801,7 +816,12 @@ export default {
   &__list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 30px;
+
+    @include mediaMin(1200px) {
+      justify-content: space-between;
+    }
   }
 
   // .our-team__card
