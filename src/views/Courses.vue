@@ -7,25 +7,25 @@
         <div class="catalog__wrap-btn">
           <ul class="catalog__nav">
             <li class="catalog__item _active">
-              <span class="catalog__label">17</span>
+              <span class="catalog__label">{{ cards.length }}</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 All
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">4</span>
+              <span class="catalog__label">2</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 Marketing
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">3</span>
+              <span class="catalog__label">2</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 Management
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">5</span>
+              <span class="catalog__label">2</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 HR & Recruting
               </button>
@@ -37,7 +37,7 @@
               </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label">3</label>
+              <label class="catalog__label">1</label>
               <button class="catalog__btn" @click="filterCards($event)">
                 Development
               </button>
@@ -54,6 +54,7 @@
         </div>
         <div class="catalog__courses">
           <CardVue
+            v-if="filteredCards.length <= 9"
             class="card--vertical"
             v-for="card in filteredCards"
             :key="card.id"
@@ -66,7 +67,6 @@
 
     <Testimonials />
     <Certificate />
-
     <Subscribe />
   </div>
 </template>
@@ -94,7 +94,6 @@ export default {
 
   methods: {
     filterCards(el) {
-      console.log(el.target.parentElement);
       const listItems = document.querySelectorAll(".catalog__item");
       const value = el.target.textContent.trim();
       for (const btn of listItems) {
@@ -160,11 +159,6 @@ export default {
     padding: 60px 0 40px;
   }
 
-  // .catalog__title
-
-  &__title {
-  }
-
   // .catalog__wrap-btn
 
   &__wrap-btn {
@@ -206,6 +200,8 @@ export default {
     }
   }
 
+  // .catalog__label
+
   &__label {
     display: inline-block;
     width: 12px;
@@ -238,7 +234,7 @@ export default {
     }
   }
 
-  // .catalog__courses
+  // .catalog__search
 
   &__search {
     width: 100%;
@@ -251,7 +247,7 @@ export default {
     }
   }
 
-  // .catalog__card
+  // .catalog__courses
 
   &__courses {
     display: flex;

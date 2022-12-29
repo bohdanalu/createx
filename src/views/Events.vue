@@ -117,7 +117,7 @@ export default {
           },
           title:
             "Formation of the organizational structure of the company in the face of uncertainty.",
-          events: "Onine master-class",
+          event: "Onine master-class",
           btn: "View more",
         },
         {
@@ -128,7 +128,7 @@ export default {
             hour: "11.00 - 12.30",
           },
           title: "Building a customer service department. Best Practices.",
-          events: "Onine lecture",
+          event: "Onine lecture",
           btn: "View more",
         },
         {
@@ -140,7 +140,7 @@ export default {
           },
           title:
             "How to apply methods of speculative design in practice. Worldbuilding prototyping.",
-          events: "Onine master-class",
+          event: "Onine master-class",
           btn: "View more",
         },
         {
@@ -152,7 +152,7 @@ export default {
           },
           title:
             "Find and evaluate: search and assessment tools for candidates.",
-          events: "Onine workshop",
+          event: "Onine workshop",
           btn: "View more",
         },
         {
@@ -164,7 +164,7 @@ export default {
           },
           title:
             "Connection to Microsoft Excel and Google Sheets, Data Visualization in Power BI.",
-          events: "Onine master-class",
+          event: "Onine master-class",
           btn: "View more",
         },
         {
@@ -188,7 +188,7 @@ export default {
           },
           title:
             "How to brief a client and present your design to approve it from the first show.",
-          events: "Onine lecture",
+          event: "Onine lecture",
           btn: "View more",
         },
         {
@@ -200,7 +200,7 @@ export default {
           },
           title:
             "Marketing or growth hacking: main differences and what business needs.",
-          events: "Onine lecture",
+          event: "Onine lecture",
           btn: "View more",
         },
         {
@@ -211,7 +211,7 @@ export default {
             hour: "15.00 - 19.00",
           },
           title: "Who is a project manager and do I want to be PM?",
-          events: "Onine lecture",
+          event: "Onine lecture",
           btn: "View more",
         },
       ],

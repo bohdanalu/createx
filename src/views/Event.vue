@@ -23,7 +23,6 @@
                     Aliquet lectus urna viverra in odio.
                   </h4>
                 </div>
-
                 <div class="program__text">
                   <p>
                     Nulla amet, sagittis potenti rhoncus sit. Elit lectus nec

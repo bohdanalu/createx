@@ -19,12 +19,12 @@
                 Enjoy studying with Createx Online Courses
               </h1>
               <div class="about__btn-wrap">
-                <RouterLink class="about__btn btn--light" to="/Courses"
-                  >Explore courses</RouterLink
-                >
-                <RouterLink class="about__btn btn--light" to="/About"
-                  >About us</RouterLink
-                >
+                <RouterLink class="about__btn btn--light" to="/Courses">
+                  Explore courses
+                </RouterLink>
+                <RouterLink class="about__btn btn--light" to="/About">
+                  About us
+                </RouterLink>
               </div>
             </div>
             <img
@@ -35,16 +35,20 @@
           </div>
           <ul class="about__statistic">
             <li class="about__item">
-              1200<label class="about__item-label">Students graduated</label>
+              1200
+              <span class="about__item-label">Students graduated</span>
             </li>
             <li class="about__item">
-              84<label class="about__item-label">Completed courses</label>
+              84
+              <span class="about__item-label">Completed courses</span>
             </li>
             <li class="about__item">
-              16<label class="about__item-label">Qualified tutors</label>
+              16
+              <span class="about__item-label">Qualified tutors</span>
             </li>
             <li class="about__item">
-              5<label class="about__item-label">Years of experience</label>
+              5
+              <span class="about__item-label">Years of experience</span>
             </li>
           </ul>
         </div>
@@ -82,9 +86,9 @@
                 tortor.
               </li>
             </ul>
-            <RouterLink class="why__btn btn--gradient" to="/About"
-              >More about us</RouterLink
-            >
+            <RouterLink class="why__btn btn--gradient" to="/About">
+              More about us
+            </RouterLink>
           </div>
         </div>
       </div>
@@ -95,16 +99,16 @@
         <div class="courses__head">
           <h2 class="courses__title title">Ready to learn?</h2>
           <h3 class="courses__subtitle subtitle">Featured Courses</h3>
-          <RouterLink class="courses__btn btn--light" to="/Courses"
-            >View all courses</RouterLink
-          >
+          <RouterLink class="courses__btn btn--light" to="/Courses">
+            View all courses
+          </RouterLink>
         </div>
         <div class="courses__catalog">
           <CardVue
             class="card--horisontal"
             v-if="(cards.length = 6)"
             v-for="card in cards"
-            :key="card.id"
+            :key="card?.id"
             :catalog_data="card"
           />
         </div>
@@ -245,9 +249,9 @@
         </div>
         <div class="explore">
           <span class="explore__label" for="explore">Do you want more?</span>
-          <RouterLink class="explore__btn btn--gradient" to="/Events"
-            >Explore all events</RouterLink
-          >
+          <RouterLink class="explore__btn btn--gradient" to="/Events">
+            Explore all events
+          </RouterLink>
         </div>
       </div>
     </section>
@@ -328,6 +332,7 @@ export default {
       ],
     };
   },
+
   methods: {
     accordionClick(el) {
       const list = el.target.nextElementSibling;
@@ -627,6 +632,7 @@ export default {
 .why {
   background: url(../assets/images/bg_shapes/dots_yellow.svg) left 45% no-repeat,
     url(../assets/images/bg_shapes/circles_yellow_2.svg) right bottom no-repeat;
+
   // .why__wrap
 
   &__wrap {
@@ -704,6 +710,8 @@ export default {
 }
 
 .courses {
+  // .courses__head
+
   &__head {
     margin-bottom: 30px;
 
@@ -714,6 +722,8 @@ export default {
     }
   }
 
+  // .courses__catalog
+
   &__catalog {
     display: flex;
     flex-wrap: wrap;
@@ -721,9 +731,13 @@ export default {
     gap: 30px;
   }
 
+  // .courses__title
+
   &__title {
     width: 100%;
   }
+
+  // .courses__subtitle
 
   &__subtitle {
     margin-bottom: 30px;
@@ -732,6 +746,8 @@ export default {
       margin-bottom: 0;
     }
   }
+
+  // .courses__btn
 
   &__btn {
     @include btn(40px, 52px, 16px);

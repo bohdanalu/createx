@@ -11,7 +11,9 @@
           <time class="post__date" datetime="2020-09-04">{{
             post_data.date
           }}</time>
-          <span class="post__lenght">{{ post_data.lenght }}</span>
+          <span class="post__lenght" v-if="post_data.lenght">{{
+            post_data.lenght
+          }}</span>
         </div>
         <h2 class="post__title">
           {{ post_data.title }}
@@ -103,6 +105,8 @@ export default {
   // .post__meta
 
   &__meta {
+    display: flex;
+    flex-wrap: nowrap;
     margin-bottom: 8px;
     color: $gray-700;
   }
@@ -159,6 +163,7 @@ export default {
   // .post__btn
 
   &__btn {
+    margin-top: auto;
     position: relative;
     display: inline-flex;
     padding-right: 32px;

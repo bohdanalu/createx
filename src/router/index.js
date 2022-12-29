@@ -20,7 +20,7 @@ const router = createRouter({
     { path: "/Contacts", name: "Contacts", component: Contacts },
     { path: "/Course", name: "Course", component: Course },
     { path: "/Event", name: "Event", component: Event },
-    { path: "/Post", name: "Post", component: Post },
+    { path: "/Post", name: "Post", component: Post, props: true },
   ],
   scrollBehavior() {
     return window.scroll({

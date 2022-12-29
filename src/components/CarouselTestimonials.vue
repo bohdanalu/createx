@@ -1,6 +1,6 @@
 <template>
   <Carousel>
-    <Slide class="v-slide" v-for="card in testimonials" :key="card.id">
+    <Slide v-for="card in testimonials" :key="card.id">
       <TestimonialsCard :key="card.id" :testimonials_data="card" />
     </Slide>
 
@@ -79,10 +79,6 @@ export default defineComponent({
 <style lang="scss">
 @import "./../assets/styles/main.scss";
 
-// v-slide {
-//   max-width: 1230px;
-//   width: 100%;
-// }
 .carousel {
   position: relative;
   text-align: center;

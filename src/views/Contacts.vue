@@ -212,12 +212,26 @@ export default {
       width: 24px;
       height: 24px;
       position: relative;
-      left: -24px;
+      left: -12px;
     }
 
     &--chat {
       &::before {
         content: url(../assets/images/icons/chat.svg);
+        @extend %filter-primary;
+      }
+    }
+
+    &--call {
+      &::before {
+        content: url(../assets/images/icons/iPhone.svg);
+        @extend %filter-primary;
+      }
+    }
+
+    &--adr {
+      &::before {
+        content: url(../assets/images/icons/pin-outline.svg);
         @extend %filter-primary;
       }
     }
@@ -230,6 +244,7 @@ export default {
     font-size: 18px;
     color: $gray-900;
     margin-bottom: 24px;
+    padding-left: 36px;
   }
 
   // .contacts__img
@@ -349,7 +364,7 @@ export default {
   }
 }
 
-// .social {
-//   display: flex;
-// }
+.social {
+  gap: 32px;
+}
 </style>

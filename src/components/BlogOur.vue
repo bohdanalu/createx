@@ -121,6 +121,9 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    @include mediaMin(992px) {
+      flex-wrap: nowrap;
+    }
   }
 
   // .blog__post-card
@@ -128,6 +131,10 @@ export default {
   &__post {
     max-width: 390px;
     width: 100%;
+    @include mediaMin(768px) {
+      max-width: calc((100% - 30px) / 2);
+      width: 100%;
+    }
   }
 }
 </style>

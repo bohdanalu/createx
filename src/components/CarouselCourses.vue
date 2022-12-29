@@ -118,27 +118,9 @@ export default defineComponent({
     margin: 0;
     padding: 0;
     position: relative;
-
-    // gap: 0;
-
-    // @include mediaMin(700px) {
-    //   gap: 30px;
-    // }
   }
 
-  // &__sr-only {
-  //   position: absolute;
-  //   width: 1px;
-  //   height: 1px;
-  //   padding: 0;
-  //   margin: -1px;
-  //   overflow: hidden;
-  //   clip: rect(0, 0, 0, 0);
-  //   border: 0;
-  // }
-
   &__slide {
-    // width: 100%;
     scroll-snap-stop: auto;
     flex-shrink: 0;
     margin: 0;
@@ -147,11 +129,6 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     transform: translateZ(0);
-
-    // @include mediaMin(700px) {
-    //   max-width: 600px;
-    //   width: 100%;
-    // }
   }
 
   &__prev,
@@ -201,6 +178,8 @@ export default defineComponent({
   }
 
   .card--gorisontal {
+    max-width: 600px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     @include mediaMin(768px) {

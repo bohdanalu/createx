@@ -21,14 +21,12 @@
                 </p>
               </div>
               <div class="about__btn-wrap">
-                <!-- <a class="about__btn btn--light" href=" #">Explore events</a>
-                <a class="about__btn btn--light" href=" #">Browse courses</a> -->
-                <RouterLink class="about__btn btn--light" to="/Events"
-                  >Explore events</RouterLink
-                >
-                <RouterLink class="about__btn btn--light" to="/Courses"
-                  >Browse courses</RouterLink
-                >
+                <RouterLink class="about__btn btn--light" to="/Events">
+                  Explore events
+                </RouterLink>
+                <RouterLink class="about__btn btn--light" to="/Courses">
+                  Browse courses
+                </RouterLink>
               </div>
             </div>
             <img
@@ -498,10 +496,14 @@ export default {
     margin-bottom: 32px;
   }
 
+  // .video__img-wrap
+
   &__img-wrap {
     max-width: 810px;
     width: 100%;
   }
+
+  // .video__img
 
   &__img {
     width: 100%;
@@ -539,11 +541,16 @@ export default {
       align-items: center;
     }
   }
+
+  // .video__item-label
+
   &__item-label {
     font-weight: 700;
     font-size: 18px;
     color: $gray-900;
   }
+
+  // .video__item-num
 
   &__item-num {
     font-size: 24px;
@@ -631,13 +638,15 @@ export default {
     }
   }
 
-  // .values__item
+  // .values__name
 
   &__name {
     font-weight: 700;
     font-size: 20px;
     color: $gray-900;
   }
+
+  // .values__text
 
   &__text {
     font-size: 16px;
@@ -710,16 +719,6 @@ export default {
 }
 
 .process {
-  // .process__title
-
-  &__title {
-  }
-
-  // .process__subtitle
-
-  &__subtitle {
-  }
-
   // .process__wrap
 
   &__wrap {
@@ -781,7 +780,7 @@ export default {
     color: $gray-700;
   }
 
-  // .process__step
+  // .process__name
 
   &__name {
     font-weight: 700;
@@ -796,6 +795,7 @@ export default {
     color: $gray-700;
     font-size: 16px;
   }
+  // .process__img
 
   &__img {
     max-width: 525px;
@@ -843,11 +843,6 @@ export default {
     padding-bottom: 100px;
   }
 
-  // .work__subtitle
-
-  &__subtitle {
-  }
-
   // .work__list-brends
 
   &__list-brends {
@@ -861,20 +856,6 @@ export default {
       justify-content: space-between;
     }
   }
-
-  // .work__item
-
-  // .work__link
-
-  &__link {
-  }
-
-  // .work__img
-
-  &__img {
-  }
-
-  // data-v-f22b56f8
 }
 </style>
 
@@ -902,7 +883,7 @@ export default {
     height: fit-content;
   }
 
-  // .about__content-wrap
+  // .about__subtitle
 
   &__subtitle {
     margin-bottom: 48px;
@@ -915,12 +896,16 @@ export default {
     width: 100%;
     padding-top: 0;
   }
+
+  // .about__info
+
   &__info {
     font-weight: 700;
     font-size: 20px;
     color: $gray-900;
     margin-bottom: 24px;
   }
+  // .about__text
 
   &__text {
     font-size: 16px;
@@ -938,6 +923,8 @@ export default {
     max-width: 465px;
     width: 100%;
   }
+
+  // .about__btn
 
   &__btn {
     cursor: pointer;

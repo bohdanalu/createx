@@ -345,7 +345,7 @@ export default {
     }
 
     @include mediaMin(992px) {
-      width: calc((100% - 20px) / 3);
+      width: calc((100% - 40px) / 3);
     }
 
     @include mediaMin(1200px) {
