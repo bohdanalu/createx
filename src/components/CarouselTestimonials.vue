@@ -25,34 +25,10 @@ export default defineComponent({
     Pagination,
     Navigation,
     TestimonialsCard,
-    axios,
   },
 
   data() {
     return {
-      // testimonials: [
-      //   {
-      //     id: "t1",
-      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-      //     img: "/src/assets/images/home_page/review.jpg",
-      //     name: "Eleanor Pena",
-      //     position: "Course",
-      //   },
-      //   {
-      //     id: "t2",
-      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-      //     img: "/src/assets/images/home_page/review.jpg",
-      //     name: "Eleanor Pena",
-      //     position: "Course",
-      //   },
-      //   {
-      //     id: "t3",
-      //     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo, amet lectus quam viverra mus lobortis fermentum amet, eu. Pulvinar eu sed purus facilisi. Vitae id turpis tempus ornare turpis quis non. Congue tortor in euismod vulputate etiam eros. Pulvinar neque pharetra arcu diam maecenas diam integer in.",
-      //     img: "/src/assets/images/home_page/review.jpg",
-      //     name: "Eleanor Pena",
-      //     position: "Course",
-      //   },
-      // ],
       testimonials: [],
       settings: {
         itemsToShow: 1,
@@ -89,13 +65,9 @@ export default defineComponent({
   }
   .carousel__track {
     display: flex;
-    // gap: 0;
     margin: 0;
     padding: 0;
     position: relative;
-    // @include mediaMin(700px) {
-    //   gap: 0;
-    // }
   }
 
   &__slide {

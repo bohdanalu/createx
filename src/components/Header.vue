@@ -230,6 +230,11 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  watch: {
+    $route() {
+      this.isActive = false;
+    },
+  },
 };
 </script>
 

@@ -13,31 +13,31 @@
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">2</span>
+              <span class="catalog__label">{{ marketingLength }}</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 Marketing
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">2</span>
+              <span class="catalog__label">{{ managementLenght }}</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 Management
               </button>
             </li>
             <li class="catalog__item">
-              <span class="catalog__label">2</span>
+              <span class="catalog__label">{{ hrLength }}</span>
               <button class="catalog__btn" @click="filterCards($event)">
                 HR & Recruting
               </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label">2</label>
+              <label class="catalog__label">{{ designLength }}</label>
               <button class="catalog__btn" @click="filterCards($event)">
                 Design
               </button>
             </li>
             <li class="catalog__item">
-              <label class="catalog__label">1</label>
+              <label class="catalog__label">{{ devLength }}</label>
               <button class="catalog__btn" @click="filterCards($event)">
                 Development
               </button>
@@ -52,6 +52,7 @@
             <button class="btn-search" type="submit"></button>
           </div>
         </div>
+
         <div class="catalog__courses">
           <CardVue
             v-if="filteredCards.length <= 9"
@@ -61,7 +62,9 @@
             :catalog_data="card"
           />
         </div>
-        <button class="catalog__load">Load More</button>
+        <button class="catalog__load" @click="filteredCards.length += 9">
+          Load More
+        </button>
       </div>
     </section>
 
@@ -87,6 +90,11 @@ export default {
   },
   data() {
     return {
+      marketingLength: 0,
+      managementLenght: 0,
+      hrLength: 0,
+      devLength: 0,
+      designLength: 0,
       cards: [],
       filteredCards: [],
     };
@@ -131,12 +139,36 @@ export default {
     },
   },
 
+  computed: {},
+
   beforeMount() {
     axios
       .get("https://bohdanalu.github.io/courses.json")
       .then((response) => {
         this.cards = response.data;
         this.filteredCards = this.cards;
+        for (let card of this.cards) {
+          switch (card.badge) {
+            case "Marketing":
+              this.marketingLength++;
+              break;
+            case "Management":
+              this.managementLenght++;
+              break;
+            case "Design":
+              this.designLength++;
+              break;
+            case "Development":
+              this.devLength++;
+              break;
+            case "HR & Recruting":
+              this.hrLength++;
+              break;
+
+            default:
+              break;
+          }
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -189,8 +221,13 @@ export default {
     position: relative;
     color: $gray-600;
     border: 1px solid transparent;
+    border-radius: 4px;
 
     &._active {
+      color: $primary;
+      border: 1px solid $primary;
+    }
+    &._active:hover {
       color: $primary;
       border: 1px solid $primary;
     }
@@ -224,6 +261,7 @@ export default {
     background: transparent;
     border: 1px solid transparent;
     color: inherit;
+    outline: transparent;
     border-radius: 4px;
     font-weight: 700;
     font-size: 16px;

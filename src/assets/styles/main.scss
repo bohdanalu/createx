@@ -64,7 +64,7 @@ input:focus {
   border: transparent;
   z-index: 5;
 
-  &--open {
+  &.active {
     background-image: url('../images/icons/cross.svg');
   }
 

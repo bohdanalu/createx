@@ -7,7 +7,7 @@
         :alt="catalog_data.speacer"
     /></RouterLink>
     <div class="card__content">
-      <span class="card__badge" :class="catalog_data.class">{{
+      <span class="card__badge" :style="changeColors">{{
         catalog_data.badge
       }}</span>
       <h4 class="card__title">{{ catalog_data.title }}</h4>
@@ -15,7 +15,7 @@
         <span class="card__price">
           <span class="card__currency">$</span>{{ catalog_data.price }}
         </span>
-        <span class="card__speacer"> by {{ catalog_data.speacer }} </span>
+        <span class="card__speacer"> by {{ catalog_data.speaker }} </span>
       </div>
     </div>
   </article>
@@ -24,7 +24,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      bg: "pink",
+    };
   },
 
   props: {
@@ -36,7 +38,30 @@ export default {
     },
   },
 
-  computed: {},
+  computed: {
+    changeColors() {
+      switch (this.catalog_data.badge) {
+        case "Marketing":
+          this.bg = "#03CEA4";
+          break;
+        case "Management":
+          this.bg = "#5A87FC";
+          break;
+        case "Design":
+          this.bg = "#F52F6E";
+          break;
+        case "Development":
+          this.bg = " #7772F1";
+          break;
+        case "HR & Recruting":
+          this.bg = " #F89828";
+          break;
+        default:
+          break;
+      }
+      return `background-color: ${this.bg}`;
+    },
+  },
 };
 </script>
 
@@ -117,26 +142,7 @@ export default {
     font-weight: 400;
     padding: 1px 8px;
     border-radius: 4px;
-
-    &--marketing {
-      background-color: $green;
-    }
-
-    &--management {
-      background-color: $blue;
-    }
-
-    &--hr {
-      background-color: $orange;
-    }
-
-    &--design {
-      background-color: $pink;
-    }
-
-    &--dev {
-      background-color: $purple;
-    }
+    background-color: pink;
   }
 
   // .card__title

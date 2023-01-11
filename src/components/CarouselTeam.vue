@@ -217,6 +217,9 @@ export default defineComponent({
       background-color: $primary;
       transition: background-color 0.2s ease;
     }
+    &:focus-visible {
+      outline: transparent;
+    }
   }
 
   &__prev {
@@ -229,6 +232,7 @@ export default defineComponent({
   }
 
   .paggin {
+    overflow-x: auto;
     @include mediaMin(992px) {
       display: none;
     }

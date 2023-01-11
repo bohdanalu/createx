@@ -21,15 +21,14 @@
 }
 
 @mixin btnPlay($length) {
+    background-image: url(../images/icons/polygon.svg) center no-repeat, linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
     position: relative;
-    padding-left: 4px;
     display: inline-flex;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
     width: $length;
     height: $length;
-    background: linear-gradient(55.95deg, #FF3F3A 0%, #F75E05 100%);
     cursor: pointer;
 
     &:hover {
@@ -38,7 +37,7 @@
             width: $length + 32px;
             height: $length + 32px;
             border-radius: 50%;
-            left: calc(-25% - 4px);
+            left: calc(-25% - 3px);
             content: '';
             background: #FF3F3A;
             opacity: 0.12;

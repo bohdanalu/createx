@@ -41,9 +41,7 @@
 
     <section class="video padding">
       <div class="container">
-        <a class="video__btn about__video" href="#">
-          <img src="./../assets/images/icons/polygon.svg" alt="Button play" />
-        </a>
+        <a class="video__btn about__video" href="#"></a>
         <div class="video__wrap">
           <div class="video__img-wrap">
             <img

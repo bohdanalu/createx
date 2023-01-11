@@ -333,6 +333,8 @@ export default {
   &__head {
     margin-bottom: 40px;
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
     justify-content: space-between;
   }
 

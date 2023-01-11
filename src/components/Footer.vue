@@ -107,7 +107,7 @@
             />
             by Createx Studio.</span
           >
-          <a class="footer__btn-up" href="#about">Go to top</a>
+          <a class="footer__btn-up" href="#header">Go to top</a>
         </div>
       </div>
     </div>

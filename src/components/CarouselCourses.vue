@@ -167,6 +167,10 @@ export default defineComponent({
     right: 0;
   }
 
+  &__pagination {
+    overflow-x: auto;
+  }
+
   .paggin {
     @include mediaMin(992px) {
       display: none;

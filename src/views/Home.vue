@@ -9,10 +9,6 @@
                 class="about__video"
                 href="https://www.bing.com/videos/search?q=%d0%b4%d0%be%d0%b1%d1%80%d0%be%d0%b3%d0%be+%d0%b2%d0%b5%d1%87%d0%be%d1%80%d0%b0+%d0%bc%d0%b8+%d0%b7+%d1%83%d0%ba%d1%80%d0%b0%d1%97%d0%bd%d0%b8&docid=607998285368288627&mid=0F2B970CEBB80C239F1B0F2B970CEBB80C239F1B&view=detail&FORM=VIREHT"
               >
-                <img
-                  src="./../assets/images/icons/polygon.svg"
-                  alt="Button play"
-                />
               </a>
               <span class="about__play">Play showreel</span>
               <h1 class="about__title">
@@ -796,6 +792,14 @@ export default {
     line-height: 1.6;
     transition: all 0.3s ease;
     &.active {
+      color: $primary;
+      border: 1px solid $primary;
+      &::before {
+        @extend %filter-primary;
+      }
+    }
+
+    &.active:hover {
       color: $primary;
       border: 1px solid $primary;
       &::before {
