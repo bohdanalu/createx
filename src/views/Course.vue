@@ -651,11 +651,6 @@ export default {
       margin-bottom: 4px;
     }
   }
-
-  // .about-course__sidebar
-
-  &__sidebar {
-  }
 }
 
 .sidebar {
@@ -779,11 +774,6 @@ export default {
     width: 100%;
   }
 
-  // .person__title
-
-  &__title {
-  }
-
   // .person__subtitle
 
   &__subtitle {
@@ -864,11 +854,6 @@ export default {
     gap: 24px;
   }
 
-  // .person__social-item
-
-  &__social-item {
-  }
-
   // .person__social-link
 
   &__social-link {
@@ -880,11 +865,6 @@ export default {
 }
 
 .steps {
-  // .steps__title
-
-  &__title {
-  }
-
   // .steps__subtitle
 
   &__subtitle {
@@ -1120,16 +1100,6 @@ export default {
     }
   }
 
-  // .whom__title
-
-  &__title {
-  }
-
-  // .whom__subtitle
-
-  &__subtitle {
-  }
-
   // .whom__list
 
   &__list {
@@ -1289,16 +1259,6 @@ export default {
   &__img {
     max-width: 550px;
     width: 100%;
-  }
-
-  // .request__block
-
-  &__block {
-  }
-
-  // .request__title
-
-  &__title {
   }
 
   // .request__subtitle

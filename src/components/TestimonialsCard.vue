@@ -89,11 +89,6 @@ export default {
     object-fit: cover;
   }
 
-  // .testimonials__user-info
-
-  &__user-info {
-  }
-
   // .testimonials__user-name
 
   &__user-name {

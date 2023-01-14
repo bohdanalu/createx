@@ -39,11 +39,18 @@
             <label class="blog__label-select" for="blog_theame"
               >Blog category</label
             >
-            <select class="blog__select" name="blog_theame" id="blog_theame">
-              <option value="marketing">All theme</option>
-              <option value="managment">Manadgment</option>
-              <option value="marketing">Marketing</option>
-              <option value="managment">Manadgment</option>
+            <select
+              class="blog__select"
+              name="blog_theame"
+              id="blog_theame"
+              @change="filterPostCards($event)"
+            >
+              <option value="All">All theme</option>
+              <option value="Management">Management</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Design">Design</option>
+              <option value="HR & Recruting">HR & Recruting</option>
+              <option value="Development">Development</option>
             </select>
             <div class="search-wrap">
               <label for="search_blog"></label>
@@ -105,9 +112,8 @@ export default {
         {
           id: "pc1",
           badge: "Podcast",
-          class: "post__badge--podcast",
           img: "/src/assets/images/posts/podcast.png",
-          position: "Marceting",
+          position: "Marketing",
           date: "September 4, 2020",
           lenght: "36 min.",
           title: " What is traffic arbitrage and does it really make money?",
@@ -117,7 +123,6 @@ export default {
         {
           id: "pc2",
           badge: "Article",
-          class: "post__badge--article",
           img: "/src/assets/images/posts/article_comp.jpg",
           position: "Management",
           date: "August 25, 2020",
@@ -129,7 +134,6 @@ export default {
         {
           id: "pc3",
           badge: "Video",
-          class: "post__badge--video",
           img: "/src/assets/images/posts/article.png",
           position: "Design",
           date: "August 8, 2020",
@@ -142,7 +146,6 @@ export default {
         {
           id: "pc4",
           badge: "Article",
-          class: "post__badge--article",
           img: "/src/assets/images/posts/article_big.jpg",
           position: "HR & Recruting",
           date: "August 3, 2020",
@@ -155,7 +158,6 @@ export default {
         {
           id: "pc5",
           badge: "Video",
-          class: "post__badge--video",
           img: "/src/assets/images/posts/video.png",
           position: "Management",
           date: "August 2, 2020",
@@ -168,7 +170,6 @@ export default {
         {
           id: "pc6",
           badge: "Podcast",
-          class: "post__badge--podcast",
           img: "/src/assets/images/posts/podcast_purple.jpg",
           position: "Design",
           date: "August 8, 2020",
@@ -180,7 +181,6 @@ export default {
         {
           id: "pc7",
           badge: "Video",
-          class: "post__badge--video",
           img: "/src/assets/images/posts/video_pink.jpg",
           position: "Management",
           date: "September 4, 2020",
@@ -193,7 +193,6 @@ export default {
         {
           id: "pc8",
           badge: "Article",
-          class: "post__badge--article",
           img: "/src/assets/images/posts/article_type.jpg",
           position: "Management",
           date: "August 25, 2020",
@@ -205,39 +204,39 @@ export default {
       ],
 
       filteredList: [],
+      selectValue: "",
     };
   },
   methods: {
     filterPostCards(el) {
       const listBtns = document.querySelectorAll(".blog__toolbar-btn");
       const value = el.target.textContent.trim();
-
+      const selectValue = el.target.value;
       for (const btn of listBtns) {
         btn.classList.remove("_active");
       }
 
       el.target.classList.add("_active");
 
-      if (value == "Articles") {
-        return (this.filteredList = this.post_cards.filter(
-          (el) => el.badge == "Article"
-        ));
+      if (value === "All" || selectValue === "All") {
+        this.filteredList = this.post_cards;
+      } else {
+        if (value) {
+          this.filteredList = this.post_cards.filter(
+            (el) => el.badge == value.slice(0, -1)
+          );
+        }
+        if (selectValue) {
+          this.filteredList = this.post_cards.filter(
+            (el) => el.position == selectValue
+          );
+        }
       }
-      if (value == "Videos") {
-        return (this.filteredList = this.post_cards.filter(
-          (el) => el.badge == "Video"
-        ));
-      }
-      if (value == "Podcasts") {
-        return (this.filteredList = this.post_cards.filter(
-          (el) => el.badge == "Podcast"
-        ));
-      }
-      if (value == "All") {
-        return (this.filteredList = this.post_cards);
-      }
+
+      return this.filteredList;
     },
   },
+
   mounted() {
     this.filteredList = this.post_cards;
   },
@@ -278,6 +277,7 @@ export default {
     background-color: transparent;
     color: $gray-600;
     font-size: inherit;
+    outline: transparent;
 
     &:hover {
       color: $gray-800;
@@ -305,7 +305,9 @@ export default {
     color: $gray-800;
     border: 1px solid $gray-300;
     appearance: none;
-    outline: transparent;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   &__search {

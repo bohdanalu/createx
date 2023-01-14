@@ -183,10 +183,6 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
   }
-
-  &__info {
-  }
-
   // .contacts__title
 
   &__title {
@@ -204,15 +200,15 @@ export default {
   &__label {
     display: inline-block;
     position: relative;
-    padding-left: 12px;
+    padding-left: 38px;
     display: block;
     font-weight: 700;
     color: $gray-700;
     &::before {
       width: 24px;
       height: 24px;
-      position: relative;
-      left: -12px;
+      position: absolute;
+      left: 0px;
     }
 
     &--chat {
@@ -282,25 +278,10 @@ export default {
     }
   }
 
-  // .question__block
-
-  &__bl {
-  }
-
-  // .question__title
-
-  &__title {
-  }
-
   // .question__subtitle
 
   &__subtitle {
     margin-bottom: 40px;
-  }
-
-  // .question__form
-
-  &__form {
   }
 }
 

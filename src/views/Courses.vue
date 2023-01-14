@@ -103,39 +103,19 @@ export default {
   methods: {
     filterCards(el) {
       const listItems = document.querySelectorAll(".catalog__item");
-      const value = el.target.textContent.trim();
+      let value = el.target.textContent.trim();
       for (const btn of listItems) {
         btn.classList.remove("_active");
       }
       el.target.parentElement.classList.add("_active");
-      if (value == "Marketing") {
-        return (this.filteredCards = this.cards.filter(
-          (el) => el.badge == "Marketing"
-        ));
+
+      if (value === "All") {
+        this.filteredCards = this.cards;
+      } else {
+        this.filteredCards = this.cards.filter((el) => el.badge == value);
       }
-      if (value == "Management") {
-        return (this.filteredCards = this.cards.filter(
-          (el) => el.badge == "Management"
-        ));
-      }
-      if (value == "HR & Recruting") {
-        return (this.filteredCards = this.cards.filter(
-          (el) => el.badge == "HR & Recruting"
-        ));
-      }
-      if (value == "Design") {
-        return (this.filteredCards = this.cards.filter(
-          (el) => el.badge == "Design"
-        ));
-      }
-      if (value == "Development") {
-        return (this.filteredCards = this.cards.filter(
-          (el) => el.badge == "Development"
-        ));
-      }
-      if (value == "All") {
-        return (this.filteredCards = this.cards);
-      }
+
+      return this.filteredCards;
     },
   },
 

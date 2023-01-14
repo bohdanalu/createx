@@ -120,6 +120,7 @@ export default {
   &__posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     gap: 30px;
     @include mediaMin(992px) {
       flex-wrap: nowrap;

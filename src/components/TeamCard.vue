@@ -1,39 +1,39 @@
 <template>
   <article class="team__card card-team" :id="team_data.id">
-    <a class="card-team__link" href="">
+    <div class="card-team__link-wrap">
       <div class="card-team__img-wrap">
         <img class="card-team__img" :src="team_data.img" alt="" />
       </div>
-    </a>
-    <ul class="card-team__social">
-      <li class="card-team__social-item">
-        <a class="card-team__social-link" href="">
-          <img
-            class="card-team__social-icon"
-            src="./../assets/images/icons/social/facebook.svg"
-            alt=""
-          />
-        </a>
-      </li>
-      <li class="card-team__social-item">
-        <a class="card-team__social-link" href="">
-          <img
-            class="card-team__social-icon"
-            src="./../assets/images/icons/social/instagram.svg"
-            alt=""
-          />
-        </a>
-      </li>
-      <li class="card-team__social-item">
-        <a class="card-team__social-link" href="">
-          <img
-            class="card-team__social-icon"
-            src="./../assets/images/icons/social/linked-In.svg"
-            alt=""
-          />
-        </a>
-      </li>
-    </ul>
+      <ul class="card-team__social">
+        <li class="card-team__social-item">
+          <a class="card-team__social-link" href="">
+            <img
+              class="card-team__social-icon"
+              src="./../assets/images/icons/social/facebook.svg"
+              alt=""
+            />
+          </a>
+        </li>
+        <li class="card-team__social-item">
+          <a class="card-team__social-link" href="">
+            <img
+              class="card-team__social-icon"
+              src="./../assets/images/icons/social/instagram.svg"
+              alt=""
+            />
+          </a>
+        </li>
+        <li class="card-team__social-item">
+          <a class="card-team__social-link" href="">
+            <img
+              class="card-team__social-icon"
+              src="./../assets/images/icons/social/linked-In.svg"
+              alt=""
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
     <h4 class="card-team__name">{{ team_data.name }}</h4>
     <span class="card-team__position">{{ team_data.position }}</span>
   </article>
@@ -61,16 +61,16 @@ export default {
 <style lang="scss">
 @import "./../assets/styles/main.scss";
 .card-team {
-  position: relative;
   text-align: center;
   @extend %shadow;
   transition: all 0.2s ease;
 
-  &__link {
+  &__link-wrap {
+    position: relative;
     &:hover {
-      ~ .card-team__social {
-        transition: all 0.2s ease;
-        transform: scale(1);
+      .card-team__social {
+        transition: all 0.3s ease;
+        opacity: 1;
       }
     }
   }
@@ -82,33 +82,6 @@ export default {
     margin-bottom: 16px;
     border-radius: 4px;
     transition: all 0.2s ease;
-    &::after {
-      opacity: 0;
-      position: absolute;
-      content: "";
-      transition: all 0.2s ease;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: linear-gradient(
-        180deg,
-        rgba(30, 33, 44, 0) 43.9%,
-        rgba(30, 33, 44, 0.03) 55.21%,
-        rgba(30, 33, 44, 0.33) 68.73%,
-        rgba(30, 33, 44, 0.56) 76.17%,
-        rgba(30, 33, 44, 0.768225) 83.75%,
-        rgba(30, 33, 44, 0.92) 91.49%,
-        #1e212c 100%
-      );
-    }
-
-    &:hover {
-      &::after {
-        transition: all 0.2s ease;
-        opacity: 1;
-      }
-    }
   }
 
   // .card-team__img
@@ -137,21 +110,29 @@ export default {
   &__social {
     position: absolute;
     display: flex;
+    justify-content: end;
     gap: 12px;
-    bottom: 84px;
-    right: 20px;
-    transform: scale(0);
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      transition: all 0.2s ease;
-      transform: scale(1);
-      ~ .card-team__img-wrap::after {
-        opacity: 1;
-      }
-    }
+    padding: 20px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(30, 33, 44, 0) 43.9%,
+      rgba(30, 33, 44, 0.03) 55.21%,
+      rgba(30, 33, 44, 0.33) 68.73%,
+      rgba(30, 33, 44, 0.56) 76.17%,
+      rgba(30, 33, 44, 0.768225) 83.75%,
+      rgba(30, 33, 44, 0.92) 91.49%,
+      #1e212c 100%
+    );
+    opacity: 0;
+    transition: all 0.3s ease-in;
   }
 
   &__social-item {
+    align-self: end;
     width: 20px;
     height: 20px;
   }
@@ -162,9 +143,10 @@ export default {
     height: 100%;
     object-fit: contain;
     opacity: 0.6;
-
+    transition: all 0.2s ease;
     &:hover {
       opacity: 1;
+      transition: all 0.2s ease;
     }
   }
 }

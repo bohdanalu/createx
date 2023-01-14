@@ -28,21 +28,5 @@ export default {
     url(./../assets/images/bg_shapes/dots.svg) 24% 89% no-repeat,
     url(./../assets/images/bg_shapes/circles_2.svg) right bottom no-repeat;
   background-color: $gray-200;
-  // .testimonials__title
-
-  &__title {
-  }
-
-  // .testimonials__subtitle
-
-  &__subtitle {
-  }
-
-  // .testimonials__slider
-
-  &__slider-content {
-  }
-
-  // .testimonials__bloquoter
 }
 </style>

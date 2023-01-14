@@ -359,21 +359,6 @@ export default {
     object-fit: cover;
   }
 
-  // .single-post__position
-
-  &__position {
-  }
-
-  // .single-post__date
-
-  &__date {
-  }
-
-  // .single-post__lenght
-
-  &__lenght {
-  }
-
   // .single-post__title
 
   &__title {
@@ -492,11 +477,6 @@ export default {
     height: 100%;
   }
 
-  // .sidebar-post__title
-
-  &__title {
-  }
-
   // .sidebar-post__autor-name
 
   &__autor-name {
@@ -533,11 +513,6 @@ export default {
     }
   }
 
-  // .sidebar-post__social-link
-
-  &__social-link {
-  }
-
   // .sidebar-post__social-img
 
   &__social-img {
@@ -549,11 +524,6 @@ export default {
 
   &__trending {
     margin-bottom: 60px;
-  }
-
-  // .sidebar-post__trending-title
-
-  &__trending-title {
   }
 
   // .sidebar-post__post-list
@@ -568,11 +538,6 @@ export default {
 
   &__post-item {
     width: 100%;
-  }
-
-  // .sidebar-post__tags
-
-  &__tags {
   }
 
   // .sidebar-post__tags-list
@@ -621,18 +586,6 @@ export default {
     height: 300px;
   }
 
-  // .post__info
-
-  // .post__date
-
-  &__date {
-    // color: $gray-700;
-    // margin-bottom: 4px;
-    // &::before {
-    //   display: none;
-    // }
-  }
-
   // .post__title
 
   &__title {
@@ -644,9 +597,6 @@ export default {
     &:hover {
       color: $primary;
     }
-  }
-
-  &__date {
   }
 }
 

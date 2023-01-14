@@ -2,7 +2,7 @@
   <article class="event-card" :id="event_data.id">
     <time class="event-card__date" datetime="05-08 14:00">
       <span class="event-card__num">{{ event_data.data.date }}</span>
-      <span class="event-card__month">{{ event_data.data.mounth }}</span>
+      <span class="event-card__month">{{ event_data.data.month }}</span>
       <span class="event-card__time">{{ event_data.data.hour }}</span>
     </time>
     <div class="event-card__content">
@@ -11,9 +11,9 @@
       </p>
       <span> {{ event_data.event }} </span>
     </div>
-    <RouterLink class="event-card__btn btn--light" to="/Event">{{
-      event_data.btn
-    }}</RouterLink>
+    <RouterLink class="event-card__btn btn--light" to="/Event"
+      >View more</RouterLink
+    >
   </article>
 </template>
 
@@ -62,7 +62,7 @@ export default {
   //   gap: 40px;
   // }
 
-  &--vertical {
+  &.vertical {
     @extend %shadow;
     max-width: 390px;
     width: 100%;
@@ -76,8 +76,8 @@ export default {
     border-radius: 4px;
 
     @include mediaMin(768px) {
+      min-width: calc(50% - 24px);
       max-width: 390px;
-      width: 100%;
       height: 323px;
       padding: 24px;
     }
@@ -133,8 +133,8 @@ export default {
     }
   }
 
-  &--gorisontal {
-    @include mediaMin(450px) {
+  &.gorisontal {
+    @include mediaMin(768px) {
       max-width: 1230px;
       width: 100%;
       height: auto;

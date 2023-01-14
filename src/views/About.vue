@@ -678,6 +678,7 @@ export default {
   // .direction__item
 
   &__item {
+    max-width: 390px;
     width: 100%;
     @include mediaMin(768px) {
       width: 45%;

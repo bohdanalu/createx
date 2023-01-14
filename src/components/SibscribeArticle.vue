@@ -43,6 +43,10 @@
 @import "../assets/styles/main.scss";
 
 .subscribe-art {
+  text-align: center;
+  @include mediaMin(992px) {
+    text-align: left;
+  }
   // .subscribe-art__wrap
   background-color: $gray-200;
 
@@ -91,7 +95,10 @@
     display: flex;
     gap: 24px;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    @include mediaMin(992px) {
+      justify-content: space-between;
+    }
   }
 
   &__label {
@@ -103,16 +110,6 @@
 }
 
 .subscribe {
-  // .subscribe__subtitle
-
-  &__subtitle {
-  }
-
-  // .subscribe__form
-
-  &__form {
-  }
-
   // .subscribe__input
 
   &__input {
@@ -124,11 +121,6 @@
     font-size: 16px;
     line-height: 1.6;
     color: $gray-600;
-  }
-
-  // .subscribe__btn
-
-  &__btn {
   }
 }
 </style>

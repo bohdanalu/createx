@@ -13,19 +13,27 @@
               class="events__select"
               name="events_theame"
               id="events_theame"
+              @change="filterEventCards($event)"
             >
-              <option value="marketing">All theme</option>
-              <option value="managment">Manadgment</option>
-              <option value="marketing">Marketing</option>
-              <option value="managment">Manadgment</option>
+              <option value="All">All theme</option>
+              <option value="Management">Management</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Design">Design</option>
+              <option value="HR & Recruting">HR & Recruting</option>
+              <option value="Development">Development</option>
             </select>
           </label>
 
           <label class="events__label" for="events_age"
             >Sort by
-            <select class="events__select" name="events_age" id="events_age">
-              <option value="newest">Newest</option>
-              <option value="oldest">Oldest</option>
+            <select
+              class="events__select"
+              name="events_age"
+              id="events_age"
+              @change="sortEventCards($event)"
+            >
+              <option value="Newest">Newest</option>
+              <option value="Oldest">Oldest</option>
             </select>
           </label>
 
@@ -59,19 +67,22 @@
 
           <div class="events__btns-wrap">
             <button
-              class="events__toolbar-btn events__toolbar-btn--list _active"
+              class="events__toolbar-btn events__toolbar-btn--list"
+              :class="{ _active: true }"
               @click="addClass"
             ></button>
             <button
               class="events__toolbar-btn events__toolbar-btn--grid"
+              :class="{ _active: false }"
               @click="addClass"
             ></button>
           </div>
         </div>
         <div class="events__list">
           <EventCard
+            :class="{ gorisontal, vertical }"
             v-if="(eventCards.length = 9)"
-            v-for="card in eventCards"
+            v-for="card in filteredEventList"
             :key="card.id"
             :event_data="card"
           />
@@ -107,114 +118,118 @@ export default {
   data() {
     return {
       value: 9,
+      gorisontal: true,
+      vertical: false,
       eventCards: [
         {
           id: "evc1",
           data: {
             date: "05",
-            mounth: "August",
+            month: "August",
             hour: "11.00 - 14.00",
           },
           title:
             "Formation of the organizational structure of the company in the face of uncertainty.",
           event: "Onine master-class",
-          btn: "View more",
+          category: "Management",
         },
         {
           id: "evc2",
           data: {
             date: "24",
-            mounth: "July",
+            month: "July",
             hour: "11.00 - 12.30",
           },
           title: "Building a customer service department. Best Practices.",
           event: "Onine lecture",
-          btn: "View more",
+          category: "Management",
         },
         {
           id: "evc3",
           data: {
             date: "16",
-            mounth: "July",
+            month: "July",
             hour: "10.00 - 13.00",
           },
           title:
             "How to apply methods of speculative design in practice. Worldbuilding prototyping.",
           event: "Onine master-class",
-          btn: "View more",
+          category: "Design",
         },
         {
           id: "evc4",
           data: {
             date: "10",
-            mounth: "July",
+            month: "July",
             hour: "10.00 - 12.30",
           },
           title:
             "Find and evaluate: search and assessment tools for candidates.",
           event: "Onine workshop",
-          btn: "View more",
+          category: "HR & Recruting",
         },
         {
           id: "evc5",
           data: {
             date: "26",
-            mounth: "June",
+            month: "June",
             hour: "15.00 - 19.00",
           },
           title:
             "Connection to Microsoft Excel and Google Sheets, Data Visualization in Power BI.",
           event: "Onine master-class",
-          btn: "View more",
+          category: "Design",
         },
         {
           id: "evc6",
           data: {
             date: "15",
-            mounth: "June",
+            month: "June",
             hour: "10.00 - 12.30",
           },
           title:
             "Marketing or growth hacking: main differences and what business needs.",
           events: "Onine lecture",
-          btn: "View more",
+          category: "Marketing",
         },
         {
           id: "evc7",
           data: {
             date: "02",
-            mounth: "June",
+            month: "June",
             hour: "15.00 - 19.00",
           },
           title:
             "How to brief a client and present your design to approve it from the first show.",
           event: "Onine lecture",
-          btn: "View more",
+          category: "Development",
         },
         {
           id: "evc8",
           data: {
             date: "15",
-            mounth: "June",
+            month: "June",
             hour: "10.00 - 12.30",
           },
           title:
             "Marketing or growth hacking: main differences and what business needs.",
           event: "Onine lecture",
-          btn: "View more",
+          category: "Marketing",
         },
         {
           id: "evc9",
           data: {
             date: "29",
-            mounth: "May",
+            month: "May",
             hour: "15.00 - 19.00",
           },
           title: "Who is a project manager and do I want to be PM?",
           event: "Onine lecture",
-          btn: "View more",
+          category: "Management",
         },
       ],
+      filteredEventList: [],
+      sortedEventList: [],
     };
   },
 
@@ -225,25 +240,67 @@ export default {
         item.classList.remove("_active");
       }
       e.target.classList.add("_active");
+      if (e.target.classList.contains("events__toolbar-btn--list")) {
+        this.vertical = false;
+        this.gorisontal = true;
+      }
+      if (e.target.classList.contains("events__toolbar-btn--grid")) {
+        this.gorisontal = false;
+        this.vertical = true;
+      }
+    },
+
+    filterEventCards(el) {
+      const selectValue = el.target.value;
+
+      if (selectValue === "All") {
+        this.filteredEventList = this.eventCards;
+      } else {
+        this.filteredEventList = this.eventCards.filter(
+          (el) => el.category == selectValue
+        );
+      }
+
+      const btns = document.querySelectorAll(".events__toolbar-btn");
       const cards = document.querySelectorAll(".event-card");
       for (const card of cards) {
-        if (e.target.classList.contains("events__toolbar-btn--list")) {
-          card.classList.remove("event-card--vertical");
-          card.classList.add("event-card--gorisontal");
+        if (btns[1].classList.contains("_active")) {
+          console.log(btns[1]);
+          card.classList.remove("gorisontal");
+          card.classList.add("vertical");
         }
-        if (e.target.classList.contains("events__toolbar-btn--grid")) {
-          card.classList.remove("event-card--gorisontal");
-          card.classList.add("event-card--vertical");
-        }
+      }
+
+      return this.filteredEventList;
+    },
+
+    sortEventCards(el) {
+      let selectValue = el.target.value;
+
+      if (selectValue === "Newest") {
+        this.sortedEventList = this.filteredEventList.sort(function (a, b) {
+          if (a.data.month > b.data.month && a.data.date > b.data.date) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
+      } else {
+        this.sortedEventList = this.filteredEventList.sort(function (a, b) {
+          if (a.data.month < b.data.month && a.data.date < b.data.date) {
+            return 1;
+          } else {
+            return -1;
+          }
+        });
       }
     },
   },
 
+  computed: {},
+
   mounted() {
-    const cards = document.querySelectorAll(".event-card");
-    for (const card of cards) {
-      card.classList.add("event-card--gorisontal");
-    }
+    this.filteredEventList = this.eventCards;
   },
 };
 </script>
@@ -256,16 +313,6 @@ export default {
 
   @include mediaMin(768px) {
     padding: 152px 0 180px;
-  }
-
-  // .events__title
-
-  &__title {
-  }
-
-  // .events__subtitle
-
-  &__subtitle {
   }
 
   // .events__toolbar
@@ -323,8 +370,16 @@ export default {
 
   &__num {
     width: 72px;
-    &::-webkit-inner-spin-button {
-      background-color: transparent;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: url(../assets/images/icons/up-down-select.svg);
+      width: 24px;
+      height: 24px;
+      right: 10px;
+      top: 10px;
+      z-index: 10;
     }
   }
 
@@ -337,10 +392,6 @@ export default {
 
     &::placeholder {
       color: $gray-600;
-    }
-
-    @include mediaMax(768px) {
-      display: none;
     }
   }
 
@@ -399,6 +450,7 @@ export default {
   justify-content: center;
   display: flex;
   gap: 20px;
+
   // .pagging__arrow
 
   &__arrow {
@@ -409,6 +461,15 @@ export default {
         content: url(../assets/images/icons/arrow-right.svg);
         width: 24px;
         top: 25%;
+      }
+    }
+    &:first-child {
+      &::after {
+        position: absolute;
+        content: url(../assets/images/icons/arrow-right.svg);
+        transform: rotate(180deg);
+        width: 24px;
+        left: -15px;
       }
     }
   }

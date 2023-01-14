@@ -241,7 +241,7 @@ export default {
     position: relative;
     margin-bottom: 12px;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     letter-spacing: 1px;
     text-transform: uppercase;
     white-space: nowrap;

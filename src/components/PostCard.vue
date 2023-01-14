@@ -1,9 +1,7 @@
 <template>
   <li class="blog__post" :id="post_data.id">
     <article class="blog__post-card post">
-      <span class="post__badge" :class="post_data.class">{{
-        post_data.badge
-      }}</span>
+      <span class="post__badge" :class="changeIcon">{{ post_data.badge }}</span>
       <img class="post__img" :src="post_data.img" alt="" />
       <div class="post__info">
         <div class="post__meta">
@@ -41,6 +39,26 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  computed: {
+    changeIcon() {
+      let arrBages = document.querySelectorAll(".post__badge");
+      for (let badge of arrBages) {
+        switch (badge.textContent) {
+          case "Article":
+            badge.classList.add("post__badge--article");
+            break;
+          case "Video":
+            badge.classList.add("post__badge--video");
+            break;
+          case "Podcast":
+            badge.classList.add("post__badge--podcast");
+            break;
+          default:
+            break;
+        }
+      }
     },
   },
 };

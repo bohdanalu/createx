@@ -1,11 +1,7 @@
 <template>
   <Carousel class="carousel" :settings="settings" :breakpoints="breakpoints">
     <Slide v-for="card in eventCards" :key="card.id" :event_data="card">
-      <EventCard
-        class="event-card--vertical"
-        :key="card.id"
-        :event_data="card"
-      />
+      <EventCard class="event vertical" :key="card.id" :event_data="card" />
     </Slide>
 
     <template #addons>

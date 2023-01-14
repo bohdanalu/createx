@@ -388,16 +388,6 @@ export default {
       justify-content: space-between;
     }
   }
-
-  // .about-event__info
-
-  &__info {
-  }
-
-  // .about-event__title
-
-  &__title {
-  }
 }
 // .about-event__program
 

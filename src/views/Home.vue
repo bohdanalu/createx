@@ -5,12 +5,15 @@
         <div class="about__inner">
           <div class="about__content-wrap">
             <div class="about__content">
-              <a
-                class="about__video"
-                href="https://www.bing.com/videos/search?q=%d0%b4%d0%be%d0%b1%d1%80%d0%be%d0%b3%d0%be+%d0%b2%d0%b5%d1%87%d0%be%d1%80%d0%b0+%d0%bc%d0%b8+%d0%b7+%d1%83%d0%ba%d1%80%d0%b0%d1%97%d0%bd%d0%b8&docid=607998285368288627&mid=0F2B970CEBB80C239F1B0F2B970CEBB80C239F1B&view=detail&FORM=VIREHT"
-              >
-              </a>
-              <span class="about__play">Play showreel</span>
+              <div class="about__play-wrap">
+                <a
+                  class="about__video"
+                  href="https://www.bing.com/videos/search?q=%d0%b4%d0%be%d0%b1%d1%80%d0%be%d0%b3%d0%be+%d0%b2%d0%b5%d1%87%d0%be%d1%80%d0%b0+%d0%bc%d0%b8+%d0%b7+%d1%83%d0%ba%d1%80%d0%b0%d1%97%d0%bd%d0%b8&docid=607998285368288627&mid=0F2B970CEBB80C239F1B0F2B970CEBB80C239F1B&view=detail&FORM=VIREHT"
+                >
+                </a>
+                <span class="about__play">Play showreel</span>
+              </div>
+
               <h1 class="about__title">
                 Enjoy studying with Createx Online Courses
               </h1>
@@ -237,7 +240,7 @@
         <h3 class="events-mini__subtitle subtitle mb">Lectures & workshops</h3>
         <div class="events-mini__list">
           <EventCard
-            class="event-card--gorisontal"
+            class="gorisontal"
             v-for="card in eventCards"
             :key="card.id"
             :event_data="card"
@@ -294,7 +297,7 @@ export default {
           id: "evc1",
           data: {
             date: "05",
-            mounth: "August",
+            month: "August",
             hour: "11.00 - 14.00",
           },
           title:
@@ -306,7 +309,7 @@ export default {
           id: "evc2",
           data: {
             date: "24",
-            mounth: "July",
+            month: "July",
             hour: "11.00 - 12.30",
           },
           title: "Building a customer service department. Best Practices.",
@@ -317,7 +320,7 @@ export default {
           id: "evc3",
           data: {
             date: "16",
-            mounth: "July",
+            month: "July",
             hour: "10.00 - 13.00",
           },
           title:
@@ -474,11 +477,16 @@ export default {
     }
   }
 
+  &__play-wrap {
+    display: flex;
+    // align-items: center;
+    gap: 16px;
+  }
+
   // .about__video
 
   &__video {
     @include btnPlay(52px);
-    margin-right: 16px;
 
     @include mediaMin(1200px) {
       margin-bottom: 20px;
