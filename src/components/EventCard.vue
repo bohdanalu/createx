@@ -53,15 +53,6 @@ export default {
     @extend %shadow-hover;
   }
 
-  // @include mediaMin(768px) {
-  //   max-width: 1230px;
-  //   width: 100%;
-  //   height: auto;
-  //   padding: 32px 40px;
-  //   flex-direction: row;
-  //   gap: 40px;
-  // }
-
   &.vertical {
     @extend %shadow;
     max-width: 390px;
@@ -76,10 +67,15 @@ export default {
     border-radius: 4px;
 
     @include mediaMin(768px) {
-      min-width: calc(50% - 24px);
-      max-width: 390px;
+      max-width: 355px;
+      width: 100%;
       height: 323px;
       padding: 24px;
+    }
+
+    @include mediaMin(992px) {
+      max-width: 390px;
+      width: 100%;
     }
 
     .event-card__date {

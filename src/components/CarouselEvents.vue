@@ -31,7 +31,7 @@ export default defineComponent({
         id: "evc1",
         data: {
           date: "05",
-          mounth: "August",
+          month: "August",
           hour: "11.00 - 14.00",
         },
         title:
@@ -43,7 +43,7 @@ export default defineComponent({
         id: "evc2",
         data: {
           date: "24",
-          mounth: "July",
+          month: "July",
           hour: "11.00 - 12.30",
         },
         title: "Building a customer service department. Best Practices.",
@@ -54,7 +54,7 @@ export default defineComponent({
         id: "evc3",
         data: {
           date: "16",
-          mounth: "July",
+          month: "July",
           hour: "10.00 - 13.00",
         },
         title:
@@ -66,7 +66,7 @@ export default defineComponent({
         id: "evc4",
         data: {
           date: "10",
-          mounth: "July",
+          month: "July",
           hour: "10.00 - 12.30",
         },
         title: "Find and evaluate: search and assessment tools for candidates.",
@@ -77,7 +77,7 @@ export default defineComponent({
         id: "evc5",
         data: {
           date: "26",
-          mounth: "June",
+          month: "June",
           hour: "15.00 - 19.00",
         },
         title:
@@ -89,7 +89,7 @@ export default defineComponent({
         id: "evc6",
         data: {
           date: "15",
-          mounth: "June",
+          month: "June",
           hour: "10.00 - 12.30",
         },
         title:
@@ -101,7 +101,7 @@ export default defineComponent({
         id: "evc7",
         data: {
           date: "02",
-          mounth: "June",
+          month: "June",
           hour: "15.00 - 19.00",
         },
         title:
@@ -113,7 +113,7 @@ export default defineComponent({
         id: "evc8",
         data: {
           date: "15",
-          mounth: "June",
+          month: "June",
           hour: "10.00 - 12.30",
         },
         title:
@@ -125,7 +125,7 @@ export default defineComponent({
         id: "evc9",
         data: {
           date: "29",
-          mounth: "May",
+          month: "May",
           hour: "15.00 - 19.00",
         },
         title: "Who is a project manager and do I want to be PM?",

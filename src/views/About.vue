@@ -846,12 +846,12 @@ export default {
 
   &__list-brends {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 70px;
     row-gap: 40px;
 
-    @include mediaMin(768px) {
+    @include mediaMin(1200px) {
       justify-content: space-between;
     }
   }

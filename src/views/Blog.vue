@@ -7,6 +7,7 @@
         <div class="blog__toolbar">
           <div class="blog__btn-wrap">
             <button
+              type="button"
               class="blog__toolbar-btn _active"
               @click="filterPostCards($event)"
             >
@@ -67,30 +68,41 @@
         </div>
         <ul class="blog__posts">
           <PostCardVue
-            v-for="post in filteredList"
+            v-for="post in displayedPosts"
             :key="post.id"
             :post_data="post"
           />
         </ul>
-
-        <div class="pagging">
-          <a href="" class="pagging__arrow"></a>
-          <ul class="pagging__list">
-            <li>
-              <a href="" class="pagging__item _active">1</a>
+        <nav>
+          <ul class="pagination">
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                class="pagination__page-link pagination__page-link--prev"
+                v-if="page != 1"
+                @click="page--"
+              ></button>
             </li>
-            <li>
-              <a href="" class="pagging__item">2</a>
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                class="pagination__page-link"
+                v-for="pageNumber in pages.slice(page - 1, page + 4)"
+                @click="page = pageNumber"
+              >
+                {{ pageNumber }}
+              </button>
             </li>
-            <li>
-              <a href="" class="pagging__item">3</a>
-            </li>
-            <li>
-              <a href="" class="pagging__item">4</a>
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                @click="page++"
+                v-if="page < pages.length"
+                class="pagination__page-link pagination__page-link--next"
+              ></button>
             </li>
           </ul>
-          <a href="" class="pagging__arrow"></a>
-        </div>
+        </nav>
       </div>
     </section>
     <SubscribeArticle />
@@ -201,8 +213,44 @@ export default {
           text: "Malesuada in augue mi feugiat morbi a aliquet enim. Elementum lacus, pellentesque etiam arcu tristique ac...",
           btn: "Read",
         },
+        {
+          id: "pc6",
+          badge: "Podcast",
+          img: "/src/assets/images/posts/podcast_purple.jpg",
+          position: "Design",
+          date: "August 8, 2020",
+          lenght: "",
+          title: " What are color profiles and how they work in graphic design",
+          text: "Aliquam vulputate hendrerit quam sollicitudin urna enim viverra gravida. Consectetur urna arcu eleifend...",
+          btn: "Listen",
+        },
+        {
+          id: "pc7",
+          badge: "Video",
+          img: "/src/assets/images/posts/video_pink.jpg",
+          position: "Management",
+          date: "September 4, 2020",
+          lenght: "36 min.",
+          title:
+            " Startup: how to build a team that will live longer than a year",
+          text: " Pharetra, ullamcorper iaculis viverra parturient sed id sed. Convallis proin dignissim lacus, purus gravida...",
+          btn: "Watch",
+        },
+        {
+          id: "pc8",
+          badge: "Article",
+          img: "/src/assets/images/posts/article_type.jpg",
+          position: "Management",
+          date: "August 25, 2020",
+          lenght: "45 min.",
+          title: "How to get customers to love your business from the start",
+          text: "Malesuada in augue mi feugiat morbi a aliquet enim. Elementum lacus, pellentesque etiam arcu tristique ac...",
+          btn: "Read",
+        },
       ],
-
+      page: 1,
+      perPage: 8,
+      pages: [],
       filteredList: [],
       selectValue: "",
     };
@@ -235,6 +283,45 @@ export default {
 
       return this.filteredList;
     },
+    setPages() {
+      let numberOfPages = Math.ceil(this.filteredList.length / this.perPage);
+      this.pages = [];
+      for (let index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+
+    paginate(filteredList) {
+      let page = this.page;
+      let perPage = this.perPage;
+      let from = page * perPage - perPage;
+      let to = page * perPage;
+      return filteredList.slice(from, to);
+    },
+
+    addPrimaryClass() {
+      let listNambersLinks = document.querySelectorAll(
+        ".pagination__page-link"
+      );
+      for (const link of listNambersLinks) {
+        if ((link.textContent = this.page)) {
+          link.classList.add("_active");
+        }
+      }
+    },
+  },
+  computed: {
+    displayedPosts() {
+      return this.paginate(this.filteredList);
+    },
+  },
+  watch: {
+    filteredList() {
+      this.setPages();
+    },
+    page() {
+      this.addPrimaryClass();
+    },
   },
 
   mounted() {
@@ -247,7 +334,7 @@ export default {
 @import "../assets/styles/main.scss";
 .blog {
   padding: 60px 0 80px;
-
+  text-align: center;
   @include mediaMin(768px) {
     padding: 120px 0 180px;
   }
@@ -271,14 +358,16 @@ export default {
   }
 
   &__toolbar-btn {
-    padding: 10px 20px;
+    padding: 10px 10px;
     border: 1px solid transparent;
     border-radius: 4px;
     background-color: transparent;
     color: $gray-600;
     font-size: inherit;
     outline: transparent;
-
+    @include mediaMin(450px) {
+      padding: 10px 20px;
+    }
     &:hover {
       color: $gray-800;
     }
@@ -391,13 +480,14 @@ export default {
   width: 100%;
   height: 300px;
 }
-</style>
-
-<style lang="scss" scoped>
-.blog {
-  text-align: center;
-}
 .post {
   text-align: left;
+}
+
+.pagination {
+  margin-top: 60px;
+  &__page-link {
+    padding: 0 10px;
+  }
 }
 </style>

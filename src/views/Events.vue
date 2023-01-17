@@ -40,12 +40,14 @@
           <label class="events__label" for="quantity"
             >Show
             <input
-              v-bind:value="9"
+              v-model="value"
               class="events__num"
               id="quantity"
               name="quantity"
               type="number"
               min="1"
+              max="filteredEventList.length"
+              @change="perPage = value"
             />
             <span>events per page</span>
           </label>
@@ -81,30 +83,41 @@
         <div class="events__list">
           <EventCard
             :class="{ gorisontal, vertical }"
-            v-if="(eventCards.length = 9)"
-            v-for="card in filteredEventList"
+            v-for="card in displayedEvents"
             :key="card.id"
             :event_data="card"
           />
         </div>
-        <div class="pagging">
-          <a href="" class="pagging__arrow"></a>
-          <ul class="pagging__list">
-            <li>
-              <a href="" class="pagging__item _active">1</a>
+        <nav>
+          <ul class="pagination">
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                class="pagination__page-link pagination__page-link--prev"
+                v-if="page != 1"
+                @click="page--"
+              ></button>
             </li>
-            <li>
-              <a href="" class="pagging__item">2</a>
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                class="pagination__page-link"
+                v-for="pageNumber in pages.slice(page - 1, page + 5)"
+                @click="page = pageNumber"
+              >
+                {{ pageNumber }}
+              </button>
             </li>
-            <li>
-              <a href="" class="pagging__item">3</a>
-            </li>
-            <li>
-              <a href="" class="pagging__item">4</a>
+            <li class="pagination__page-item">
+              <button
+                type="button"
+                @click="page++"
+                v-if="page < pages.length"
+                class="pagination__page-link pagination__page-link--next"
+              ></button>
             </li>
           </ul>
-          <a href="" class="pagging__arrow"></a>
-        </div>
+        </nav>
       </div>
     </section>
   </div>
@@ -117,10 +130,119 @@ export default {
   components: { EventCard },
   data() {
     return {
+      page: 1,
+      perPage: 9,
       value: 9,
+      pages: [],
       gorisontal: true,
       vertical: false,
       eventCards: [
+        {
+          id: "evc1",
+          data: {
+            date: "05",
+            month: "August",
+            hour: "11.00 - 14.00",
+          },
+          title:
+            "Formation of the organizational structure of the company in the face of uncertainty.",
+          event: "Onine master-class",
+          category: "Management",
+        },
+        {
+          id: "evc2",
+          data: {
+            date: "24",
+            month: "July",
+            hour: "11.00 - 12.30",
+          },
+          title: "Building a customer service department. Best Practices.",
+          event: "Onine lecture",
+          category: "Management",
+        },
+        {
+          id: "evc3",
+          data: {
+            date: "16",
+            month: "July",
+            hour: "10.00 - 13.00",
+          },
+          title:
+            "How to apply methods of speculative design in practice. Worldbuilding prototyping.",
+          event: "Onine master-class",
+          category: "Design",
+        },
+        {
+          id: "evc4",
+          data: {
+            date: "10",
+            month: "July",
+            hour: "10.00 - 12.30",
+          },
+          title:
+            "Find and evaluate: search and assessment tools for candidates.",
+          event: "Onine workshop",
+          category: "HR & Recruting",
+        },
+        {
+          id: "evc5",
+          data: {
+            date: "26",
+            month: "June",
+            hour: "15.00 - 19.00",
+          },
+          title:
+            "Connection to Microsoft Excel and Google Sheets, Data Visualization in Power BI.",
+          event: "Onine master-class",
+          category: "Design",
+        },
+        {
+          id: "evc6",
+          data: {
+            date: "15",
+            month: "June",
+            hour: "10.00 - 12.30",
+          },
+          title:
+            "Marketing or growth hacking: main differences and what business needs.",
+          events: "Onine lecture",
+          category: "Marketing",
+        },
+        {
+          id: "evc7",
+          data: {
+            date: "02",
+            month: "June",
+            hour: "15.00 - 19.00",
+          },
+          title:
+            "How to brief a client and present your design to approve it from the first show.",
+          event: "Onine lecture",
+          category: "Development",
+        },
+        {
+          id: "evc8",
+          data: {
+            date: "15",
+            month: "June",
+            hour: "10.00 - 12.30",
+          },
+          title:
+            "Marketing or growth hacking: main differences and what business needs.",
+          event: "Onine lecture",
+          category: "Marketing",
+        },
+        {
+          id: "evc9",
+          data: {
+            date: "29",
+            month: "May",
+            hour: "15.00 - 19.00",
+          },
+          title: "Who is a project manager and do I want to be PM?",
+          event: "Onine lecture",
+          category: "Management",
+        },
         {
           id: "evc1",
           data: {
@@ -265,7 +387,6 @@ export default {
       const cards = document.querySelectorAll(".event-card");
       for (const card of cards) {
         if (btns[1].classList.contains("_active")) {
-          console.log(btns[1]);
           card.classList.remove("gorisontal");
           card.classList.add("vertical");
         }
@@ -295,9 +416,55 @@ export default {
         });
       }
     },
+
+    setPages() {
+      this.perPage = this.value;
+      let numberOfPages = Math.ceil(
+        this.filteredEventList.length / this.perPage
+      );
+      this.pages = [];
+      for (let index = 1; index <= numberOfPages; index++) {
+        this.pages.push(index);
+      }
+    },
+    paginate(filteredEventList) {
+      let page = this.page;
+      let perPage = this.perPage;
+      let from = page * perPage - perPage;
+      let to = page * perPage;
+
+      return filteredEventList.slice(from, to);
+    },
+
+    addPrimaryClass() {
+      let listNambersLinks = document.querySelectorAll(
+        ".pagination__page-link"
+      );
+      for (const link of listNambersLinks) {
+        if ((link.textContent = this.page)) {
+          link.classList.add("_active");
+        }
+      }
+    },
   },
 
-  computed: {},
+  computed: {
+    displayedEvents() {
+      return this.paginate(this.filteredEventList);
+    },
+  },
+
+  watch: {
+    filteredEventList() {
+      this.setPages();
+    },
+    value() {
+      this.setPages();
+    },
+    page() {
+      this.addPrimaryClass();
+    },
+  },
 
   mounted() {
     this.filteredEventList = this.eventCards;
@@ -445,52 +612,43 @@ export default {
     gap: 24px;
   }
 }
-.pagging {
+
+.pagination {
   margin-top: 80px;
   justify-content: center;
   display: flex;
-  gap: 20px;
+  gap: 10px;
 
-  // .pagging__arrow
+  // .pagination__page-link
 
-  &__arrow {
-    position: relative;
-    &:last-child {
-      &::after {
-        position: absolute;
-        content: url(../assets/images/icons/arrow-right.svg);
-        width: 24px;
-        top: 25%;
-      }
-    }
-    &:first-child {
-      &::after {
-        position: absolute;
-        content: url(../assets/images/icons/arrow-right.svg);
-        transform: rotate(180deg);
-        width: 24px;
-        left: -15px;
-      }
-    }
-  }
-
-  // .pagging__list
-
-  &__list {
-    display: flex;
-    gap: 20px;
-  }
-
-  // .pagging__item
-
-  &__item {
+  &__page-link {
+    background-color: transparent;
+    outline: none;
+    border: none;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.6;
     color: $gray-800;
-
+    padding: 0 10px;
+    &:hover {
+      color: $gray-600;
+    }
     &._active {
       color: $primary;
+    }
+    &--prev,
+    &--next {
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 24px;
+      height: 24px;
+    }
+    &--prev {
+      background-image: url(../assets/images/icons/arrow-right.svg);
+      transform: rotate(180deg);
+    }
+    &--next {
+      background-image: url(../assets/images/icons/arrow-right.svg);
     }
   }
 }
