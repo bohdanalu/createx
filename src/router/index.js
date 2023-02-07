@@ -22,6 +22,7 @@ const router = createRouter({
     { path: "/Event", name: "Event", component: Event },
     { path: "/Post", name: "Post", component: Post, props: true },
   ],
+
   scrollBehavior() {
     return window.scroll({
       top: 0,

@@ -4,7 +4,7 @@
       ><img
         class="card__img"
         :src="catalog_data.img"
-        :alt="catalog_data.speacer"
+        :alt="catalog_data.speaker"
     /></RouterLink>
     <div class="card__content">
       <span class="card__badge" :style="changeColors">{{
