@@ -244,7 +244,7 @@ export default {
           category: "Management",
         },
         {
-          id: "evc1",
+          id: "evc10",
           data: {
             date: "05",
             month: "August",
@@ -256,7 +256,7 @@ export default {
           category: "Management",
         },
         {
-          id: "evc2",
+          id: "evc12",
           data: {
             date: "24",
             month: "July",
@@ -267,7 +267,7 @@ export default {
           category: "Management",
         },
         {
-          id: "evc3",
+          id: "evc13",
           data: {
             date: "16",
             month: "July",
@@ -279,7 +279,7 @@ export default {
           category: "Design",
         },
         {
-          id: "evc4",
+          id: "evc14",
           data: {
             date: "10",
             month: "July",
@@ -291,7 +291,7 @@ export default {
           category: "HR & Recruting",
         },
         {
-          id: "evc5",
+          id: "evc15",
           data: {
             date: "26",
             month: "June",
@@ -303,7 +303,7 @@ export default {
           category: "Design",
         },
         {
-          id: "evc6",
+          id: "evc16",
           data: {
             date: "15",
             month: "June",
@@ -315,7 +315,7 @@ export default {
           category: "Marketing",
         },
         {
-          id: "evc7",
+          id: "evc17",
           data: {
             date: "02",
             month: "June",
@@ -327,7 +327,7 @@ export default {
           category: "Development",
         },
         {
-          id: "evc8",
+          id: "evc18",
           data: {
             date: "15",
             month: "June",
@@ -339,7 +339,7 @@ export default {
           category: "Marketing",
         },
         {
-          id: "evc9",
+          id: "evc19",
           data: {
             date: "29",
             month: "May",
@@ -440,11 +440,7 @@ export default {
       let listNambersLinks = document.querySelectorAll(
         ".pagination__page-link"
       );
-      for (const link of listNambersLinks) {
-        if ((link.textContent = this.page)) {
-          link.classList.add("_active");
-        }
-      }
+      listNambersLinks[0].classList.add("_active");
     },
   },
 

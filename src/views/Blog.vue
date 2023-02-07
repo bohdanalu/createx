@@ -214,7 +214,7 @@ export default {
           btn: "Read",
         },
         {
-          id: "pc6",
+          id: "pc9",
           badge: "Podcast",
           img: "/src/assets/images/posts/podcast_purple.jpg",
           position: "Design",
@@ -225,7 +225,7 @@ export default {
           btn: "Listen",
         },
         {
-          id: "pc7",
+          id: "pc10",
           badge: "Video",
           img: "/src/assets/images/posts/video_pink.jpg",
           position: "Management",
@@ -237,7 +237,7 @@ export default {
           btn: "Watch",
         },
         {
-          id: "pc8",
+          id: "pc11",
           badge: "Article",
           img: "/src/assets/images/posts/article_type.jpg",
           position: "Management",
@@ -303,11 +303,7 @@ export default {
       let listNambersLinks = document.querySelectorAll(
         ".pagination__page-link"
       );
-      for (const link of listNambersLinks) {
-        if ((link.textContent = this.page)) {
-          link.classList.add("_active");
-        }
-      }
+      listNambersLinks[0].classList.add("_active");
     },
   },
   computed: {

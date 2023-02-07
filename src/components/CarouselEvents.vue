@@ -6,14 +6,13 @@
 
     <template #addons>
       <Navigation />
-      <Pagination class="paggin" />
     </template>
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import EventCard from "./EventCard.vue";
 
 export default defineComponent({
@@ -22,7 +21,6 @@ export default defineComponent({
     Carousel,
     Slide,
     Navigation,
-    Pagination,
     EventCard,
   },
   data: () => ({
@@ -175,11 +173,7 @@ export default defineComponent({
 
   &__track {
     display: flex;
-    // gap: 0;
     position: relative;
-    // @include mediaMin(700px) {
-    //   gap: 30px;
-    // }
   }
 
   &__sr-only {
@@ -194,7 +188,6 @@ export default defineComponent({
   }
 
   &__slide {
-    // width: 100%;
     scroll-snap-stop: auto;
     flex-shrink: 0;
     margin: 0;
@@ -203,31 +196,26 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     transform: translateZ(0);
-
-    // @include mediaMin(700px) {
-    //   max-width: 390px;
-    //   width: 100%;
-    // }
   }
 
   &__prev,
   &__next {
-    display: none;
-    @include mediaMin(992px) {
+    top: -75px;
+    display: block;
+    position: absolute;
+    background-image: url(./../assets/images/icons/arrow-right.svg);
+    border-radius: 50%;
+    background-color: transparent;
+    border: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    height: 48px;
+    width: 48px;
+    padding: 18.5px 15px;
+    transition: background-color 0.2s ease;
+    @include mediaMin(768px) {
       top: -125px;
-      display: block;
-      position: absolute;
-      background-image: url(./../assets/images/icons/arrow-right.svg);
-      border-radius: 50%;
-      background-color: transparent;
-      border: transparent;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 24px;
-      height: 48px;
-      width: 48px;
-      padding: 18.5px 15px;
-      transition: background-color 0.2s ease;
     }
 
     &:hover {
@@ -244,12 +232,6 @@ export default defineComponent({
 
   &__next {
     right: 0;
-  }
-
-  .paggin {
-    @include mediaMin(992px) {
-      display: none;
-    }
   }
 
   &__icon {

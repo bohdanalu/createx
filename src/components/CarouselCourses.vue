@@ -6,14 +6,13 @@
 
     <template #addons>
       <Navigation />
-      <Pagination class="paggin" />
     </template>
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import Card from "./Card.vue";
 
 export default defineComponent({
@@ -22,7 +21,6 @@ export default defineComponent({
     Carousel,
     Slide,
     Navigation,
-    Pagination,
     Card,
   },
   data: () => ({
@@ -33,7 +31,7 @@ export default defineComponent({
         badge: "Marketing",
         title: "The Ultimate Google Ads Training Course",
         price: 100,
-        speacer: "Jerome Bell",
+        speaker: "Jerome Bell",
       },
       {
         id: 2,
@@ -41,7 +39,7 @@ export default defineComponent({
         badge: "Managment",
         title: "Prduct Management Fundamentals",
         price: 480,
-        speacer: "Marvin McKinney",
+        speaker: "Marvin McKinney",
       },
       {
         id: 3,
@@ -49,7 +47,7 @@ export default defineComponent({
         badge: "HR & Recruting",
         title: "HR  Management and Analytics",
         price: 200,
-        speacer: "Leslie Alexander Li",
+        speaker: "Leslie Alexander Li",
       },
       {
         id: 4,
@@ -57,7 +55,7 @@ export default defineComponent({
         badge: "Marketing",
         title: "Brand Management & PR Communications",
         price: 530,
-        speacer: "Kristin Watson",
+        speaker: "Kristin Watson",
       },
       {
         id: 5,
@@ -65,7 +63,7 @@ export default defineComponent({
         badge: "Managment",
         title: "Business Development Management",
         price: 400,
-        speacer: "Dianne Russell",
+        speaker: "Dianne Russell",
       },
       {
         id: 6,
@@ -73,7 +71,7 @@ export default defineComponent({
         badge: "Design",
         title: "Graphic Design Basic",
         price: 500,
-        speacer: "Guy Hawkins",
+        speaker: "Guy Hawkins",
       },
     ],
     // carousel settings
@@ -133,22 +131,22 @@ export default defineComponent({
 
   &__prev,
   &__next {
-    display: none;
-    @include mediaMin(992px) {
+    top: -75px;
+    display: block;
+    position: absolute;
+    background-image: url(./../assets/images/icons/arrow-right.svg);
+    border-radius: 50%;
+    background-color: transparent;
+    border: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    height: 48px;
+    width: 48px;
+    padding: 18.5px 15px;
+    transition: background-color 0.2s ease;
+    @include mediaMin(768px) {
       top: -125px;
-      display: block;
-      position: absolute;
-      background-image: url(./../assets/images/icons/arrow-right.svg);
-      border-radius: 50%;
-      background-color: transparent;
-      border: transparent;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 24px;
-      height: 48px;
-      width: 48px;
-      padding: 18.5px 15px;
-      transition: background-color 0.2s ease;
     }
 
     &:hover {
@@ -165,16 +163,6 @@ export default defineComponent({
 
   &__next {
     right: 0;
-  }
-
-  &__pagination {
-    overflow-x: auto;
-  }
-
-  .paggin {
-    @include mediaMin(992px) {
-      display: none;
-    }
   }
 
   &__icon {

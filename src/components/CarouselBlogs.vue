@@ -6,14 +6,13 @@
 
     <template #addons>
       <Navigation />
-      <Pagination class="paggin" />
     </template>
   </Carousel>
 </template>
 
 <script>
 import { defineComponent } from "vue";
-import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
+import { Carousel, Navigation, Slide } from "vue3-carousel";
 import PostCardVue from "./PostCard.vue";
 
 export default defineComponent({
@@ -22,7 +21,6 @@ export default defineComponent({
     Carousel,
     Slide,
     Navigation,
-    Pagination,
     PostCardVue,
   },
   data: () => ({
@@ -181,22 +179,22 @@ export default defineComponent({
 
   &__prev,
   &__next {
-    display: none;
-    @include mediaMin(992px) {
+    top: -75px;
+    display: block;
+    position: absolute;
+    background-image: url(./../assets/images/icons/arrow-right.svg);
+    border-radius: 50%;
+    background-color: transparent;
+    border: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+    height: 48px;
+    width: 48px;
+    padding: 18.5px 15px;
+    transition: background-color 0.2s ease;
+    @include mediaMin(768px) {
       top: -125px;
-      display: block;
-      position: absolute;
-      background-image: url(./../assets/images/icons/arrow-right.svg);
-      border-radius: 50%;
-      background-color: transparent;
-      border: transparent;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 24px;
-      height: 48px;
-      width: 48px;
-      padding: 18.5px 15px;
-      transition: background-color 0.2s ease;
     }
 
     &:hover {
@@ -213,12 +211,6 @@ export default defineComponent({
 
   &__next {
     right: 0;
-  }
-
-  .paggin {
-    @include mediaMin(992px) {
-      display: none;
-    }
   }
 
   &__icon {

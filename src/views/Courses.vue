@@ -300,5 +300,8 @@ export default {
 
 .card {
   text-align: left;
+  // @include mediaMin(1200px) {
+  //   width: calc(100% / 3 - 30px);
+  // }
 }
 </style>

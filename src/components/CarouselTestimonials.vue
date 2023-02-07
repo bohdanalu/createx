@@ -88,7 +88,11 @@ export default defineComponent({
   }
 
   .v-nav {
-    top: 35%;
+    display: none;
+    @include mediaMin(992px) {
+      display: block;
+      top: 35%;
+    }
   }
 
   .v-nav.carousel__prev {

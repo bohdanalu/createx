@@ -479,18 +479,17 @@ export default {
 
   &__play-wrap {
     display: flex;
-    // align-items: center;
+    align-items: center;
     gap: 16px;
+    @include mediaMin(1200px) {
+      margin-bottom: 20px;
+    }
   }
 
   // .about__video
 
   &__video {
     @include btnPlay(52px);
-
-    @include mediaMin(1200px) {
-      margin-bottom: 20px;
-    }
   }
 
   // .about__play
