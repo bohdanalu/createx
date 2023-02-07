@@ -55,16 +55,13 @@
 
         <div class="catalog__courses">
           <CardVue
-            v-if="filteredCards.length <= 9"
             class="card--vertical"
-            v-for="card in filteredCards"
+            v-for="card in cardsLoaded"
             :key="card.id"
             :catalog_data="card"
           />
         </div>
-        <button class="catalog__load" @click="filteredCards.length += 9">
-          Load More
-        </button>
+        <button class="catalog__load" @click="loadMore">Load More</button>
       </div>
     </section>
 
@@ -97,6 +94,7 @@ export default {
       designLength: 0,
       cards: [],
       filteredCards: [],
+      cardsToShow: 4,
     };
   },
 
@@ -117,9 +115,18 @@ export default {
 
       return this.filteredCards;
     },
+
+    loadMore() {
+      if (this.cardsToShow > this.filteredCards.length) return;
+      this.cardsToShow += 4;
+    },
   },
 
-  computed: {},
+  computed: {
+    cardsLoaded() {
+      return this.filteredCards.slice(0, this.cardsToShow);
+    },
+  },
 
   beforeMount() {
     axios

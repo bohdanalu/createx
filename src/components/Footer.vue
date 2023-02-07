@@ -420,9 +420,8 @@ export default {
 <style lang="scss" scoped>
 @import "./../assets/styles/main.scss";
 
-.footer__social-wrap ::v-deep {
+.footer__social-wrap :deep {
   .social {
-    // display: flex;
     gap: 20px;
 
     &__item {
