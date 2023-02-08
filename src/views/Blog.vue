@@ -146,7 +146,7 @@ export default {
         {
           id: "pc3",
           badge: "Video",
-          img: "./src/assets/images/posts/article.png",
+          img: "/src/assets/images/posts/article.png",
           position: "Design",
           date: "August 8, 2020",
           lenght: "",

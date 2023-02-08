@@ -28,7 +28,7 @@
             </div>
             <img
               class="about__img"
-              src="./../assets/images/home_page/illustration.svg"
+              src="../assets/images/home_page/illustration.svg"
               alt="Picture about girl is sitting by computer"
             />
           </div>
@@ -58,7 +58,7 @@
       <div class="container">
         <div class="why__wrap">
           <img
-            src="./../assets/images/home_page/image_girl.jpg"
+            src="../assets/images/home_page/image_girl.jpg"
             alt="girl"
             class="why__img"
           />

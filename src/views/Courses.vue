@@ -94,7 +94,7 @@ export default {
       designLength: 0,
       cards: [],
       filteredCards: [],
-      cardsToShow: 4,
+      cardsToShow: 9,
     };
   },
 
@@ -118,7 +118,7 @@ export default {
 
     loadMore() {
       if (this.cardsToShow > this.filteredCards.length) return;
-      this.cardsToShow += 4;
+      this.cardsToShow += 9;
     },
   },
 

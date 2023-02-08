@@ -2,7 +2,11 @@
   <article class="team__card card-team" :id="team_data.id">
     <div class="card-team__link-wrap">
       <div class="card-team__img-wrap">
-        <img class="card-team__img" :src="team_data.img" alt="" />
+        <img
+          class="card-team__img"
+          :src="team_data.img"
+          :alt="team_data.name"
+        />
       </div>
       <ul class="card-team__social">
         <li class="card-team__social-item">
