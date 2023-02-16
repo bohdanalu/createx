@@ -1,7 +1,7 @@
 <template>
   <Carousel>
     <Slide v-for="card in testimonials" :key="card.id">
-      <TestimonialsCard :key="card.id" :testimonials_data="card" />
+      <TestimonialsCard key="card.id" :testimonials_data="card" />
     </Slide>
 
     <template #addons>

@@ -31,7 +31,7 @@
             </div>
             <img
               class="about__img"
-              src="./../assets/images/illustration_about_us.svg"
+              src="../assets/images/illustration_about_us.svg"
               alt="Picture about girl is sitting by computer"
             />
           </div>
@@ -46,7 +46,7 @@
           <div class="video__img-wrap">
             <img
               class="video__img"
-              src="./../assets/images/image_video.jpg"
+              src="@/assets/images/image_video.jpg"
               alt=""
             />
           </div>
