@@ -2,7 +2,7 @@
   <li class="blog__post" :id="post_data.id">
     <article class="blog__post-card post">
       <span class="post__badge">{{ post_data.badge }}</span>
-      <img class="post__img" :src="'/src/assets/images/posts/${post_data.img}`" :alt="post_data.title" />
+      <img class="post__img" :src="require(`@/src/assets/images/posts/${post_data.img}`)" :alt="post_data.title" />
       <div class="post__info">
         <div class="post__meta">
           <span class="post__position">{{ post_data.position }}</span>
