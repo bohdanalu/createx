@@ -3,7 +3,7 @@
     <RouterLink class="card__link" to="/Course"
       ><img
         class="card__img"
-        :src="catalog_data.img"
+        :src="require(catalog_data.img)"
         :alt="catalog_data.speaker"
     /></RouterLink>
     <div class="card__content">
