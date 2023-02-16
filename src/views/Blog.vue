@@ -124,7 +124,7 @@ export default {
         {
           id: "pc1",
           badge: "Podcast",
-          img: "/src/assets/images/posts/podcast.png",
+          img: "podcast.png",
           position: "Marketing",
           date: "September 4, 2020",
           lenght: "36 min.",
@@ -135,7 +135,7 @@ export default {
         {
           id: "pc2",
           badge: "Article",
-          img: "/src/assets/images/posts/article_comp.jpg",
+          img: "article_comp.jpg",
           position: "Management",
           date: "August 25, 2020",
           lenght: "45 min.",
@@ -146,7 +146,7 @@ export default {
         {
           id: "pc3",
           badge: "Video",
-          img: "/src/assets/images/posts/article.png",
+          img: "article.png",
           position: "Design",
           date: "August 8, 2020",
           lenght: "",
@@ -158,7 +158,7 @@ export default {
         {
           id: "pc4",
           badge: "Article",
-          img: "/src/assets/images/posts/article_big.jpg",
+          img: "article_big.jpg",
           position: "HR & Recruting",
           date: "August 3, 2020",
           lenght: "",
@@ -170,7 +170,7 @@ export default {
         {
           id: "pc5",
           badge: "Video",
-          img: "/src/assets/images/posts/video.png",
+          img: "video.png",
           position: "Management",
           date: "August 2, 2020",
           lenght: "25 min.",
@@ -182,7 +182,7 @@ export default {
         {
           id: "pc6",
           badge: "Podcast",
-          img: "/src/assets/images/posts/podcast_purple.jpg",
+          img: "podcast_purple.jpg",
           position: "Design",
           date: "August 8, 2020",
           lenght: "",
@@ -193,7 +193,7 @@ export default {
         {
           id: "pc7",
           badge: "Video",
-          img: "/src/assets/images/posts/video_pink.jpg",
+          img: "video_pink.jpg",
           position: "Management",
           date: "September 4, 2020",
           lenght: "36 min.",
@@ -205,7 +205,7 @@ export default {
         {
           id: "pc8",
           badge: "Article",
-          img: "/src/assets/images/posts/article_type.jpg",
+          img: "article_type.jpg",
           position: "Management",
           date: "August 25, 2020",
           lenght: "45 min.",
@@ -216,7 +216,7 @@ export default {
         {
           id: "pc9",
           badge: "Podcast",
-          img: "/src/assets/images/posts/podcast_purple.jpg",
+          img: "podcast_purple.jpg",
           position: "Design",
           date: "August 8, 2020",
           lenght: "",
@@ -227,7 +227,7 @@ export default {
         {
           id: "pc10",
           badge: "Video",
-          img: "/src/assets/images/posts/video_pink.jpg",
+          img: "video_pink.jpg",
           position: "Management",
           date: "September 4, 2020",
           lenght: "36 min.",
@@ -239,7 +239,7 @@ export default {
         {
           id: "pc11",
           badge: "Article",
-          img: "/src/assets/images/posts/article_type.jpg",
+          img: "article_type.jpg",
           position: "Management",
           date: "August 25, 2020",
           lenght: "45 min.",
