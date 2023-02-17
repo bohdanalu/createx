@@ -4,7 +4,7 @@
       <span class="post__badge">{{ post_data.badge }}</span>
       <img
         class="post__img"
-        :src="`public/posts/${post_data.img}`"
+        :src="`/posts/${post_data.img}`"
         :alt="post_data.title"
       />
       <div class="post__info">
