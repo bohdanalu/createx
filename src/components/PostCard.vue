@@ -4,7 +4,7 @@
       <span class="post__badge">{{ post_data.badge }}</span>
       <img
         class="post__img"
-        :src="`/src/assets/images/posts/${post_data.img}`"
+        :src="getImageUrl(post_data.img)"
         :alt="post_data.title"
       />
       <div class="post__info">
@@ -43,6 +43,13 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+
+  methods: {
+    getImageUrl(imgName) {
+      return new URL(`/src/assets/images/posts/${imgName}`, import.meta.url)
+        .href;
     },
   },
 
