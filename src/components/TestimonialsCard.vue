@@ -7,7 +7,11 @@
     </div>
 
     <div class="testimonials__user-profile">
-      <img class="testimonials__img" :src="testimonials_data.img" alt="" />
+      <img
+        class="testimonials__img"
+        :src="getImageUrl(testimonials_data.img)"
+        alt=""
+      />
       <div class="testimonials__user-info">
         <cite class="testimonials__user-name">{{
           testimonials_data.name
@@ -32,6 +36,13 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+
+  methods: {
+    getImageUrl(imgName) {
+      return new URL(`/src/assets/images/home_page/${imgName}`, import.meta.url)
+        .href;
     },
   },
 };

@@ -1,7 +1,11 @@
 <template>
   <li class="social__item" :id="social_data.id">
     <a class="social__link" href="">
-      <img class="social__img" :src="social_data.img" :alt="social_data.alt" />
+      <img
+        class="social__img"
+        :src="getImageUrl(social_data.img)"
+        :alt="social_data.alt"
+      />
     </a>
   </li>
 </template>
@@ -17,6 +21,15 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+
+  methods: {
+    getImageUrl(imgName) {
+      return new URL(
+        `/src/assets/images/icons/social/${imgName}`,
+        import.meta.url
+      ).href;
     },
   },
 };

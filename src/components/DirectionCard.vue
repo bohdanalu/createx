@@ -3,7 +3,7 @@
     <article class="direction-card">
       <img
         class="direction-card__img"
-        :src="direction_data.img"
+        :src="getImageUrl(direction_data.img)"
         :alt="direction_data.alt"
       />
       <span class="direction-card__badge" :class="direction_data.class">{{
@@ -35,8 +35,12 @@ export default {
       },
     },
   },
-
-  computed: {},
+  methods: {
+    getImageUrl(imgName) {
+      return new URL(`/src/assets/images/direction/${imgName}`, import.meta.url)
+        .href;
+    },
+  },
 };
 </script>
 

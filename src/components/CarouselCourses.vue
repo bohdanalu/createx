@@ -27,7 +27,7 @@ export default defineComponent({
     cards: [
       {
         id: 1,
-        img: "/src/assets/images/card/bell.png",
+        img: "bell.png",
         badge: "Marketing",
         title: "The Ultimate Google Ads Training Course",
         price: 100,
@@ -35,7 +35,7 @@ export default defineComponent({
       },
       {
         id: 2,
-        img: "/src/assets/images/card/mcKinny.png",
+        img: "mcKinny.png",
         badge: "Managment",
         title: "Prduct Management Fundamentals",
         price: 480,
@@ -43,7 +43,7 @@ export default defineComponent({
       },
       {
         id: 3,
-        img: "/src/assets/images/card/li.png",
+        img: "li.png",
         badge: "HR & Recruting",
         title: "HR  Management and Analytics",
         price: 200,
@@ -51,7 +51,7 @@ export default defineComponent({
       },
       {
         id: 4,
-        img: "/src/assets/images/card/watson.png",
+        img: "watson.png",
         badge: "Marketing",
         title: "Brand Management & PR Communications",
         price: 530,
@@ -59,7 +59,7 @@ export default defineComponent({
       },
       {
         id: 5,
-        img: "/src/assets/images/card/russell.png",
+        img: "russell.png",
         badge: "Managment",
         title: "Business Development Management",
         price: 400,
@@ -67,7 +67,7 @@ export default defineComponent({
       },
       {
         id: 6,
-        img: "/src/assets/images/card/hawkins.png",
+        img: "hawkins.png",
         badge: "Design",
         title: "Graphic Design Basic",
         price: 500,

@@ -354,7 +354,7 @@ export default {
       directionCards: [
         {
           id: "dir1",
-          img: "src/assets/images/direction/d-marketing.jpg",
+          img: "d-marketing.jpg",
           badge: "Marketing",
           class: "direction-card__badge--marketing",
           text: "Odio posuere netus quisque faucibus lectus arcu donec. Eget dictum eu viverra faucibus. Viverra scelerisque consequat.",
@@ -362,7 +362,7 @@ export default {
         },
         {
           id: "dir2",
-          img: "src/assets/images/direction/d-manadgment.jpg",
+          img: "d-manadgment.jpg",
           badge: "Managment",
           class: "direction-card__badge--management",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
@@ -370,7 +370,7 @@ export default {
         },
         {
           id: "dir3",
-          img: "src/assets/images/direction/d-hr.jpg",
+          img: "d-hr.jpg",
           badge: "HR & Recruting",
           class: "direction-card__badge--hr",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
@@ -378,7 +378,7 @@ export default {
         },
         {
           id: "dir4",
-          img: "src/assets/images/direction/d-design.jpg",
+          img: "d-design.jpg",
           badge: "Design",
           class: "direction-card__badge--design",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
@@ -386,7 +386,7 @@ export default {
         },
         {
           id: "dir5",
-          img: "src/assets/images/direction/d-dev.jpg",
+          img: "d-dev.jpg",
           badge: "Development",
           class: "direction-card__badge--dev",
           text: "Eget dictum eu viverra faucibus. Viverra scelerisque consequat.Odio posuere netus quisque faucibus lectus arcu donec.",
@@ -396,7 +396,7 @@ export default {
       teamCards: [
         {
           id: "tc1",
-          img: "/src/assets/images/team/russell.png",
+          img: "russell.png",
           name: "Dianne Russell",
           position: "Founder and CEO",
           facebook: true,
@@ -405,7 +405,7 @@ export default {
         },
         {
           id: "tc2",
-          img: "/src/assets/images/team/bell.png",
+          img: "bell.png",
           name: "Jerome Bell",
           position: "Founder and Program Director",
           facebook: true,
@@ -414,7 +414,7 @@ export default {
         },
         {
           id: "tc3",
-          img: "/src/assets/images/team/watson.png",
+          img: "watson.png",
           name: "Kristin Watson",
           position: "Marketer, Curator of Marketing Course",
           facebook: true,
@@ -423,7 +423,7 @@ export default {
         },
         {
           id: "tc4",
-          img: "/src/assets/images/team/mackinny.png",
+          img: "mackinny.png",
           name: "Marvin McKinney",
           position: "PM, Curator of Management Course",
           facebook: true,
@@ -432,7 +432,7 @@ export default {
         },
         {
           id: "tc5",
-          img: "/src/assets/images/team/li.png",
+          img: "li.png",
           name: "Leslie Alexander Li",
           position: "Curator of HR & Recruting Course",
           facebook: true,
@@ -441,7 +441,7 @@ export default {
         },
         {
           id: "tc6",
-          img: "/src/assets/images/team/murphy.png",
+          img: "murphy.png",
           name: "Kathryn Murphy",
           position: "Analyst and Marketing specialist",
           facebook: true,
@@ -450,7 +450,7 @@ export default {
         },
         {
           id: "tc7",
-          img: "/src/assets/images/team/simmons.png",
+          img: "simmons.png",
           name: "Brooklyn Simmons",
           position: "Curator of Development Course",
           facebook: true,
@@ -459,7 +459,7 @@ export default {
         },
         {
           id: "tc8",
-          img: "/src/assets/images/team/fisher.png",
+          img: "fisher.png",
           name: "Cody Fisher",
           position: "UX Designer, Curator of Design Course",
           facebook: true,

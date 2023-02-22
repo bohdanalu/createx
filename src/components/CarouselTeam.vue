@@ -27,7 +27,7 @@ export default defineComponent({
     teamCards: [
       {
         id: "tc1",
-        img: "/src/assets/images/team/russell.png",
+        img: "russell.png",
         name: "Dianne Russell",
         position: "Founder and CEO",
         facebook: true,
@@ -36,7 +36,7 @@ export default defineComponent({
       },
       {
         id: "tc2",
-        img: "/src/assets/images/team/bell.png",
+        img: "bell.png",
         name: "Jerome Bell",
         position: "Founder and Program Director",
         facebook: true,
@@ -45,7 +45,7 @@ export default defineComponent({
       },
       {
         id: "tc3",
-        img: "/src/assets/images/team/watson.png",
+        img: "watson.png",
         name: "Kristin Watson",
         position: "Marketer, Curator of Marketing Course",
         facebook: true,
@@ -54,7 +54,7 @@ export default defineComponent({
       },
       {
         id: "tc4",
-        img: "/src/assets/images/team/mackinny.png",
+        img: "mackinny.png",
         name: "Marvin McKinney",
         position: "PM, Curator of Management Course",
         facebook: true,
@@ -63,7 +63,7 @@ export default defineComponent({
       },
       {
         id: "tc5",
-        img: "/src/assets/images/team/li.png",
+        img: "li.png",
         name: "Leslie Alexander Li",
         position: "Curator of HR & Recruting Course",
         facebook: true,
@@ -72,7 +72,7 @@ export default defineComponent({
       },
       {
         id: "tc6",
-        img: "/src/assets/images/team/murphy.png",
+        img: "murphy.png",
         name: "Kathryn Murphy",
         position: "Analyst and Marketing specialist",
         facebook: true,
@@ -81,7 +81,7 @@ export default defineComponent({
       },
       {
         id: "tc7",
-        img: "/src/assets/images/team/simmons.png",
+        img: "simmons.png",
         name: "Brooklyn Simmons",
         position: "Curator of Development Course",
         facebook: true,
@@ -90,7 +90,7 @@ export default defineComponent({
       },
       {
         id: "tc8",
-        img: "/src/assets/images/team/fisher.png",
+        img: "fisher.png",
         name: "Cody Fisher",
         position: "UX Designer, Curator of Design Course",
         facebook: true,
@@ -99,7 +99,7 @@ export default defineComponent({
       },
       {
         id: "tc2",
-        img: "/src/assets/images/team/russell.png",
+        img: "russell.png",
         name: "Dianne Russell",
         position: "Founder and CEO",
         facebook: true,
@@ -108,7 +108,7 @@ export default defineComponent({
       },
       {
         id: "tc2",
-        img: "/src/assets/images/team/russell.png",
+        img: "russell.png",
         name: "Dianne Russell",
         position: "Founder and CEO",
         facebook: true,

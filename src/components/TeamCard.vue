@@ -4,7 +4,7 @@
       <div class="card-team__img-wrap">
         <img
           class="card-team__img"
-          :src="team_data.img"
+          :src="getImageUrlForTeam(team_data.img)"
           :alt="team_data.name"
         />
       </div>
@@ -58,7 +58,12 @@ export default {
     },
   },
 
-  computed: {},
+  methods: {
+    getImageUrlForTeam(imgName) {
+      return new URL(`/src/assets/images/team/${imgName}`, import.meta.url)
+        .href;
+    },
+  },
 };
 </script>
 

@@ -3,7 +3,7 @@
     <RouterLink class="card__link" to="/Course"
       ><img
         class="card__img"
-        :src="catalog_data.img"
+        :src="getImageUrl(catalog_data.img)"
         :alt="catalog_data.speaker"
     /></RouterLink>
     <div class="card__content">
@@ -35,6 +35,12 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  methods: {
+    getImageUrl(imgName) {
+      return new URL(`/src/assets/images/card/${imgName}`, import.meta.url)
+        .href;
     },
   },
 

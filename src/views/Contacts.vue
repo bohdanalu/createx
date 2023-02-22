@@ -137,34 +137,34 @@ export default {
       social: [
         {
           id: "s1",
-          img: "/src/assets/images/icons/social/facebook.svg",
+          img: "facebook.svg",
           alt: "Facebook",
         },
         {
           id: "s3",
-          img: "/src/assets/images/icons/social/twitter.svg",
+          img: "twitter.svg",
           alt: "Twitter",
         },
 
         {
           id: "s5",
-          img: "/src/assets/images/icons/social/youTube.svg",
+          img: "youTube.svg",
           alt: "You Tube",
         },
         {
           id: "s6",
-          img: "/src/assets/images/icons/social/telegram.svg",
+          img: "telegram.svg",
           alt: "Telegram",
         },
         {
           id: "s2",
-          img: "/src/assets/images/icons/social/instagram.svg",
+          img: "instagram.svg",
           alt: "Instagram",
         },
 
         {
           id: "s4",
-          img: "/src/assets/images/icons/social/linked-In.svg",
+          img: "linked-In.svg",
           alt: "LinkedIn",
         },
       ],
